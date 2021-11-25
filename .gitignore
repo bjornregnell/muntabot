@@ -1,0 +1,17 @@
+.metals/
+**/metals.sbt
+
+.bloop/
+**/target/
+**/*.class
+.bsp
+
+.cache
+.history
+.lib/
+dist/*
+project/boot/
+
+node_modules/
+package-lock.json
+package.json
