@@ -19,7 +19,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
   Week(7) -> Code("registrerar 1000 tärningskast i en Array"),
   Week(8) -> Concepts("matris", "nästlad struktur", "typparameter", "generisk funktion"),
   Week(8) -> Code("en funktion som skriver ut en strängmatris rad för rad"),
-  Week(9) -> Contrasts("mängd" -> "sekvens", "mängd" -> "nycke-värde-tabell"),
+  Week(9) -> Contrasts("mängd" -> "sekvens", "mängd" -> "nyckel-värde-tabell"),
   Week(10) -> Concepts("arv", "subtypspolymorfism", "bastyp", "final medlem", "privat medlem", "kodgranskning"),
   Week(10) -> Contrasts("subtyp" -> "supertyp", "klass" -> "trait", "arv" -> "komposition"),
 )
