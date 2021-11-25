@@ -8,7 +8,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
   Week(2) -> Code("en funktion som ger största heltalet i en heltalssekvens,\nutan att använda inbyggda max"),
   Week(2) -> Code("två förändringsbara variabler som först initialiseras\nmed två olika helatal och sedan byter värde med varandra"),
   Week(2) -> Code("en funktion som summerar alla heltal i en sekvens,\nutan att använda inbyggda sum"),
-  Week(2) -> Contrasts("pesudokod" -> "exekverbar implementation", "parameter" -> "argument", "returtyp" -> "parametertyp"),
+  Week(2) -> Contrasts("pseudokod" -> "exekverbar implementation", "parameter" -> "argument", "returtyp" -> "parametertyp"),
   Week(3) -> Concepts("anonym funktion", "predikat", "äkta funktion", "aktiveringspost", "anropsstacken", "deafult-argument", "repeterade argument", "returtyp"),
   Week(4) -> Concepts("singelobjekt"),
   Week(5) -> Concepts("klass", "attribut", "fabriksmetod"),
