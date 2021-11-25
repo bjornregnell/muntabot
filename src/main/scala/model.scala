@@ -23,7 +23,7 @@ object Concepts:
 
   def pickAnyQuestion: String = 
     val p = all.pick
-    s"Vad som menas med \n$p?\n\nGe exempel på normal och \nfelaktig/konstig användning."
+    s"Vad menas med \n$p?\n\nGe exempel på normal och \nfelaktig/konstig användning."
 
 
 case class Contrasts(cs: (String, String)*) 
