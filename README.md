@@ -1,6 +1,6 @@
 # muntabot
 
-This single-page client-only web app is available for download and execution in you browser here: https://cs.lth.se/pgk/muntabot
+This single-page client-only web app is available for download and execution in your browser here: https://cs.lth.se/pgk/muntabot
 
 
 Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](https://www.scala-js.org/doc/tutorial/basic/). It is built using [`sbt`](https://www.scala-sbt.org/).
