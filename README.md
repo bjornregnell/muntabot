@@ -1,6 +1,6 @@
 # muntabot
 
-This single-page client-only web app is available for download and execution in your browser here: 
+This single-page client-only web app is available for execution in your browser here: 
 
 https://cs.lth.se/pgk/muntabot
 
