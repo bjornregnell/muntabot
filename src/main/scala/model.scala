@@ -41,6 +41,6 @@ object Code:
 
   def pickAnyQuestion: String = 
     val p = all.pick
-    s"Skriv kod på papper med\n$p?\n\nSkriv testfall som testar din kod."
+    s"Skriv kod på papper med\n$p.\n\nSkriv testfall som testar din kod."
 
 
