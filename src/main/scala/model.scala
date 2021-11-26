@@ -32,7 +32,7 @@ object Contrasts:
 
   def pickAnyQuestion: String = 
     val p = all.pick
-    s"Vad finns det för skillnader och likheter mellan \n$p?\n\nGe exempel på normal och \nfelaktig/konstig användning."
+    s"Vad finns det för skillnader och likheter mellan \n$p?\n\nGe exempel på normal eller felaktig/konstig användning\nsom belyser skillnader/likheter."
 
 
 case class Code(cs: String*)
