@@ -10,7 +10,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
   Week(2) -> Code("en funktion som summerar alla heltal i en sekvens,\nutan att använda inbyggda sum"),
   Week(2) -> Contrasts("pseudokod" -> "exekverbar implementation", "parameter" -> "argument", "returtyp" -> "parametertyp"),
   Week(3) -> Concepts("anonym funktion", "predikat", "äkta funktion", "aktiveringspost", "anropsstacken", "default-argument",  "returtyp"),
-  Week(4) -> Concepts("singelobjekt", "paket", "privat medlem", "namnrymd", "metoden apply", "tupel", "import"),
+  Week(4) -> Concepts("singelobjekt", "paket", "privat medlem", "namnrymd", "metoden apply", "tupel", "import", "punktnotation"),
   Week(4) -> Contrasts("värdeanrop" -> "namnanrop", "val" -> "lazy val", "def" -> "lazy val"),
   Week(5) -> Concepts("klass", "attribut", "fabriksmetod", "instansiering", "tillstånd", "klassparameter", "kompanjonsobjekt"),
   Week(5) -> Contrasts("funktion" -> "metod", "klass" -> "case-klass", "singelobjekt" -> "klass", "getter" -> "setter", "referenslikhet" -> "innehållslikhet"),
