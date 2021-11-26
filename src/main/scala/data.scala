@@ -10,6 +10,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
   Week(2) -> Code("en funktion som summerar alla heltal i en sekvens,\nutan att använda inbyggda sum"),
   Week(2) -> Contrasts("pseudokod" -> "exekverbar implementation", "parameter" -> "argument", "returtyp" -> "parametertyp"),
   Week(3) -> Concepts("anonym funktion", "predikat", "äkta funktion", "aktiveringspost", "anropsstacken", "default-argument", "repeterade argument", "returtyp"),
+  Week(3) -> Contrasts("värdeanrop" -> "namnanrop"),
   Week(4) -> Concepts("singelobjekt"),
   Week(5) -> Concepts("klass", "attribut", "fabriksmetod"),
   Week(5) -> Contrasts("funktion" -> "metod"),
