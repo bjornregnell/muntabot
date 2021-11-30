@@ -16,7 +16,7 @@ def appendButton(targetNode: dom.Node, text: String)(action: => Unit): Unit =
   val b = document.createElement("button").asInstanceOf[dom.html.Button]
   b.classList.add("button")
   b.appendChild(document.createTextNode(text))
-  b.addEventListener("click", (e: dom.Event) => action)
+  b.onclick = (e: dom.Event) => action
   targetNode.appendChild(b)
 
 
