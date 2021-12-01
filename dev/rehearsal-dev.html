@@ -2,7 +2,7 @@
 <html>
   <head>
     <meta charset="UTF-8">
-    <title>muntabot</title>
+    <title>Instuderingsfrågor från muntabot</title>
     <style>
       body {
         background-color: pink;
@@ -19,15 +19,19 @@
         padding-bottom: 5px;
         margin-right: 20px;
       }
-      
     </style>
   </head>
   <body>
     <p>
       <b><a href = "https://github.com/bjornregnell/muntabot">muntabot</a> index-dev.html </b>
-    
+
+    <!-- Setup the correct page for scala to identify -->
+    <script>
+      document.body.setAttribute("page", "rehearsal")
+    </script>
+    <h1>Instuderingsfrågor från muntabot</h1>
     <!-- Include Scala.js compiled code -->
-    <script type="text/javascript" src="./target/scala-3.1.0/muntabot-fastopt/main.js"></script>
+    <script type="text/javascript" src="../target/scala-3.1.0/muntabot-fastopt/main.js"></script>
   </body>
 </html>
 
