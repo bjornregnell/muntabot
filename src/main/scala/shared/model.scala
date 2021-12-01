@@ -19,19 +19,19 @@ extension [T](xs: Seq[T])
 abstract class Question(cs: Vector[String | (String, String)]):
   def foreach = cs.foreach
   val title: String
-  val explanation: String
+  val instruction: String
   def getShortQuestion(question: String | (String, String)): String
 
 abstract class Questions:
   val title: String
   val questionToAsk: String
-  val explanation: String
+  val instruction: String
   lazy val all: Seq[String] | Seq[(String, String)]
 
   def pickAnyQuestion: String | (String, String) = all.pick
 
   def getQuestion(question: String | (String, String)): String =
-    s"$questionToAsk\n$question.\n\n$explanation"
+    s"$questionToAsk\n$question.\n\n$instruction"
 
   def getShortQuestion(question: String | (String, String)): String =
     s"$questionToAsk \"$question\"?"
@@ -41,40 +41,40 @@ object Questions:
 
 case class Concepts(cs: String*) extends Question(cs.toVector):
   val title = Concepts.title
-  val explanation = Concepts.explanation
+  val instruction = Concepts.instruction
   def getShortQuestion(question: String | (String, String)): String =
     Concepts.getShortQuestion(question)
 
 object Concepts extends Questions:
   val title = "Förklara koncept"
   val questionToAsk = "Vad menas med"
-  val explanation = "Ge exempel på normal och felaktig/konstig användning."
+  val instruction = "Ge exempel på normal och felaktig/konstig användning."
 
   lazy val all = (for case (w, t: Concepts) <- terms yield t).map(_.cs).flatten
 
 case class Contrasts(cs: (String, String)*) extends Question(cs.toVector):
   val title = Contrasts.title
-  val explanation = Contrasts.explanation
+  val instruction = Contrasts.instruction
   def getShortQuestion(question: String | (String, String)): String =
     Contrasts.getShortQuestion(question)
 object Contrasts extends Questions:
   val title = "Jämför koncept"
   val questionToAsk = "Vad finns det för skillnader och likheter mellan"
-  val explanation =
+  val instruction =
     "Ge exempel på normal eller felaktig/konstig användning som belyser skillnader/likheter."
 
   lazy val all = (for case (w, t: Contrasts) <- terms yield t).map(_.cs).flatten
 
 case class Code(cs: String*) extends Question(cs.toVector):
   val title = Code.title
-  val explanation = Code.explanation
+  val instruction = Code.instruction
   def getShortQuestion(question: String | (String, String)): String =
     Code.getShortQuestion(question)
 object Code extends Questions:
   val title = "Skriv kod"
   val questionToAsk: String =
     "Skriv kod på papper med"
-  val explanation: String = "Skriv testfall som testar din kod."
+  val instruction: String = "Skriv testfall som testar din kod."
 
   lazy val all = (for case (w, t: Code) <- terms yield t).map(_.cs).flatten
   override def getShortQuestion(question: String | (String, String)) =

@@ -39,7 +39,7 @@ object Rehearsal extends App:
       Document.appendText(
         containerElement,
         "p",
-        s"Instruktion: ${Concepts.explanation}"
+        s"Instruktion: ${Concepts.instruction}"
       )
       for question <- questionType.all do
         Document.appendText(
@@ -62,6 +62,11 @@ object Rehearsal extends App:
       )
       for term <- thisWeek do
         Document.appendText(containerElement, "h3", term._2.title)
+        Document.appendText(
+          containerElement,
+          "p",
+          s"Instruktion: ${Concepts.instruction}"
+        )
         for question <- term._2 do
           Document.appendText(
             containerElement,
@@ -69,8 +74,3 @@ object Rehearsal extends App:
             s"$number. ${term._2.getShortQuestion(question)}"
           )
           number += 1
-        Document.appendText(
-          containerElement,
-          "p",
-          term._2.explanation
-        )
