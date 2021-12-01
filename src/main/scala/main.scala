@@ -4,7 +4,7 @@ import shared.App
 import org.scalajs.dom
 import org.scalajs.dom.document
 
-val apps: Array[App] = Array(Muntabot, Rehearsal)
+val apps: Vector[App] = Vector(Muntabot, Rehearsal)
 
 @main def run: Unit =
   document.addEventListener(

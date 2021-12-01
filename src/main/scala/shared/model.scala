@@ -16,7 +16,7 @@ extension [T](xs: Seq[T])
     reg(result)
     result
 
-abstract class Question(cs: Array[String | (String, String)]):
+abstract class Question(cs: Vector[String | (String, String)]):
   def foreach = cs.foreach
   val title: String
   val explanation: String
@@ -37,9 +37,9 @@ abstract class Questions:
     s"$questionToAsk \"$question\"?"
 
 object Questions:
-  val types: Array[Questions] = Array(Concepts, Contrasts, Code)
+  val types: Vector[Questions] = Vector(Concepts, Contrasts, Code)
 
-case class Concepts(cs: String*) extends Question(cs.toArray):
+case class Concepts(cs: String*) extends Question(cs.toVector):
   val title = Concepts.title
   val explanation = Concepts.explanation
   def getShortQuestion(question: String | (String, String)): String =
@@ -52,7 +52,7 @@ object Concepts extends Questions:
 
   lazy val all = (for case (w, t: Concepts) <- terms yield t).map(_.cs).flatten
 
-case class Contrasts(cs: (String, String)*) extends Question(cs.toArray):
+case class Contrasts(cs: (String, String)*) extends Question(cs.toVector):
   val title = Contrasts.title
   val explanation = Contrasts.explanation
   def getShortQuestion(question: String | (String, String)): String =
@@ -65,7 +65,7 @@ object Contrasts extends Questions:
 
   lazy val all = (for case (w, t: Contrasts) <- terms yield t).map(_.cs).flatten
 
-case class Code(cs: String*) extends Question(cs.toArray):
+case class Code(cs: String*) extends Question(cs.toVector):
   val title = Code.title
   val explanation = Code.explanation
   def getShortQuestion(question: String | (String, String)): String =
