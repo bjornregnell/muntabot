@@ -28,6 +28,6 @@ mv target/scala-3.1.0/muntabot-opt/main.js public/main.js
 
 ```
 
-and upload the contents to of /public to your webserver.
+and upload the contents of /public to your webserver.
 
 To test before uploading to production you can install the vscode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) and right-click `public/index.html` and click `Open with Live Server`.
