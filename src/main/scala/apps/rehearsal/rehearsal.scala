@@ -55,10 +55,11 @@ object Rehearsal extends App:
     var number = 1
     for week <- weeks do
       val thisWeek = terms.filter(_._1 == week)
+      val w = thisWeek(0)._1.w
       Document.appendText(
         containerElement,
         "h2",
-        s"Vecka ${thisWeek(0)._1.w.toString()}"
+        s"Vecka $w: ${Week.title(thisWeek(0)._1)}"
       )
       for term <- thisWeek do
         Document.appendText(containerElement, "h3", term._2.title)

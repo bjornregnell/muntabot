@@ -3,6 +3,21 @@ package shared
 import util.Random.nextInt as rnd
 
 case class Week(w: Int)
+object Week:
+  private val titles: Map[Int, String] =
+    Map(
+      1 -> "Introduktion",
+      2 -> "Program, kontrollstrukturer",
+      3 -> "Funktioner, abstraktion",
+      4 -> "Objekt, inkapsling",
+      5 -> "Klasser, datamodellering",
+      6 -> "Mönster, felhantering",
+      7 -> "Sekvenser, enumerationer",
+      8 -> "Matriser, typparametrar",
+      9 -> "Mängder, tabeller",
+      10 -> "Arv, komposition"
+    )
+  def title(week: Week): String = titles.getOrElse(week.w, "")
 
 val countOf = collection.mutable.Map.empty[Any, Int].withDefaultValue(0)
 def reg(a: Any): Unit = countOf(a) += 1
