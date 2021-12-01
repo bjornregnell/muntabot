@@ -16,3 +16,5 @@ project/boot/
 node_modules/
 package-lock.json
 package.json
+
+public/main.js
