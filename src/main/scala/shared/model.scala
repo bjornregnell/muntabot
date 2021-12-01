@@ -16,45 +16,66 @@ extension [T](xs: Seq[T])
     reg(result)
     result
 
-case class Concepts(cs: String*):
-  def foreach = cs.toArray.foreach
-object Concepts:
-  val preQuestion = "Vad menas med"
-  val postQuestion = "Ge exempel på normal och felaktig/konstig användning."
+abstract class Question(cs: Array[String | (String, String)]):
+  def foreach = cs.foreach
+  val title: String
+  val explanation: String
+  def getShortQuestion(question: String | (String, String)): String
+
+abstract class Questions:
+  val title: String
+  val questionToAsk: String
+  val explanation: String
+  lazy val all: Seq[String] | Seq[(String, String)]
+
+  def pickAnyQuestion: String | (String, String) = all.pick
+
+  def getQuestion(question: String | (String, String)): String =
+    s"$questionToAsk\n$question.\n\n$explanation"
+
+  def getShortQuestion(question: String | (String, String)): String =
+    s"$questionToAsk \"$question\"?"
+
+object Questions:
+  val types: Array[Questions] = Array(Concepts, Contrasts, Code)
+
+case class Concepts(cs: String*) extends Question(cs.toArray):
+  val title = Concepts.title
+  val explanation = Concepts.explanation
+  def getShortQuestion(question: String | (String, String)): String =
+    Concepts.getShortQuestion(question)
+
+object Concepts extends Questions:
+  val title = "Förklara koncept"
+  val questionToAsk = "Vad menas med"
+  val explanation = "Ge exempel på normal och felaktig/konstig användning."
 
   lazy val all = (for case (w, t: Concepts) <- terms yield t).map(_.cs).flatten
 
-  def pickAnyQuestion = all.pick
-
-  def withQuestion(question: String) =
-    s"$preQuestion\n$question?\n\n$postQuestion"
-
-case class Contrasts(cs: (String, String)*):
-  def foreach = cs.toArray.foreach
-object Contrasts:
-  val preQuestion = "Vad finns det för skillnader och likheter mellan"
-
-  val postQuestion =
+case class Contrasts(cs: (String, String)*) extends Question(cs.toArray):
+  val title = Contrasts.title
+  val explanation = Contrasts.explanation
+  def getShortQuestion(question: String | (String, String)): String =
+    Contrasts.getShortQuestion(question)
+object Contrasts extends Questions:
+  val title = "Jämför koncept"
+  val questionToAsk = "Vad finns det för skillnader och likheter mellan"
+  val explanation =
     "Ge exempel på normal eller felaktig/konstig användning som belyser skillnader/likheter."
 
   lazy val all = (for case (w, t: Contrasts) <- terms yield t).map(_.cs).flatten
 
-  def pickAnyQuestion = all.pick
-
-  def withQuestion(question: (String, String)) =
-    s"$preQuestion\n$question?\n\n$postQuestion"
-
-case class Code(cs: String*):
-  def foreach = cs.toArray.foreach
-object Code:
-  val preQuestion: String =
+case class Code(cs: String*) extends Question(cs.toArray):
+  val title = Code.title
+  val explanation = Code.explanation
+  def getShortQuestion(question: String | (String, String)): String =
+    Code.getShortQuestion(question)
+object Code extends Questions:
+  val title = "Skriv kod"
+  val questionToAsk: String =
     "Skriv kod på papper med"
-
-  val postQuestion: String = "Skriv testfall som testar din kod."
+  val explanation: String = "Skriv testfall som testar din kod."
 
   lazy val all = (for case (w, t: Code) <- terms yield t).map(_.cs).flatten
-
-  def pickAnyQuestion = all.pick
-
-  def withQuestion(question: String): String =
-    s"$preQuestion\n$question.\n\n$postQuestion"
+  override def getShortQuestion(question: String | (String, String)) =
+    s"${questionToAsk}: \n\n${question}?"

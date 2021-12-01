@@ -1,6 +1,6 @@
 package shared
 
-lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
+lazy val terms = Seq[(Week, Question)](
   Week(1) -> Concepts(
     "funktion",
     "while-sats",

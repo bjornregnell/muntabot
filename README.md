@@ -15,7 +15,7 @@ Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](http
 
 * While hacking type `~fastLinkJS` in `sbt` and open/reload the `dev/index-dev.html` file in your browser
 
-* To avoid having to reload the page upon every change the vscode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to do this automatically. Install the extension in vscode and right-click `dev/index-dev.html` and click `Open with Live Server`
+* To avoid having to reload the page upon every change the vscode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to do this automatically. Install the extension in vscode and right-click `dev/index-dev.html` and click `Open with Live Server` after running `~fastLinkJS` in `sbt`.
 
 # How to deploy 
 

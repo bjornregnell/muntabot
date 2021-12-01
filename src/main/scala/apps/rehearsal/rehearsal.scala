@@ -9,18 +9,6 @@ object Rehearsal extends App:
   def run: Unit =
     perWeek()
 
-  def appendText(targetNode: dom.Node, tagName: String, text: String) =
-    val textElement = document.createElement(tagName)
-    textElement.innerText = text
-    targetNode.appendChild(textElement)
-
-  def appendButton(targetNode: dom.Node, text: String)(action: => Unit): Unit =
-    val b = document.createElement("button").asInstanceOf[dom.html.Button]
-    b.classList.add("button")
-    b.appendChild(document.createTextNode(text))
-    b.onclick = (e: dom.Event) => action
-    targetNode.appendChild(b)
-
   def setup(): dom.Element =
     val oldContainerElement = document.getElementById("container")
     if (oldContainerElement != null) then
@@ -30,11 +18,11 @@ object Rehearsal extends App:
     containerElement.id = "container"
     document.body.appendChild(containerElement)
 
-    appendButton(containerElement, "Per vecka") {
+    Document.appendButton(containerElement, "Per vecka") {
       perWeek()
     }
 
-    appendButton(containerElement, "Per kategori") {
+    Document.appendButton(containerElement, "Per kategori") {
       perCategory()
     }
 
@@ -43,39 +31,23 @@ object Rehearsal extends App:
   def perCategory(): Unit =
     val containerElement = setup()
 
-    appendText(containerElement, "h2", "Per kategori")
+    Document.appendText(containerElement, "h2", "Per kategori")
 
     var number = 1
-
-    appendText(containerElement, "h3", "Förklara koncept")
-    appendText(containerElement, "p", s"Instruktion: ${Concepts.postQuestion}")
-    for concept <- Concepts.all do
-      appendText(
+    for questionType <- Questions.types do
+      Document.appendText(containerElement, "h3", questionType.title)
+      Document.appendText(
         containerElement,
         "p",
-        s"$number. ${Concepts.preQuestion} \"${concept}\"?"
+        s"Instruktion: ${Concepts.explanation}"
       )
-      number += 1
-
-    appendText(containerElement, "h3", "Jämför koncept")
-    appendText(containerElement, "p", s"Instruktion: ${Contrasts.postQuestion}")
-    for contrast <- Contrasts.all do
-      appendText(
-        containerElement,
-        "p",
-        s"$number. ${Contrasts.preQuestion} \"${contrast}\"?"
-      )
-      number += 1
-
-    appendText(containerElement, "h3", "Skriv kod")
-    appendText(containerElement, "p", s"Instruktion: ${Code.postQuestion}")
-    for code <- Code.all do
-      appendText(
-        containerElement,
-        "p",
-        s"$number. ${Code.preQuestion}: \n\n${code}"
-      )
-      number += 1
+      for question <- questionType.all do
+        Document.appendText(
+          containerElement,
+          "p",
+          s"$number. ${questionType.getShortQuestion(question)}"
+        )
+        number += 1
 
   def perWeek(): Unit =
     val containerElement = setup()
@@ -83,66 +55,22 @@ object Rehearsal extends App:
     var number = 1
     for week <- weeks do
       val thisWeek = terms.filter(_._1 == week)
-      appendText(
+      Document.appendText(
         containerElement,
         "h2",
         s"Vecka ${thisWeek(0)._1.w.toString()}"
       )
       for term <- thisWeek do
-        if term._2.isInstanceOf[Concepts] then
-          appendText(
-            containerElement,
-            "h3",
-            s"Förklara koncept"
-          )
-          val concepts = term._2.asInstanceOf[Concepts]
-          for concept <- concepts do
-            appendText(
-              containerElement,
-              "p",
-              s"$number. ${Concepts.preQuestion} \"${concept}\"?"
-            )
-            number += 1
-          appendText(
+        Document.appendText(containerElement, "h3", term._2.title)
+        for question <- term._2 do
+          Document.appendText(
             containerElement,
             "p",
-            Concepts.postQuestion
+            s"$number. ${term._2.getShortQuestion(question)}"
           )
-        else if term._2.isInstanceOf[Contrasts] then
-          appendText(
-            containerElement,
-            "h3",
-            s"Jämför koncept"
-          )
-          val contrasts = term._2.asInstanceOf[Contrasts]
-          for contrast <- contrasts do
-            appendText(
-              containerElement,
-              "p",
-              s"$number. ${Contrasts.preQuestion} \"${contrast}\"?"
-            )
-            number += 1
-          appendText(
-            containerElement,
-            "p",
-            Contrasts.postQuestion
-          )
-        else if term._2.isInstanceOf[Code] then
-          appendText(
-            containerElement,
-            "h3",
-            s"Skriv kod"
-          )
-          val code = term._2.asInstanceOf[Code]
-          for codeString <- code do
-            appendText(
-              containerElement,
-              "p",
-              s"$number. ${Code.preQuestion}: \n\n${codeString}"
-            )
-            number += 1
-          appendText(
-            containerElement,
-            "p",
-            Code.postQuestion
-          )
+          number += 1
+        Document.appendText(
+          containerElement,
+          "p",
+          term._2.explanation
+        )
