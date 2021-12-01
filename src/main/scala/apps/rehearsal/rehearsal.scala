@@ -51,7 +51,7 @@ object Rehearsal extends App:
       appendText(
         containerElement,
         "p",
-        s"${Concepts.preQuestion} \" ${concept} \""
+        s"${Concepts.preQuestion} \" ${concept} \"?"
       )
 
     appendText(containerElement, "h3", "Jämför koncept")
@@ -60,7 +60,7 @@ object Rehearsal extends App:
       appendText(
         containerElement,
         "p",
-        s"${Contrasts.preQuestion} \" ${contrast} \""
+        s"${Contrasts.preQuestion} \" ${contrast} \"?"
       )
 
     appendText(containerElement, "h3", "Skriv kod")
