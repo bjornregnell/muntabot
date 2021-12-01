@@ -7,6 +7,7 @@ html, body {
 body {
   padding: 1rem;
   font-size: 1.2rem;
+  margin: 0;
 }
 input, button {
   font-size: 1.2rem;
@@ -25,6 +26,21 @@ pre {
     font-size: 2rem;
   }
 }
+@media(max-width: 365px) {
+  h1 {
+    font-size: 1.75rem;
+  }
+}
+@media(max-width: 325px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+}
 #container {
   width: 100%;
+  overflow: hidden;
+}
+
+* {
+  box-sizing: border-box;
 }
