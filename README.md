@@ -22,9 +22,9 @@ Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](http
 When ready for production use this script:
 
 ```bash
-sbt --client fullLinkJS
+sbt fullLinkJS
 rm public/main.js
-mv target/scala-3.1.0/muntabot-opt/main.js public/main.js
+cp target/scala-3.1.0/muntabot-opt/main.js public/main.js
 
 ```
 
