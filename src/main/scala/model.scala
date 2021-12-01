@@ -44,7 +44,6 @@ case class Concepts(cs: String*) extends Question(cs.toVector):
   val instruction = Concepts.instruction
   def getShortQuestion(question: String | (String, String)): String =
     Concepts.getShortQuestion(question)
-
 object Concepts extends Questions:
   val title = "Förklara koncept"
   val questionToAsk = "Vad menas med"
