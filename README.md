@@ -13,7 +13,9 @@ Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](http
 
 * Clone or download this repo on your machine.
 
-* While hacking type `~fastLinkJS` in `sbt` and open/reload the `public/*.html` file in your browser
+* While hacking type `~fastLinkJS` in `sbt` and open/reload the `dev/index-dev.html` file in your browser
+
+* To avoid having to reload the page upon every change the vscode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to do this automatically. Install the extension in vscode and right-click `dev/index-dev.html` and click `Open with Live Server`
 
 # How to deploy 
 
@@ -27,3 +29,5 @@ mv target/scala-3.1.0/muntabot-opt/main.js public/main.js
 ```
 
 and upload the contents to of /public to your webserver.
+
+To test before uploading to production you can install the vscode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) and right-click `public/index.html` and click `Open with Live Server`.
