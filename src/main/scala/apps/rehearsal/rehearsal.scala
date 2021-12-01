@@ -69,7 +69,7 @@ object Rehearsal extends App:
       appendText(
         containerElement,
         "p",
-        s"${Code.preQuestion}: \n ${code}"
+        s"${Code.preQuestion}: \n\n${code}"
       )
 
   def perWeek(): Unit =
@@ -130,7 +130,7 @@ object Rehearsal extends App:
             appendText(
               containerElement,
               "p",
-              s"${Code.preQuestion} \" ${codeString} \""
+              s"${Code.preQuestion}: \n\n${codeString}"
             )
           appendText(
             containerElement,
