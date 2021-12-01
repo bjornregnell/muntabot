@@ -45,14 +45,17 @@ object Rehearsal extends App:
 
     appendText(containerElement, "h2", "Per kategori")
 
+    var number = 1
+
     appendText(containerElement, "h3", "Förklara koncept")
     appendText(containerElement, "p", s"Instruktion: ${Concepts.postQuestion}")
     for concept <- Concepts.all do
       appendText(
         containerElement,
         "p",
-        s"${Concepts.preQuestion} \" ${concept} \"?"
+        s"$number. ${Concepts.preQuestion} \" ${concept} \"?"
       )
+      number += 1
 
     appendText(containerElement, "h3", "Jämför koncept")
     appendText(containerElement, "p", s"Instruktion: ${Contrasts.postQuestion}")
@@ -60,8 +63,9 @@ object Rehearsal extends App:
       appendText(
         containerElement,
         "p",
-        s"${Contrasts.preQuestion} \" ${contrast} \"?"
+        s"$number. ${Contrasts.preQuestion} \" ${contrast} \"?"
       )
+      number += 1
 
     appendText(containerElement, "h3", "Skriv kod")
     appendText(containerElement, "p", s"Instruktion: ${Code.postQuestion}")
@@ -69,12 +73,14 @@ object Rehearsal extends App:
       appendText(
         containerElement,
         "p",
-        s"${Code.preQuestion}: \n\n${code}"
+        s"$number. ${Code.preQuestion}: \n\n${code}"
       )
+      number += 1
 
   def perWeek(): Unit =
     val containerElement = setup()
     var weeks = terms.map(_._1).distinct
+    var number = 1
     for week <- weeks do
       val thisWeek = terms.filter(_._1 == week)
       appendText(
@@ -94,8 +100,9 @@ object Rehearsal extends App:
             appendText(
               containerElement,
               "p",
-              s"${Concepts.preQuestion} \" ${concept} \""
+              s"$number. ${Concepts.preQuestion} \"${concept}\"?"
             )
+            number += 1
           appendText(
             containerElement,
             "p",
@@ -112,8 +119,9 @@ object Rehearsal extends App:
             appendText(
               containerElement,
               "p",
-              s"${Contrasts.preQuestion} \" ${contrast} \""
+              s"$number. ${Contrasts.preQuestion} \"${contrast}\"?"
             )
+            number += 1
           appendText(
             containerElement,
             "p",
@@ -130,8 +138,9 @@ object Rehearsal extends App:
             appendText(
               containerElement,
               "p",
-              s"${Code.preQuestion}: \n\n${codeString}"
+              s"$number. ${Code.preQuestion}: \n\n${codeString}"
             )
+            number += 1
           appendText(
             containerElement,
             "p",
