@@ -53,7 +53,7 @@ object Rehearsal extends App:
       appendText(
         containerElement,
         "p",
-        s"$number. ${Concepts.preQuestion} \" ${concept} \"?"
+        s"$number. ${Concepts.preQuestion} \"${concept}\"?"
       )
       number += 1
 
@@ -63,7 +63,7 @@ object Rehearsal extends App:
       appendText(
         containerElement,
         "p",
-        s"$number. ${Contrasts.preQuestion} \" ${contrast} \"?"
+        s"$number. ${Contrasts.preQuestion} \"${contrast}\"?"
       )
       number += 1
 
