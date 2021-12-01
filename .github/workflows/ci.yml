@@ -23,6 +23,6 @@ jobs:
       with:
         distribution: temurin
         java-version: ${{ matrix.java }}
-    - name: Build and test
+    - name: Build
       shell: bash
       run: sbt fullLinkJS
