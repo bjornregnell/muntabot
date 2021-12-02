@@ -1,16 +1,19 @@
-import muntabot.Muntabot
-import rehearsal.Rehearsal
 import shared.App
+import shared.Document
 import org.scalajs.dom
 import org.scalajs.dom.document
-
-val apps: Vector[App] = Vector(Muntabot, Rehearsal)
+import org.scalajs.dom.window
+import muntabot.Muntabot
 
 @main def run: Unit =
   document.addEventListener(
     "DOMContentLoaded",
     (e: dom.Event) => {
-      val page = document.body.getAttribute("page")
-      for app <- apps do if page == app.page then app.run
+      if (document.location.hash == "") then
+        document.location.hash = Muntabot.page
+      val page = document.location.hash
+      App.runApp(page)
+
+      window.onhashchange = (e: dom.Event) => App.runApp(document.location.hash)
     }
   )

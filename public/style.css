@@ -44,3 +44,7 @@ pre {
 * {
   box-sizing: border-box;
 }
+
+#page-decider {
+  display: none;
+}

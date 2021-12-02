@@ -3,20 +3,24 @@ package rehearsal
 import shared._
 import org.scalajs.dom
 import org.scalajs.dom.document
+import muntabot.Muntabot
 
 object Rehearsal extends App:
-  val page = "rehearsal"
-  def run: Unit =
-    perWeek()
+  val page = "#rehearsal"
+  val title = "Instuderingsfrågor från muntabot"
 
-  def setup(): dom.Element =
-    val oldContainerElement = document.getElementById("container")
-    if (oldContainerElement != null) then
-      document.body.removeChild(oldContainerElement)
+  def setupUI(): Unit = perWeek()
 
-    val containerElement = document.createElement("div")
-    containerElement.id = "container"
-    document.body.appendChild(containerElement)
+  def setupCommonComponents(): dom.Element =
+    val containerElement = Document.setupContainer()
+
+    Document.appendLinkToApp(containerElement, Muntabot, "Tillbaka hem")
+
+    Document.appendText(
+      containerElement,
+      "h1",
+      "Instuderingsfrågor från muntabot"
+    )
 
     Document.appendButton(containerElement, "Per vecka") {
       perWeek()
@@ -29,7 +33,7 @@ object Rehearsal extends App:
     containerElement
 
   def perCategory(): Unit =
-    val containerElement = setup()
+    val containerElement = setupCommonComponents()
 
     Document.appendText(containerElement, "h2", "Per kategori")
 
@@ -50,7 +54,7 @@ object Rehearsal extends App:
         number += 1
 
   def perWeek(): Unit =
-    val containerElement = setup()
+    val containerElement = setupCommonComponents()
     var weeks = terms.map(_._1).distinct
     var number = 1
     for week <- weeks do
