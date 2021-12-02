@@ -11,9 +11,10 @@ import muntabot.Muntabot
     (e: dom.Event) => {
       if (document.location.hash == "") then
         document.location.hash = Muntabot.page
-      val page = document.location.hash
+      val page = document.location.hash.split("/").head
       App.runApp(page)
 
-      window.onhashchange = (e: dom.Event) => App.runApp(document.location.hash)
+      window.onhashchange =
+        (e: dom.Event) => App.runApp(document.location.hash.split("/").head)
     }
   )
