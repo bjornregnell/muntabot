@@ -39,7 +39,7 @@ object Document:
     val linkToApp =
       document.createElement("a").asInstanceOf[dom.html.Anchor]
     linkToApp.textContent = textContent
-    linkToApp.href = app.page
+    linkToApp.href = app.link
     linkParagraph.append(linkToApp)
     targetNode.appendChild(linkParagraph)
     linkToApp

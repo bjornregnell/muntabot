@@ -8,6 +8,8 @@ val apps: Array[App] = Array(Muntabot, Rehearsal)
 
 abstract class App:
   val page: String
+  def currentSubpage: String = ""
+  def link = s"$page/$currentSubpage"
   val title: String
   def setupUI(): Unit
   def run: Unit =

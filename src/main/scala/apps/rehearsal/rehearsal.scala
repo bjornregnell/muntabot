@@ -3,6 +3,7 @@ package rehearsal
 import shared._
 import org.scalajs.dom
 import org.scalajs.dom.document
+import org.scalajs.dom.window
 import muntabot.Muntabot
 
 object Rehearsal extends App:
@@ -10,19 +11,19 @@ object Rehearsal extends App:
   val page = "#rehearsal"
   val title = "Instuderingsfrågor från muntabot"
 
-  var currentSubpage: Subpage = "week"
+  private var _currentSubpage: Subpage = "week"
+
+  override def currentSubpage = _currentSubpage
 
   def setSubpage(subpage: Subpage) =
-    if subpage == "week" || subpage == "category" then
-      document.location.hash = s"$page/$subpage"
-      currentSubpage = subpage
+    document.location.hash = s"$page/$subpage"
+    _currentSubpage = subpage
 
   def setupUI(): Unit =
     try {
-      setSubpage(document.location.hash.split("/")(1).asInstanceOf[Subpage])
-    } catch error => {
-      setSubpage(currentSubpage)
-    }
+      _currentSubpage =
+        document.location.hash.split("/")(1).asInstanceOf[Subpage]
+    } catch error => {}
     if (currentSubpage == "week") then perWeek()
     else if (currentSubpage == "category") then perCategory()
 
@@ -42,6 +43,7 @@ object Rehearsal extends App:
       "Per vecka",
       disabled = currentSubpage == "week"
     ) {
+      setSubpage("week")
       perWeek()
     }
 
@@ -50,14 +52,13 @@ object Rehearsal extends App:
       "Per kategori",
       disabled = currentSubpage == "category"
     ) {
+      setSubpage("category")
       perCategory()
     }
 
     containerElement
 
   def perCategory(): Unit =
-    setSubpage("category")
-
     val containerElement = setupCommonComponents()
 
     Document.appendText(containerElement, "h2", "Per kategori")
@@ -79,7 +80,6 @@ object Rehearsal extends App:
         number += 1
 
   def perWeek(): Unit =
-    setSubpage("week")
     val containerElement = setupCommonComponents()
     var weeks = terms.map(_._1).distinct
     var number = 1
