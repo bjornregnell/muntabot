@@ -14,7 +14,7 @@ object Muntabot extends App:
     Document.appendLinkToApp(
       containerElement,
       Rehearsal,
-      "Är instuderingsfrågor mer din grej?"
+      "Alla frågor"
     )
 
     Document.appendText(
@@ -25,11 +25,11 @@ object Muntabot extends App:
     Document.appendText(
       containerElement,
       "p",
-      "Alla labbbar ska vara godkända innan du ber handledare att få göra muntliga provet."
+      "Alla labbbar ska vara godkända innan muntliga provet."
     )
 
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
-    showText.textContent = "Klicka så får du en uppgift."
+    showText.textContent = "Klicka på knapparna så får du en uppgift."
 
     for questionType <- Questions.types do
       Document.appendButton(containerElement, questionType.title) {

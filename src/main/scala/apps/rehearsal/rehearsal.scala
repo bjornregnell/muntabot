@@ -9,7 +9,7 @@ import muntabot.Muntabot
 object Rehearsal extends App:
   type Subpage = "week" | "category"
   val page = "#rehearsal"
-  val title = "Instuderingsfrågor från muntabot"
+  val title = "Alla frågor från muntabot"
 
   private var _currentSubpage: Subpage = "week"
 
@@ -30,12 +30,12 @@ object Rehearsal extends App:
   def setupCommonComponents(): dom.Element =
     val containerElement = Document.setupContainer()
 
-    Document.appendLinkToApp(containerElement, Muntabot, "Tillbaka hem")
+    Document.appendLinkToApp(containerElement, Muntabot, "Slumpa frågor")
 
     Document.appendText(
       containerElement,
       "h1",
-      "Instuderingsfrågor från muntabot"
+      "Alla frågor från muntabot"
     )
 
     Document.appendButton(

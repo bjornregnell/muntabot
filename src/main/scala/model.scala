@@ -43,13 +43,15 @@ abstract class Questions:
   val instruction: String
   lazy val all: Seq[String] | Seq[(String, String)]
 
+  def punctuation: Char = '?'
+
   def pickAnyQuestion: String | (String, String) = all.pick
 
   def getQuestion(question: String | (String, String)): String =
-    s"$questionToAsk\n$question.\n\n$instruction"
+    s"$questionToAsk\n$question$punctuation\n\n$instruction"
 
   def getShortQuestion(question: String | (String, String)): String =
-    s"$questionToAsk \"$question\"?"
+    s"$questionToAsk \"$question\"$punctuation"
 
 object Questions:
   val types: Vector[Questions] = Vector(Concepts, Contrasts, Code)
@@ -90,6 +92,8 @@ object Code extends Questions:
     "Skriv kod på papper med"
   val instruction: String = "Skriv testfall som testar din kod."
 
+  override def punctuation = '.'
+
   lazy val all = (for case (w, t: Code) <- terms yield t).map(_.cs).flatten
   override def getShortQuestion(question: String | (String, String)) =
-    s"${questionToAsk}: \n\n${question}?"
+    s"${questionToAsk}: \n\n${question}$punctuation"
