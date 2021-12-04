@@ -1,39 +1,20 @@
-package muntabot
-
+import shared.App
+import shared.Document
 import org.scalajs.dom
 import org.scalajs.dom.document
+import org.scalajs.dom.window
+import muntabot.Muntabot
 
-@main def run: Unit = 
-  document.addEventListener("DOMContentLoaded", (e: dom.Event) => setupUI())  
+@main def run: Unit =
+  document.addEventListener(
+    "DOMContentLoaded",
+    (e: dom.Event) => {
+      if (document.location.hash == "") then
+        document.location.hash = Muntabot.page
+      val page = document.location.hash.split("/").head
+      App.runApp(page)
 
-def appendPar(targetNode: dom.Node, text: String): dom.html.Paragraph = 
-  val parNode = document.createElement("p").asInstanceOf[dom.html.Paragraph]
-  parNode.textContent = text
-  targetNode.appendChild(parNode)
-  parNode
-
-def appendButton(targetNode: dom.Node, text: String)(action: => Unit): Unit = 
-  val b = document.createElement("button").asInstanceOf[dom.html.Button]
-  b.classList.add("button")
-  b.appendChild(document.createTextNode(text))
-  b.onclick = (e: dom.Event) => action
-  targetNode.appendChild(b)
-
-
-def setupUI(): Unit = 
-  val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
-  showText.textContent = "Klicka så får du en uppgift."
-
-  appendButton(document.body, "Förklara koncept"){
-    showText.textContent = Concepts.pickAnyQuestion
-  }
-
-  appendButton(document.body, "Jämför koncept"){
-    showText.textContent = Contrasts.pickAnyQuestion
-  }
-
-  appendButton(document.body, "Skriv kod"){
-    showText.textContent = Code.pickAnyQuestion
-  }
-
-  document.body.appendChild(showText)
+      window.onhashchange =
+        (e: dom.Event) => App.runApp(document.location.hash.split("/").head)
+    }
+  )

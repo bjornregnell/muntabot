@@ -1,4 +1,4 @@
-package muntabot
+package shared
 
 lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
   Week(1) -> Concepts("funktion", "while-sats", "for-sats", "stränginterpolator", "tilldelning", "kompilator", "grundtyper", "booleskt värde"),
