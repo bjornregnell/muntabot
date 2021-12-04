@@ -59,7 +59,7 @@ object Rehearsal extends App:
     Document.appendText(
       containerElement,
       "p",
-      "Svara på frågor och gör koduppdrag nedan. Ge även exempel på normal och felaktig/konstig användning."
+      "Svara på frågor och gör koduppdrag nedan. Ge även exempel på normal och felaktig/konstig användning. För varje koduppdrag: skriv testfall som testar din kod."
     )
 
 
