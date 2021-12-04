@@ -24,7 +24,6 @@ When ready for production use this script:
 
 ```bash
 sbt fullLinkJS
-rm public/main.js
 cp target/scala-3.1.0/muntabot-opt/main.js public/main.js
 
 ```
