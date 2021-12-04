@@ -6,7 +6,7 @@ This single-page client-only web app is available for execution in your browser 
 https://cs.lth.se/pgk/muntabot
 
 
-Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](https://www.scala-js.org/doc/tutorial/basic/). Built using [`sbt`](https://www.scala-sbt.org/) and [Node.js](https://nodejs.org).
+Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](https://www.scala-js.org/doc/tutorial/basic/). Built using [`sbt`](https://www.scala-sbt.org/) and [`nodejs`](https://nodejs.org).
 
 # How to develop
 
