@@ -1,5 +1,5 @@
 # muntabot
-![Build Status](https://github.com/bjornregnell/muntabot/actions/workflows/main.yml/badge.svg)
+![Build Status](https://github.com/bjornregnell/muntabot/actions/workflows/ci.yml/badge.svg)
 
 This single-page client-only web app is available for execution in your browser here:
 
