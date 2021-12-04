@@ -56,6 +56,13 @@ object Rehearsal extends App:
       perCategory()
     }
 
+    Document.appendText(
+      containerElement,
+      "p",
+      "Svara på frågor och gör koduppdrag nedan. Ge även exempel på normal och felaktig/konstig användning."
+    )
+
+
     containerElement
 
   def perCategory(): Unit =
@@ -66,11 +73,6 @@ object Rehearsal extends App:
     var number = 1
     for questionType <- Questions.types do
       Document.appendText(containerElement, "h3", questionType.title)
-      Document.appendText(
-        containerElement,
-        "p",
-        s"Instruktion: ${Concepts.instruction}"
-      )
       for question <- questionType.all do
         Document.appendText(
           containerElement,
@@ -93,11 +95,6 @@ object Rehearsal extends App:
       )
       for term <- thisWeek do
         Document.appendText(containerElement, "h3", term._2.title)
-        Document.appendText(
-          containerElement,
-          "p",
-          s"Instruktion: ${Concepts.instruction}"
-        )
         for question <- term._2 do
           Document.appendText(
             containerElement,
