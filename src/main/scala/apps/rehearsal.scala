@@ -11,6 +11,9 @@ object Rehearsal extends App:
   val page = "#rehearsal"
   val title = "Alla frågor från muntabot"
 
+  var searchTerm = ""
+  val searchables = collection.mutable.Buffer[String]()
+
   private var _currentSubpage: Subpage = "week"
 
   override def currentSubpage = _currentSubpage
@@ -24,8 +27,18 @@ object Rehearsal extends App:
       _currentSubpage =
         document.location.hash.split("/")(1).asInstanceOf[Subpage]
     } catch error => {}
-    if (currentSubpage == "week") then perWeek()
-    else if (currentSubpage == "category") then perCategory()
+    runSubpage()
+
+  def runSubpage() =
+    if (searchTerm.length > 0) then searchView(setupCommonComponents())
+    else
+      searchables.clear
+      if (currentSubpage == "week") then perWeek(setupCommonComponents())
+      else if (currentSubpage == "category") then
+        perCategory(setupCommonComponents())
+
+  def searchInput =
+    document.getElementById("search-input").asInstanceOf[dom.html.Input]
 
   def setupCommonComponents(): dom.Element =
     val containerElement = Document.setupContainer()
@@ -38,13 +51,22 @@ object Rehearsal extends App:
       "Alla frågor från muntabot"
     )
 
+    Document.appendInput(containerElement, "Sök", "search-input") {
+      searchTerm = searchInput.value
+      runSubpage()
+    }
+    if (searchTerm.length > 0) then
+      searchInput.value = searchTerm
+      searchInput.focus()
+
     Document.appendButton(
       containerElement,
       "Per vecka",
       disabled = currentSubpage == "week"
     ) {
+      searchTerm = ""
       setSubpage("week")
-      perWeek()
+      runSubpage()
     }
 
     Document.appendButton(
@@ -52,8 +74,9 @@ object Rehearsal extends App:
       "Per kategori",
       disabled = currentSubpage == "category"
     ) {
+      searchTerm = ""
       setSubpage("category")
-      perCategory()
+      runSubpage()
     }
 
     Document.appendText(
@@ -65,24 +88,34 @@ object Rehearsal extends App:
 
     containerElement
 
-  def perCategory(): Unit =
-    val containerElement = setupCommonComponents()
+  def searchView(containerElement: dom.Element): Unit =
+    Document.appendText(containerElement, "h2", "Sökresultat")
+    for searchable <- searchables do
+      if (searchable.toLowerCase.contains(searchTerm.toLowerCase)) then
+        Document.appendText(
+          containerElement,
+          "p",
+          searchable
+        )
 
+  def perCategory(containerElement: dom.Element): Unit =
     Document.appendText(containerElement, "h2", "Per kategori")
 
     var number = 1
     for questionType <- Questions.types do
       Document.appendText(containerElement, "h3", questionType.title)
       for question <- questionType.all do
+        val questionString =
+          s"$number. ${questionType.getShortQuestion(question)}"
+        searchables.append(questionString)
         Document.appendText(
           containerElement,
           "p",
-          s"$number. ${questionType.getShortQuestion(question)}"
+          questionString
         )
         number += 1
 
-  def perWeek(): Unit =
-    val containerElement = setupCommonComponents()
+  def perWeek(containerElement: dom.Element): Unit =
     var weeks = terms.map(_._1).distinct
     var number = 1
     for week <- weeks do
@@ -96,9 +129,11 @@ object Rehearsal extends App:
       for term <- thisWeek do
         Document.appendText(containerElement, "h3", term._2.title)
         for question <- term._2 do
+          val questionString = s"$number. ${term._2.getShortQuestion(question)}"
+          searchables.append(questionString)
           Document.appendText(
             containerElement,
             "p",
-            s"$number. ${term._2.getShortQuestion(question)}"
+            questionString
           )
           number += 1
