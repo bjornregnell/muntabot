@@ -20,6 +20,23 @@ object Document:
     targetNode.appendChild(button)
     button
 
+  def appendInput(
+      targetNode: dom.Node,
+      placeholder: String,
+      id: String,
+      disabled: Boolean = false
+  )(
+      onChange: => Unit
+  ): dom.html.Input =
+    val input = document.createElement("input").asInstanceOf[dom.html.Input]
+    input.classList.add("input")
+    input.id = id
+    input.placeholder = placeholder
+    input.oninput = (e: dom.Event) => onChange
+    input.disabled = disabled
+    targetNode.appendChild(input)
+    input
+
   def appendText(
       targetNode: dom.Node,
       tagName: String,
