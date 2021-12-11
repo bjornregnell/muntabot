@@ -90,7 +90,7 @@ object Rehearsal extends App:
   def searchView(): Unit =
     val contentElement =
       Document.appendDynamicContainer("content", containerElement)
-    Document.appendText(contentElement, "h2", "Sökresultat")
+    Document.appendText(contentElement, "h2", "Sökresultat:")
     for searchable <- searchables do
       if (searchable.toLowerCase.contains(searchTerm.toLowerCase)) then
         Document.appendText(
