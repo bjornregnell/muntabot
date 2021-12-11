@@ -67,8 +67,9 @@ object Document:
 
   /** Deletes the element with the same id from the targetNode if it exists, and
     * then creates a new 'div' element and returns it.
-    *
-    * The default targetNode is the document body.
+    * 
+    * @param id defaults to "container"
+    * @param targetNode defaults to the document body
     */
   def appendDynamicContainer(
       id: String = "container",
