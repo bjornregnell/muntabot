@@ -41,7 +41,7 @@ object Rehearsal extends App:
     document.getElementById("search-input").asInstanceOf[dom.html.Input]
 
   def setupCommonComponents(): dom.Element =
-    val containerElement = Document.setupContainer()
+    val containerElement = Document.appendDynamicContainer()
 
     Document.appendLinkToApp(containerElement, Muntabot, "Slumpa frågor")
 
@@ -86,7 +86,8 @@ object Rehearsal extends App:
     containerElement
 
   def searchView(): Unit =
-    val contentElement = Document.setupContainer("content", containerElement)
+    val contentElement =
+      Document.appendDynamicContainer("content", containerElement)
     Document.appendText(contentElement, "h2", "Sökresultat")
     for searchable <- searchables do
       if (searchable.toLowerCase.contains(searchTerm.toLowerCase)) then
@@ -97,7 +98,8 @@ object Rehearsal extends App:
         )
 
   def perCategory(): Unit =
-    val contentElement = Document.setupContainer("content", containerElement)
+    val contentElement =
+      Document.appendDynamicContainer("content", containerElement)
     Document.appendText(contentElement, "h2", "Per kategori")
 
     var number = 1
@@ -115,7 +117,8 @@ object Rehearsal extends App:
         number += 1
 
   def perWeek(): Unit =
-    val contentElement = Document.setupContainer("content", containerElement)
+    val contentElement =
+      Document.appendDynamicContainer("content", containerElement)
     var weeks = terms.map(_._1).distinct
     var number = 1
     for week <- weeks do

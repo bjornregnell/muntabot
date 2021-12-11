@@ -65,7 +65,12 @@ object Document:
   def appendHomeLink(targetNode: dom.Node) =
     Document.appendLinkToApp(targetNode, Muntabot, "Tillbaka hem")
 
-  def setupContainer(
+  /** Deletes the element with the same id from the targetNode if it exists, and
+    * then creates a new 'div' element and returns it.
+    *
+    * The default targetNode is the document body.
+    */
+  def appendDynamicContainer(
       id: String = "container",
       targetNode: dom.Node = document.body
   ): dom.Element =
@@ -79,6 +84,6 @@ object Document:
     containerElement
 
   def pageNotFound(): Unit =
-    val containerElement = setupContainer()
+    val containerElement = appendDynamicContainer()
     appendHomeLink(containerElement)
     appendText(containerElement, "h1", "Oops! Page not found.")
