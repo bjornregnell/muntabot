@@ -64,14 +64,17 @@ object Document:
   def appendHomeLink(targetNode: dom.Node) =
     Document.appendLinkToApp(targetNode, Muntabot, "Tillbaka hem")
 
-  def setupContainer(): dom.Element =
-    val oldContainerElement = document.getElementById("container")
+  def setupContainer(
+      id: String = "container",
+      targetNode: dom.Node = document.body
+  ): dom.Element =
+    val oldContainerElement = document.getElementById(id)
     if (oldContainerElement != null) then
-      document.body.removeChild(oldContainerElement)
+      targetNode.removeChild(oldContainerElement)
 
     val containerElement = document.createElement("div")
-    containerElement.id = "container"
-    document.body.appendChild(containerElement)
+    containerElement.id = id
+    targetNode.appendChild(containerElement)
     containerElement
 
   def pageNotFound(): Unit =

@@ -10,7 +10,7 @@ object Rehearsal extends App:
   type Subpage = "week" | "category"
   val page = "#rehearsal"
   val title = "Alla frågor från muntabot"
-
+  var containerElement: dom.Node = null
   var searchTerm = ""
   val searchables = collection.mutable.Buffer[String]()
 
@@ -27,15 +27,15 @@ object Rehearsal extends App:
       _currentSubpage =
         document.location.hash.split("/")(1).asInstanceOf[Subpage]
     } catch error => {}
+    containerElement = setupCommonComponents()
     runSubpage()
 
   def runSubpage() =
-    if (searchTerm.length > 0) then searchView(setupCommonComponents())
+    if (searchTerm.length > 0) then searchView()
     else
       searchables.clear
-      if (currentSubpage == "week") then perWeek(setupCommonComponents())
-      else if (currentSubpage == "category") then
-        perCategory(setupCommonComponents())
+      if (currentSubpage == "week") then perWeek()
+      else if (currentSubpage == "category") then perCategory()
 
   def searchInput =
     document.getElementById("search-input").asInstanceOf[dom.html.Input]
@@ -53,11 +53,9 @@ object Rehearsal extends App:
 
     Document.appendInput(containerElement, "Sök", "search-input") {
       searchTerm = searchInput.value
-      runSubpage()
+      if (searchTerm.length > 0) then searchInput.value = searchTerm
+      searchView()
     }
-    if (searchTerm.length > 0) then
-      searchInput.value = searchTerm
-      searchInput.focus()
 
     Document.appendButton(
       containerElement,
@@ -66,7 +64,7 @@ object Rehearsal extends App:
     ) {
       searchTerm = ""
       setSubpage("week")
-      runSubpage()
+      perWeek()
     }
 
     Document.appendButton(
@@ -76,7 +74,7 @@ object Rehearsal extends App:
     ) {
       searchTerm = ""
       setSubpage("category")
-      runSubpage()
+      perCategory()
     }
 
     Document.appendText(
@@ -85,54 +83,56 @@ object Rehearsal extends App:
       "Svara på frågor och gör koduppdrag nedan. Ge även exempel på normal och felaktig/konstig användning. För varje koduppdrag: skriv även testfall som testar din kod. Hjälpmedel: papper, penna, REPL, snabbreferens."
     )
 
-
     containerElement
 
-  def searchView(containerElement: dom.Element): Unit =
-    Document.appendText(containerElement, "h2", "Sökresultat")
+  def searchView(): Unit =
+    val contentElement = Document.setupContainer("content", containerElement)
+    Document.appendText(contentElement, "h2", "Sökresultat")
     for searchable <- searchables do
       if (searchable.toLowerCase.contains(searchTerm.toLowerCase)) then
         Document.appendText(
-          containerElement,
+          contentElement,
           "p",
           searchable
         )
 
-  def perCategory(containerElement: dom.Element): Unit =
-    Document.appendText(containerElement, "h2", "Per kategori")
+  def perCategory(): Unit =
+    val contentElement = Document.setupContainer("content", containerElement)
+    Document.appendText(contentElement, "h2", "Per kategori")
 
     var number = 1
     for questionType <- Questions.types do
-      Document.appendText(containerElement, "h3", questionType.title)
+      Document.appendText(contentElement, "h3", questionType.title)
       for question <- questionType.all do
         val questionString =
           s"$number. ${questionType.getShortQuestion(question)}"
         searchables.append(questionString)
         Document.appendText(
-          containerElement,
+          contentElement,
           "p",
           questionString
         )
         number += 1
 
-  def perWeek(containerElement: dom.Element): Unit =
+  def perWeek(): Unit =
+    val contentElement = Document.setupContainer("content", containerElement)
     var weeks = terms.map(_._1).distinct
     var number = 1
     for week <- weeks do
       val thisWeek = terms.filter(_._1 == week)
       val w = thisWeek(0)._1.w
       Document.appendText(
-        containerElement,
+        contentElement,
         "h2",
         s"Vecka $w: ${Week.title(thisWeek(0)._1)}"
       )
       for term <- thisWeek do
-        Document.appendText(containerElement, "h3", term._2.title)
+        Document.appendText(contentElement, "h3", term._2.title)
         for question <- term._2 do
           val questionString = s"$number. ${term._2.getShortQuestion(question)}"
           searchables.append(questionString)
           Document.appendText(
-            containerElement,
+            contentElement,
             "p",
             questionString
           )
