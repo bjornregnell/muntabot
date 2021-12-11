@@ -31,11 +31,8 @@ object Rehearsal extends App:
     runSubpage()
 
   def runSubpage() =
-    if (searchTerm.length > 0) then searchView()
-    else
-      searchables.clear
-      if (currentSubpage == "week") then perWeek()
-      else if (currentSubpage == "category") then perCategory()
+    if (currentSubpage == "week") then perWeek()
+    else if (currentSubpage == "category") then perCategory()
 
   def searchInput =
     document.getElementById("search-input").asInstanceOf[dom.html.Input]
@@ -53,8 +50,13 @@ object Rehearsal extends App:
 
     Document.appendInput(containerElement, "Sök", "search-input") {
       searchTerm = searchInput.value
-      if (searchTerm.length > 0) then searchInput.value = searchTerm
-      searchView()
+      if searchTerm.length > 0 then
+        searchView()
+        searchInput.value = searchTerm
+      else
+        searchables.clear
+        runSubpage()
+
     }
 
     Document.appendButton(
