@@ -33,6 +33,7 @@ object Document:
     input.id = id
     input.placeholder = placeholder
     input.oninput = (e: dom.Event) => onChange
+    input.onchange = (e: dom.Event) => input.blur()
     input.disabled = disabled
     targetNode.appendChild(input)
     input
