@@ -9,7 +9,7 @@ object Muntabot extends App:
   val page = "#muntabot"
   val title = "muntabot"
   def setupUI(): Unit =
-    val containerElement = Document.setupContainer()
+    val containerElement = Document.appendDynamicContainer()
 
     Document.appendLinkToApp(
       containerElement,

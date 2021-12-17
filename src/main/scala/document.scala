@@ -33,6 +33,7 @@ object Document:
     input.id = id
     input.placeholder = placeholder
     input.oninput = (e: dom.Event) => onChange
+    input.onchange = (e: dom.Event) => input.blur()
     input.disabled = disabled
     targetNode.appendChild(input)
     input
@@ -64,17 +65,26 @@ object Document:
   def appendHomeLink(targetNode: dom.Node) =
     Document.appendLinkToApp(targetNode, Muntabot, "Tillbaka hem")
 
-  def setupContainer(): dom.Element =
-    val oldContainerElement = document.getElementById("container")
+  /** Deletes the element with the same id from the targetNode if it exists, and
+    * then creates a new 'div' element and returns it.
+    * 
+    * @param id defaults to "container"
+    * @param targetNode defaults to the document body
+    */
+  def appendDynamicContainer(
+      id: String = "container",
+      targetNode: dom.Node = document.body
+  ): dom.Element =
+    val oldContainerElement = document.getElementById(id)
     if (oldContainerElement != null) then
-      document.body.removeChild(oldContainerElement)
+      targetNode.removeChild(oldContainerElement)
 
     val containerElement = document.createElement("div")
-    containerElement.id = "container"
-    document.body.appendChild(containerElement)
+    containerElement.id = id
+    targetNode.appendChild(containerElement)
     containerElement
 
   def pageNotFound(): Unit =
-    val containerElement = setupContainer()
+    val containerElement = appendDynamicContainer()
     appendHomeLink(containerElement)
     appendText(containerElement, "h1", "Oops! Page not found.")
