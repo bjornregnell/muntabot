@@ -1,4 +1,8 @@
-html, body {
+@import "./anchor.css";
+@import "./button.css";
+
+html,
+body {
   background-color: pink;
   line-height: 1.2;
   font-family: "Lucida Console", Monaco, monospace;
@@ -9,7 +13,9 @@ body {
   font-size: 1.2rem;
   margin: 0;
 }
-input, button {
+
+input,
+button {
   font-size: 1.2rem;
   padding-right: 5px;
   padding-left: 5px;
@@ -18,20 +24,27 @@ input, button {
   margin-right: 1rem;
   margin-bottom: 1rem;
 }
+
 pre {
+  background-color: white;
+  padding: 10px;
+  border: 1px #de3423 solid;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  border-radius: 5px;
   white-space: pre-line;
 }
-@media(max-width: 768px) {
+
+@media (max-width: 768px) {
   h1 {
     font-size: 2rem;
   }
 }
-@media(max-width: 365px) {
+@media (max-width: 365px) {
   h1 {
     font-size: 1.75rem;
   }
 }
-@media(max-width: 325px) {
+@media (max-width: 325px) {
   h1 {
     font-size: 1.5rem;
   }
