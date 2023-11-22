@@ -3,7 +3,7 @@ a {
   font-weight: bold;
   display: inline-block;
   position: relative;
-  color: #de3423;
+  color: blue;
   transition: 0.2s;
 }
 
@@ -15,7 +15,7 @@ a::after {
   height: 2px;
   bottom: 0;
   left: 0;
-  background-color: #de3423;
+  background-color: blue;
   transform-origin: bottom right;
   transition: transform 0.25s ease-out;
 }

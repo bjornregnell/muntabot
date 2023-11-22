@@ -4,8 +4,9 @@
   background-color: #de3423;
   border: 1px solid transparent;
   border-radius: 0.25rem;
-  box-shadow: rgba(0, 0, 0, 0.02) 0 1px 3px 0;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
   box-sizing: border-box;
+  border: 1px solid rgb(41, 41, 41);
   color: #fff;
   cursor: pointer;
   display: inline-flex;
@@ -16,6 +17,7 @@
   justify-content: center;
   line-height: 1.25;
   margin: 0;
+  margin-right: 15px;
   min-height: 3rem;
   padding: calc(0.875rem - 1px) calc(1.5rem - 1px);
   position: relative;
