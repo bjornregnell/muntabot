@@ -12,6 +12,11 @@ body {
   padding: 1rem;
   font-size: 1.2rem;
   margin: 0;
+
+  /* Important for allowing #container to stretch to remainder of parent height */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 input,
@@ -23,10 +28,6 @@ button {
   padding-bottom: 5px;
   margin-right: 1rem;
   margin-bottom: 1rem;
-}
-
-pre {
-  white-space: pre-line;
 }
 
 @media (max-width: 768px) {
@@ -50,6 +51,12 @@ pre {
 #container {
   width: 100%;
   overflow: hidden;
+
+  /* Important for allowing .question-box to stretch to remainder of parent height */
+  min-height: 0px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
 }
 
 * {
@@ -66,4 +73,12 @@ pre {
   box-sizing: border-box;
   padding: 2rem;
   background-color: white;
+
+  /* Stretch to remainder of parent height */
+  min-height: 0px;
+  display: flex;
+  flex: 1;
+
+  /* Moved from "pre" selector */
+  white-space: pre-line;
 }
