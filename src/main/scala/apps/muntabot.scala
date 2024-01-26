@@ -28,6 +28,7 @@ object Muntabot extends App:
     // Own container for the buttons since they should have default flex-direction
     val buttonContainer =
       document.createElement("div").asInstanceOf[dom.html.Div]
+    buttonContainer.className = "button-container"
 
     for questionType <- Questions.types do
       Document.appendButton(buttonContainer, questionType.title) {
