@@ -1,4 +1,5 @@
 @import "./variables.css";
+@import "./anchor.css";
 
 html,
 body {
@@ -69,6 +70,27 @@ button {
   display: flex;
   flex-direction: row;
   margin: 0.5rem 0;
+}
+
+.button-container button {
+  /* Removing default button CSS properties */
+  outline: none;
+  border: none;
+  border-radius: 0;
+
+  /* Applying own CSS properties */
+  background-color: var(--scala-bright-red);
+  color: white;
+  padding: 0.75rem 1.2rem;
+  cursor: pointer;
+  box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset,
+    rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+  transition: 0.1s;
+}
+
+.button-container button:hover {
+  background-color: var(--scala-dark-red);
 }
 
 .question-box {
