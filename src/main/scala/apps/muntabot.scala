@@ -25,10 +25,16 @@ object Muntabot extends App:
     showText.className = "question-box"
     showText.textContent = "Klicka på knapparna så får du en uppgift."
 
+    // Own container for the buttons since they should have default flex-direction
+    val buttonContainer =
+      document.createElement("div").asInstanceOf[dom.html.Div]
+
     for questionType <- Questions.types do
-      Document.appendButton(containerElement, questionType.title) {
+      Document.appendButton(buttonContainer, questionType.title) {
         showText.textContent =
           questionType.getQuestion(questionType.pickAnyQuestion)
       }
+
+    containerElement.appendChild(buttonContainer)
 
     containerElement.appendChild(showText)
