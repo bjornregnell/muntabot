@@ -1,4 +1,5 @@
-html, body {
+html,
+body {
   background-color: pink;
   line-height: 1.2;
   font-family: "Lucida Console", Monaco, monospace;
@@ -9,7 +10,8 @@ body {
   font-size: 1.2rem;
   margin: 0;
 }
-input, button {
+input,
+button {
   font-size: 1.2rem;
   padding-right: 5px;
   padding-left: 5px;
@@ -21,17 +23,17 @@ input, button {
 pre {
   white-space: pre-line;
 }
-@media(max-width: 768px) {
+@media (max-width: 768px) {
   h1 {
     font-size: 2rem;
   }
 }
-@media(max-width: 365px) {
+@media (max-width: 365px) {
   h1 {
     font-size: 1.75rem;
   }
 }
-@media(max-width: 325px) {
+@media (max-width: 325px) {
   h1 {
     font-size: 1.5rem;
   }
@@ -47,4 +49,8 @@ pre {
 
 #page-decider {
   display: none;
+}
+
+.test {
+  color: blue;
 }

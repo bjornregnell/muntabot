@@ -17,16 +17,10 @@ object Muntabot extends App:
       "Alla frågor"
     )
 
-    Document.appendText(
-      containerElement,
-      "p",
-      "Hjälpmedel: papper, penna, REPL, snabbreferens."
-    )
-    Document.appendText(
-      containerElement,
-      "p",
-      "Alla labbbar ska vara godkända innan muntliga provet."
-    )
+    val p = dom.document.createElement("p").asInstanceOf[dom.html.Element]
+    p.textContent = "adbiod: papper, penna, REPL, snabbreferens."
+    p.className = "test"
+    containerElement.appendChild(p)
 
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
     showText.textContent = "Klicka på knapparna så får du en uppgift."
