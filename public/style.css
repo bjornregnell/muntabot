@@ -9,7 +9,7 @@ body {
 }
 
 body {
-  padding: 1rem;
+  padding: 2rem;
   font-size: 1.2rem;
   margin: 0;
 
@@ -50,7 +50,6 @@ button {
 
 #container {
   width: 100%;
-  overflow: hidden;
 
   /* Important for allowing .question-box to stretch to remainder of parent height */
   min-height: 0px;
