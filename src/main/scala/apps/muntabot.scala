@@ -18,11 +18,11 @@ object Muntabot extends App:
     )
 
     val p = dom.document.createElement("p").asInstanceOf[dom.html.Element]
-    p.textContent = "adbiod: papper, penna, REPL, snabbreferens."
-    p.className = "test"
+    p.textContent = "Hjälpmedel: papper, penna, REPL, snabbreferens."
     containerElement.appendChild(p)
 
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
+    showText.className = "question-box"
     showText.textContent = "Klicka på knapparna så får du en uppgift."
 
     for questionType <- Questions.types do
