@@ -20,11 +20,11 @@ Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](http
 
 # How to deploy 
 
-When ready for production use this script:
+When an update is ready for production, use this script:
 
 ```bash
-sbt fullLinkJS
-cp target/scala-3.1.0/muntabot-opt/main.js public/main.js
+sbt "clean;fullLinkJS"
+cp target/scala-3.4.2/muntabot-opt/main.js public/.
 
 ```
 
