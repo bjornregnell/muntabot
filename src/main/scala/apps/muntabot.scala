@@ -17,24 +17,25 @@ object Muntabot extends App:
       "Alla frågor"
     )
 
-    Document.appendText(
-      containerElement,
-      "p",
-      "Hjälpmedel: papper, penna, REPL, snabbreferens."
-    )
-    Document.appendText(
-      containerElement,
-      "p",
-      "Alla labbbar ska vara godkända innan muntliga provet."
-    )
+    val p = dom.document.createElement("p").asInstanceOf[dom.html.Element]
+    p.textContent = "Hjälpmedel: papper, penna, REPL, snabbreferens."
+    containerElement.appendChild(p)
 
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
+    showText.className = "question-box"
     showText.textContent = "Klicka på knapparna så får du en uppgift."
 
+    // Own container for the buttons since they should have default flex-direction
+    val buttonContainer =
+      document.createElement("div").asInstanceOf[dom.html.Div]
+    buttonContainer.className = "button-container"
+
     for questionType <- Questions.types do
-      Document.appendButton(containerElement, questionType.title) {
+      Document.appendButton(buttonContainer, questionType.title) {
         showText.textContent =
           questionType.getQuestion(questionType.pickAnyQuestion)
       }
+
+    containerElement.appendChild(buttonContainer)
 
     containerElement.appendChild(showText)
