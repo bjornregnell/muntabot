@@ -2,7 +2,7 @@ package shared
 
 lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
   Week(1) -> Concepts("funktion", "while-sats", "for-sats", "stränginterpolator", "tilldelning", "kompilator", "grundtyper", "booleskt värde"),
-  Week(1) -> Contrasts("map" -> "foreach", "for-uttryck" -> "for-sats", "Vector" -> "Array", "while" -> "for-do", "typ" -> "värde", "if-uttryck" -> "if-sats", "def" -> "val", "var" -> "val"),
+  Week(1) -> Contrasts("map" -> "foreach", "for-uttryck" -> "for-sats", "Vector" -> "Array", "while" -> "for-do", "typ" -> "värde", "if-uttryck" -> "if-sats", "def" -> "val", "var" -> "val", "kompileringsfel" -> "körtidsfel"),
   Week(2) -> Concepts("for-uttryck", "samlingsmetoden map", "indexering", "kontrollstruktur", "huvudprogram"),
   Week(2) -> Code("en funktion som ger minsta heltalet i en heltalssekvens,\nutan att använda inbyggda min"),
   Week(2) -> Code("en funktion som ger största heltalet i en heltalssekvens,\nutan att använda inbyggda max"),
