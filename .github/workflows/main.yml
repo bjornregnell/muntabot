@@ -9,11 +9,9 @@ jobs:
       matrix:
         include:
           - os: ubuntu-latest
-            java: 8
-          - os: ubuntu-latest
-            java: 17
+            java: 21
           - os: windows-latest
-            java: 17
+            java: 21
     runs-on: ${{ matrix.os }}
     steps:
     - name: Checkout
