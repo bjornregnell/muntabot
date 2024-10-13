@@ -12,7 +12,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
   Week(3) -> Concepts("anonym funktion", "predikat", "äkta funktion", "aktiveringspost", "anropsstacken", "default-argument",  "returtyp"),
   Week(4) -> Concepts("singelobjekt", "paket", "privat medlem", "namnrymd", "metoden apply", "tupel", "import", "punktnotation", "extensionsmetod"),
   Week(4) -> Contrasts("värdeanrop" -> "namnanrop", "val" -> "lazy val", "def" -> "lazy val"),
-  Week(5) -> Concepts("klass", "attribut", "fabriksmetod", "instansiering", "tillstånd", "klassparameter", "kompanjonsobjekt", "strängrepresentation"),
+  Week(5) -> Concepts("klass", "attribut", "fabriksmetod", "instansiering", "tillstånd", "klassparameter", "kompanjonsobjekt", "nyckelordet this", "strängrepresentation"),
   Week(5) -> Contrasts("funktion" -> "metod", "klass" -> "case-klass", "singelobjekt" -> "klass", "getter" -> "setter", "referenslikhet" -> "innehållslikhet"),
   Week(6) -> Concepts("mönstermatchning", "undantag", "konstruktormönster", "Option", "Try"),
   Week(7) -> Contrasts("ArrayBuffer" -> "Array", "förändringsbar samling" -> "oföränderlig samling"),
