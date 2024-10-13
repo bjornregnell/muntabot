@@ -8,33 +8,58 @@ import rehearsal.Rehearsal
 object Muntabot extends App:
   val page = "#muntabot"
   val title = "muntabot"
+
+  val MaxWeek = 10
+
+  var untilWeek = MaxWeek 
+
+  def weekInput =
+    document.getElementById("week-input").asInstanceOf[dom.html.Input]
+
   def setupUI(): Unit =
     val containerElement = Document.appendDynamicContainer()
 
+    Document.appendText(
+      containerElement,
+      "p",
+      "Slumpa en fråga i taget till och med läsvecka:"
+    )
+
+    Document.appendInput(containerElement, "Ange heltal max vecka (1-10)", "week-input") {
+      untilWeek = 
+        weekInput.value.trim.filter(_.isDigit).toIntOption.getOrElse(MaxWeek)
+      weekInput.value = untilWeek.toString
+    }
+    
     Document.appendLinkToApp(
       containerElement,
       Rehearsal,
-      "Alla frågor"
+      "Spojla alla frågor"
     )
+
+    
+    val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
+    showText.textContent = "Klicka på knapparna ovan så får du en uppgift."
+
+
+    for questionType <- Questions.types do
+      Document.appendButton(containerElement, questionType.title) {
+        showText.textContent =
+          questionType.getQuestion(questionType.pickAnyQuestion(untilWeek, questionType))
+
+        if untilWeek < 1 || untilWeek > MaxWeek 
+        then 
+          untilWeek = MaxWeek
+          weekInput.value = untilWeek.toString
+
+        weekInput.value = untilWeek.toString
+      }
 
     Document.appendText(
       containerElement,
       "p",
       "Hjälpmedel: papper, penna, REPL, snabbreferens."
-    )
-    Document.appendText(
-      containerElement,
-      "p",
-      "Alla labbbar ska vara godkända innan muntliga provet."
-    )
+      )
 
-    val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
-    showText.textContent = "Klicka på knapparna så får du en uppgift."
-
-    for questionType <- Questions.types do
-      Document.appendButton(containerElement, questionType.title) {
-        showText.textContent =
-          questionType.getQuestion(questionType.pickAnyQuestion)
-      }
 
     containerElement.appendChild(showText)

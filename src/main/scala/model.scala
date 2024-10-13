@@ -3,6 +3,7 @@ package shared
 import util.Random.nextInt as rnd
 
 case class Week(w: Int)
+
 object Week:
   private val titles: Map[Int, String] =
     Map(
@@ -22,15 +23,6 @@ object Week:
 val countOf = collection.mutable.Map.empty[Any, Int].withDefaultValue(0)
 def reg(a: Any): Unit = countOf(a) += 1
 
-extension [T](xs: Seq[T])
-  def pick: T =
-    val counts: Seq[Int] = xs.map(countOf)
-    val min = counts.minOption.getOrElse(0)
-    val leastUsed = for i <- xs.indices if counts(i) == min yield xs(i)
-    val result = leastUsed(rnd(leastUsed.length))
-    reg(result)
-    result
-
 abstract class Question(cs: Vector[String | (String, String)]):
   def foreach = cs.foreach
   val title: String
@@ -45,10 +37,27 @@ abstract class Questions:
 
   def punctuation: Char = '?'
 
-  def pickAnyQuestion: String | (String, String) = all.pick
+  def pickAnyQuestion(toWeek: Int, tpe: Questions): String | (String, String) = 
+    val termsToWeekOfType: Seq[String | (String, String)] = 
+      val resultNested = for (Week(w), q) <- terms if w <= toWeek && q.title == tpe.title yield 
+        q match
+          case xs: Concepts => xs.cs
+          case xs: Contrasts => xs.cs
+          case xs: Code => xs.cs
+      resultNested.flatten
+    if termsToWeekOfType.isEmpty then s"SORRY: Muntabotten har ingen sådan fråga till vecka $toWeek"
+    else 
+      val counts: Seq[Int] = termsToWeekOfType.map(countOf)
+      val minCount: Int = counts.minOption.getOrElse(0)
+      val leastUsed = 
+        for i <- termsToWeekOfType.indices if counts(i) == minCount 
+        yield termsToWeekOfType(i)
+      val result = leastUsed(rnd(leastUsed.length))
+      reg(result)
+      result
 
   def getQuestion(question: String | (String, String)): String =
-    s"$questionToAsk\n$question$punctuation\n\n$instruction"
+    s"$title: $questionToAsk\n$question$punctuation\n\n$instruction"
 
   def getShortQuestion(question: String | (String, String)): String =
     s"$questionToAsk ${question.toString.toUpperCase}$punctuation"

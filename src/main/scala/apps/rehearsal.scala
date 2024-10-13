@@ -40,7 +40,7 @@ object Rehearsal extends App:
   def setupCommonComponents(): dom.Element =
     val containerElement = Document.appendDynamicContainer()
 
-    Document.appendLinkToApp(containerElement, Muntabot, "Slumpa frågor")
+    Document.appendLinkToApp(containerElement, Muntabot, "Slumpa en fråga i taget")
 
     Document.appendText(
       containerElement,

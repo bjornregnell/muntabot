@@ -24,6 +24,12 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "var" -> "val", 
     "kompileringsfel" -> "körtidsfel", 
   ),
+  Week(1) -> Code(
+    "ett uttryck som räknar ut cirkelarean givet radien av r",
+    "ett booleskt uttryck som är sant om x är större än noll eller x är mindre än -42",
+    "en repetition som skriver ut de första 42 heltalen",
+    "en funktion isEven(n: Int) som är sann om n är ett jämt tal",
+  ),
   Week(2) -> Concepts(
     "for-uttryck",
     "samlingsmetoden map",
