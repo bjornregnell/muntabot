@@ -77,7 +77,7 @@ object Contrasts extends Questions:
   val title = "Jämför koncept"
   val questionToAsk = "Vad finns det för skillnader och likheter mellan"
   val instruction =
-    "Ge exempel på normal eller felaktig/konstig användning som belyser skillnader/likheter."
+    "Ge exempel på normal eller felaktig/konstig användning som belyser skillnader/likheter. Förklara varför koncepten finns och vad de ska vara bra till."
 
   lazy val all = (for case (w, t: Contrasts) <- terms yield t).map(_.cs).flatten
 
