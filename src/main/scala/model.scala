@@ -51,7 +51,7 @@ abstract class Questions:
     s"$questionToAsk\n$question$punctuation\n\n$instruction"
 
   def getShortQuestion(question: String | (String, String)): String =
-    s"$questionToAsk $question$punctuation"
+    s"$questionToAsk ${question.toString.toUpperCase}$punctuation"
 
 object Questions:
   val types: Vector[Questions] = Vector(Concepts, Contrasts, Code)
