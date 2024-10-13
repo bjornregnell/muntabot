@@ -64,7 +64,7 @@ case class Concepts(cs: String*) extends Question(cs.toVector):
 object Concepts extends Questions:
   val title = "Förklara koncept"
   val questionToAsk = "Vad menas med"
-  val instruction = "Ge exempel på normal och felaktig/konstig användning."
+  val instruction = "Ge exempel på normal och felaktig/konstig användning. Förklara varför/när konceptet är bra att ha."
 
   lazy val all = (for case (w, t: Concepts) <- terms yield t).map(_.cs).flatten
 
