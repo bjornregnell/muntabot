@@ -14,7 +14,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
   Week(4) -> Contrasts("värdeanrop" -> "namnanrop", "val" -> "lazy val", "def" -> "lazy val"),
   Week(5) -> Concepts("klass", "attribut", "fabriksmetod", "instansiering", "tillstånd", "klassparameter", "kompanjonsobjekt", "nyckelordet this", "strängrepresentation"),
   Week(5) -> Contrasts("funktion" -> "metod", "klass" -> "case-klass", "singelobjekt" -> "klass", "getter" -> "setter", "referenslikhet" -> "innehållslikhet"),
-  Week(6) -> Concepts("mönstermatchning", "undantag", "konstruktormönster", "Option", "Try"),
+  Week(6) -> Concepts("mönstermatchning", "undantag", "konstruktormönster", "Option", "Try", "sealed trait"),
   Week(7) -> Contrasts("ArrayBuffer" -> "Array", "förändringsbar samling" -> "oföränderlig samling"),
   Week(7) -> Code("en funktion som linjärsöker efter en instans av klassen Person\nmed ett visst efternamn i en osorterad sekvens av personer\nmed hjälp av en while (och inte find/indexOf)"),
   Week(7) -> Concepts("matris", "nästlad struktur", "typparameter", "generisk funktion"),
