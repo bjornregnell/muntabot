@@ -121,7 +121,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "förändringsbar samling" -> "oföränderlig samling",
   ),
   Week(7) -> Code(
-    "en funktion som linjärsöker efter en instans av klassen Person\nmed ett visst efternamn i en osorterad sekvens av personer\nmed hjälp av en while (och inte find/indexOf)",
+    "en funktion som linjärsöker efter en instans av klassen Person\nmed ett visst efternamn i en osorterad sekvens av personer\nmed hjälp av en while (och inte find/indexOf).\n Funktionens returtyp ska vara Option",
   ),
   Week(7) -> Code(
     "ett program som registrerar 1000 tärningskast i en Array",
