@@ -16,7 +16,7 @@ Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](http
 
 * The build creates `main.js` that is consumed by `index.html`, which in turn needs the `style.css` file for formatting.
 
-* While hacking type `~fastLinkJS` in `sbt` and open/reload the `dev/index-dev.html` file in your browser.
+* While developing type `~fastLinkJS` in `sbt` and open/reload the `dev/index-dev.html` file in your browser.
 
 * If you are using a sand-boxed browser (e.g. Firefox installed as a snap) then local files are opened as something similar to `file:///run/user/1000/doc/ad1d72e5/index.html` which means that the index.html-page cannot access the accompanying local files main.js and style.css so you need to explicitly type the correct path in the URL field using something similar to  `file:///home/user/project/dev/index.html#muntabot` where you change the user and project in the path to where the files are located. Note the trippel slashes `///`
 
