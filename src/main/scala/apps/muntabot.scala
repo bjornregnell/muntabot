@@ -26,9 +26,16 @@ object Muntabot extends App:
     )
 
     Document.appendInput(containerElement, "Ange heltal max vecka (1-10)", "week-input") {
-      untilWeek = 
-        weekInput.value.trim.filter(_.isDigit).toIntOption.getOrElse(MaxWeek)
-      weekInput.value = untilWeek.toString
+      val newInput = weekInput.value
+
+      if newInput == "" then
+        untilWeek = MaxWeek
+      else 
+        val toWeek = newInput.trim.filter(_.isDigit).toIntOption.getOrElse(MaxWeek)
+        untilWeek = MaxWeek.min(toWeek)
+        weekInput.value = untilWeek.toString
+      end if
+      
     }
     
     Document.appendLinkToApp(

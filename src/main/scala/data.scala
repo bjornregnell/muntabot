@@ -131,7 +131,9 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "förseglad (sealed) typhierarki" -> "ej förseglad typhierarki",
   ),
   Week(7) -> Code(
-    "en funktion som linjärsöker efter en instans av klassen Person\nmed ett visst efternamn i en osorterad sekvens av personer\nmed hjälp av en while (och inte find/indexOf)",
+    "en funktion som linjärsöker efter en instans av klassen Person\nmed ett visst efternamn i en osorterad sekvens av personer\nmed hjälp av en while (och inte find/indexOf).\n Funktionens returtyp ska vara Option",
+  ),
+  Week(7) -> Code(
     "ett program som registrerar 1000 tärningskast i en Array",
     "en funktion copy som kopierar en Array med heltal\nelement för element till en ny Array\nsom använder en while-sats i implementationen",
     "en funktion insert som givet en Array med heltal\nstoppar in ett element på en viss plats\nsom använder en while-sats i implementationen",

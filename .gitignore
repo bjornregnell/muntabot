@@ -18,3 +18,5 @@ package-lock.json
 package.json
 
 public/main.js
+
+.DS_Store
