@@ -111,6 +111,9 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "Option",
     "Try",
   ),
+  Week(6) -> Contrasts(
+    "Try" -> "try-catch",
+  ),
   Week(7) -> Concepts(
     "pseudokod",
     "sekvensalgoritm",
