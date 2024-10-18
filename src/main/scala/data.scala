@@ -111,6 +111,9 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "Option",
     "Try",
   ),
+  Week(6) -> Code(
+    "En try-catch metod som hälften av gångerna printar strängen scala\noch hälften av gångerna kastar ett Exception, som fångas,\n samt printar strängen java.Metoden ska ha en parameter\nsom bestämmer antalet gånger den ska köras",
+  ),
   Week(7) -> Concepts(
     "pseudokod",
     "sekvensalgoritm",
