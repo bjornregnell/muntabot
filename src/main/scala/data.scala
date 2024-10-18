@@ -41,6 +41,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "pseudokod" -> "exekverbar implementation", 
     "parameter" -> "argument", 
     "returtyp" -> "parametertyp",
+    "for-do" -> "for-yield", 
   ),
   Week(2) -> Code(
     "en funktion som ger minsta heltalet i en heltalssekvens,\nutan att använda inbyggda min",
