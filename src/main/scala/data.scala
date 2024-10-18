@@ -80,6 +80,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "import",
     "punktnotation",
     "extensionsmetod",
+    "classpath",
   ),
   Week(4) -> Contrasts(
     "värdeanrop" -> "namnanrop",
