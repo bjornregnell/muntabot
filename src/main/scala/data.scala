@@ -23,7 +23,9 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "def" -> "val", 
     "var" -> "val", 
     "kompileringsfel" -> "körtidsfel", 
+    "Char" -> "String", 
     "källkod" -> "maskinkod", 
+    "Char" -> "String", 
   ),
   Week(1) -> Code(
     "ett uttryck som räknar ut cirkelarean givet radien av r",
