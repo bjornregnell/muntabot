@@ -125,7 +125,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "enumeration",
     "linjärsökning",
     "insättningssortering",
-    "repeterade parametrar",
+    "repeterade parametrar", 
   ),
   Week(7) -> Contrasts(
     "ArrayBuffer" -> "Array",
@@ -133,6 +133,7 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "transformering till ny sekvens" -> "transformering på plats",
     "uppräknade värden med heltal" -> "uppräknade värden med enum",
     "förseglad (sealed) typhierarki" -> "ej förseglad typhierarki",
+    "List" -> "ListBuffer",
   ),
   Week(7) -> Code(
     "en funktion som linjärsöker efter en instans av klassen Person\nmed ett visst efternamn i en osorterad sekvens av personer\nmed hjälp av en while (och inte find/indexOf).\n Funktionens returtyp ska vara Option",
