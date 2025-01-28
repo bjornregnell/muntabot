@@ -26,15 +26,17 @@ Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](http
 
 ## Bump versions
 
-* When bumping versions: DON'T FORGET to update versions here:
+* Bump version of muntabot here: `public/index.html` 
+
+* When bumping scala version: DON'T FORGET to update versions here:
   * Scala version:
     * `build.sbt`
     * `dev/index-dev.html`
     * `publish.sh`
 
-  * When bumping lib versions och scalajs-dom: `build.sbt`
-  * When bumping scalajs plugin: `project/plugins.sbt`
-  * When bumping sbt version:  `project/build.properties`
+  * When bumping lib versions och scalajs-dom update: `build.sbt`
+  * When bumping scalajs plugin update: `project/plugins.sbt`
+  * When bumping sbt version update:  `project/build.properties`
 
 ## Build for production
 
