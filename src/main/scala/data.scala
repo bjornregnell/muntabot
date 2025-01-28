@@ -168,7 +168,8 @@ lazy val terms = Seq[(Week, Concepts | Contrasts | Code)](
     "nyckel-värde-tabell" -> "sekvens",
   ),
   Week(9) -> Code(
-    "en funktion som läser in rader med efternamn och förnamn från en textfil\noch skapar en sekvens av instanser av case-klassen Person",
+    "en funktion readPersonSet som läser in rader med kommaseparerade efternamn och förnamn från en textfil\noch skapar en mängd av instanser av case-klassen Person och kastar ett undantag om det finns dubbletter",
+    "en funktion readPersonMap som läser in rader med kommaseparerade efternamn och förnamn och personnummer från en textfil\noch skapar en nyckel-värde-tabell med personnummer av typen Long som nyckel och instanser av case-klassen Person som värde",
   ),
   Week(10) -> Concepts(
     "arv",
