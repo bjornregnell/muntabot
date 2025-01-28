@@ -1,7 +1,7 @@
 enablePlugins(ScalaJSPlugin)
 
 name := "muntabot"
-scalaVersion := "3.5.1" // or any other Scala version >= 2.11.12
+scalaVersion := "3.6.3"
 
 // This is an application with a main method
 scalaJSUseMainModuleInitializer := true
