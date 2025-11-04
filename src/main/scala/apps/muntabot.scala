@@ -25,7 +25,7 @@ object Muntabot extends App:
       "Slumpa en fråga i taget till och med läsvecka:"
     )
 
-    Document.appendInput(containerElement, "Ange heltal max vecka (1-10)", "week-input") {
+    Document.appendInput(containerElement, "Ange heltal (1-10)", "week-input") {
       val newInput = weekInput.value
 
       if newInput == "" then
