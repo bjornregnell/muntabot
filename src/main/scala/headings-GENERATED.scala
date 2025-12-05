@@ -1,6 +1,6 @@
 package shared
 
-  def headingsWithPageAndLevel: Seq[(String, Int, Int)] = Seq(
+  lazy val headingsWithPageAndLevel: Seq[(String, Int, Int)] = Seq(
     ("Framstegsprotokoll", 3, 1),
     ("Förord", 5, 1),
     ("I Om kursen", 28, 1),
