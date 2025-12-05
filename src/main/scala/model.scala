@@ -126,3 +126,10 @@ object Code extends Questions:
     question match
       case question: (String, String) => s"${questionToAsk}:\n${question._1}39d2c101a1a9746c5e54da6ba6a4ed48${question._2}" // Random hash to split at
       case _ => "unexpected"
+
+  override def getShortQuestion(
+      question: String | (String, String)
+  ): String | (String, String) =
+    question match
+      case question: (String, String) => s"$questionToAsk ${question._1.toString.toUpperCase}$punctuation"
+      case _ => "unexpected"
