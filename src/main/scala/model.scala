@@ -129,7 +129,7 @@ object Code extends Questions:
 
   override def getShortQuestion(
       question: String | (String, String)
-  ): String =
+  ): String | (String, String) =
     question match
-      case question: (String, String) => s"${questionToAsk}:\n${question._1}"
+      case question: (String, String) => s"$questionToAsk ${question._1.toString.toUpperCase}$punctuation"
       case _ => "unexpected"
