@@ -47,10 +47,15 @@ object Muntabot extends App:
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
     showText.textContent = "Klicka på knapparna ovan så får du en uppgift."
 
-    val showHelp = document.createElement("a").asInstanceOf[dom.html.Anchor]
-    showHelp.href = ""
-    showHelp.textContent = ""
-    showHelp.target = "_blank" // Opens in new window
+    val showInfo = document.createElement("a").asInstanceOf[dom.html.Anchor]
+    showInfo.href = ""
+    showInfo.textContent = ""
+    showInfo.target = "_blank" // Opens in new window
+
+    val showExercise = document.createElement("a").asInstanceOf[dom.html.Anchor]
+    showExercise.href = ""
+    showExercise.textContent = ""
+    showExercise.target = "_blank" // Opens in new window
 
     for questionType <- Questions.types do
       Document.appendButton(containerElement, questionType.title) {
@@ -66,14 +71,14 @@ object Muntabot extends App:
           showText.textContent = contents(0)
 
           if contents.length > 1 then
-            showHelp.href = contents(1)
-            showHelp.textContent = "Visa information från kursboken"
+            showInfo.href = contents(1)
+            showInfo.textContent = "Visa information från kursboken"
           else
-            showHelp.textContent = ""
-            showHelp.href = ""
+            showInfo.textContent = ""
+            showInfo.href = ""
         else
-          showHelp.textContent = ""
-          showHelp.href = ""
+          showInfo.textContent = ""
+          showInfo.href = ""
 
           showText.textContent = questionType.getQuestion(
             questionType.pickAnyQuestion(untilWeek, questionType)
@@ -93,4 +98,4 @@ object Muntabot extends App:
     )
 
     containerElement.appendChild(showText)
-    containerElement.appendChild(showHelp)
+    containerElement.appendChild(showInfo)
