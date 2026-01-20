@@ -97,11 +97,32 @@ object Rehearsal extends App:
     Document.appendText(contentElement, "h2", "Sökresultat:")
     for searchable <- searchables do
       if (searchable.toLowerCase.contains(searchTerm.toLowerCase)) then
-        Document.appendText(
-          contentElement,
-          "p",
-          searchable
-        )
+        if (
+          searchable.contains(
+            "~"
+          )
+        ) then // Hash string to split at
+
+          val fullString = searchable.split("~")
+          Document.appendText(
+            contentElement,
+            "p",
+            s"${fullString(0)}"
+          )
+
+          if fullString.length > 1 then
+            val linkElement =
+              document.createElement("a").asInstanceOf[dom.html.Anchor]
+            linkElement.href = fullString(1)
+            linkElement.textContent = "Information från kursboken"
+            linkElement.target = "_blank"
+            contentElement.appendChild(linkElement)
+        else
+          Document.appendText(
+            contentElement,
+            "p",
+            searchable
+          )
 
   def perCategory(): Unit =
     val contentElement =
@@ -117,8 +138,9 @@ object Rehearsal extends App:
             .getQuestion(question)
             .split("39d2c101a1a9746c5e54da6ba6a4ed48")
           val questionString = s"$number. ${fullString(0)}"
+          val searchString = s"$questionString~${fullString(1)}"
 
-          searchables.append(questionString)
+          searchables.append(searchString)
           Document.appendText(
             contentElement,
             "p",
@@ -166,8 +188,9 @@ object Rehearsal extends App:
               .getQuestion(question)
               .split("39d2c101a1a9746c5e54da6ba6a4ed48")
             val questionString = s"$number. ${fullString(0)}"
+            val searchString = s"$questionString~${fullString(1)}"
 
-            searchables.append(questionString)
+            searchables.append(searchString)
             Document.appendText(
               contentElement,
               "p",
