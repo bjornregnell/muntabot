@@ -52,11 +52,6 @@ object Muntabot extends App:
     showInfo.textContent = ""
     showInfo.target = "_blank" // Opens in new window
 
-    val showExercise = document.createElement("a").asInstanceOf[dom.html.Anchor]
-    showExercise.href = ""
-    showExercise.textContent = ""
-    showExercise.target = "_blank" // Opens in new window
-
     for questionType <- Questions.types do
       Document.appendButton(containerElement, questionType.title) {
         if questionType == Code then
