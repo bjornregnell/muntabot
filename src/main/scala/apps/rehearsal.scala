@@ -40,7 +40,11 @@ object Rehearsal extends App:
   def setupCommonComponents(): dom.Element =
     val containerElement = Document.appendDynamicContainer()
 
-    Document.appendLinkToApp(containerElement, Muntabot, "Slumpa en fråga i taget")
+    Document.appendLinkToApp(
+      containerElement,
+      Muntabot,
+      "Slumpa en fråga i taget"
+    )
 
     Document.appendText(
       containerElement,
@@ -93,11 +97,32 @@ object Rehearsal extends App:
     Document.appendText(contentElement, "h2", "Sökresultat:")
     for searchable <- searchables do
       if (searchable.toLowerCase.contains(searchTerm.toLowerCase)) then
-        Document.appendText(
-          contentElement,
-          "p",
-          searchable
-        )
+        if (
+          searchable.contains(
+            "~"
+          )
+        ) then // Hash string to split at
+
+          val fullString = searchable.split("~")
+          Document.appendText(
+            contentElement,
+            "p",
+            s"${fullString(0)}"
+          )
+
+          if fullString.length > 1 then
+            val linkElement =
+              document.createElement("a").asInstanceOf[dom.html.Anchor]
+            linkElement.href = fullString(1)
+            linkElement.textContent = "Information från kursboken"
+            linkElement.target = "_blank"
+            contentElement.appendChild(linkElement)
+        else
+          Document.appendText(
+            contentElement,
+            "p",
+            searchable
+          )
 
   def perCategory(): Unit =
     val contentElement =
@@ -107,16 +132,40 @@ object Rehearsal extends App:
     var number = 1
     for questionType <- Questions.types do
       Document.appendText(contentElement, "h3", questionType.title)
-      for question <- questionType.all do
-        val questionString =
-          s"$number. ${questionType.getShortQuestion(question)}"
-        searchables.append(questionString)
-        Document.appendText(
-          contentElement,
-          "p",
-          questionString
-        )
-        number += 1
+      if questionType == Code then
+        for question <- questionType.all do
+          val fullString = questionType
+            .getQuestion(question)
+            .split("39d2c101a1a9746c5e54da6ba6a4ed48")
+          val questionString = s"$number. ${fullString(0)}"
+          val searchString = s"$questionString~${fullString(1)}"
+
+          searchables.append(searchString)
+          Document.appendText(
+            contentElement,
+            "p",
+            questionString
+          )
+
+          if fullString.length > 1 then
+            val linkElement =
+              document.createElement("a").asInstanceOf[dom.html.Anchor]
+            linkElement.href = fullString(1)
+            linkElement.textContent = "Information från kursboken"
+            linkElement.target = "_blank"
+            contentElement.appendChild(linkElement)
+          number += 1
+      else
+        for question <- questionType.all do
+          val questionString =
+            s"$number. ${questionType.getShortQuestion(question)}"
+          searchables.append(questionString)
+          Document.appendText(
+            contentElement,
+            "p",
+            questionString
+          )
+          number += 1
 
   def perWeek(): Unit =
     val contentElement =
@@ -133,12 +182,37 @@ object Rehearsal extends App:
       )
       for term <- thisWeek do
         Document.appendText(contentElement, "h3", term._2.title)
-        for question <- term._2 do
-          val questionString = s"$number. ${term._2.getShortQuestion(question)}"
-          searchables.append(questionString)
-          Document.appendText(
-            contentElement,
-            "p",
-            questionString
-          )
-          number += 1
+        if term._2.isInstanceOf[Code] then
+          for question <- term._2 do
+            val fullString = term._2
+              .getQuestion(question)
+              .split("39d2c101a1a9746c5e54da6ba6a4ed48")
+            val questionString = s"$number. ${fullString(0)}"
+            val searchString = s"$questionString~${fullString(1)}"
+
+            searchables.append(searchString)
+            Document.appendText(
+              contentElement,
+              "p",
+              questionString
+            )
+
+            if fullString.length > 1 then
+              val linkElement =
+                document.createElement("a").asInstanceOf[dom.html.Anchor]
+              linkElement.href = fullString(1)
+              linkElement.textContent = "Information från kursboken"
+              linkElement.target = "_blank"
+              contentElement.appendChild(linkElement)
+            number += 1
+        else
+          for question <- term._2 do
+            val questionString =
+              s"$number. ${term._2.getShortQuestion(question)}"
+            searchables.append(questionString)
+            Document.appendText(
+              contentElement,
+              "p",
+              questionString
+            )
+            number += 1

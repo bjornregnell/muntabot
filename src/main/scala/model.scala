@@ -30,6 +30,9 @@ abstract class Question(cs: Vector[String | (String, String)]):
   def getShortQuestion(
       question: String | (String, String)
   ): String | (String, String)
+  def getQuestion(
+      question: String | (String, String)
+  ): String
 
 abstract class Questions:
   val title: String
@@ -81,6 +84,8 @@ case class Concepts(cs: String*) extends Question(cs.toVector):
       question: String | (String, String)
   ): String | (String, String) =
     Concepts.getShortQuestion(question)
+
+  def getQuestion(question: String | (String, String)): String = Concepts.getQuestion(question)
 object Concepts extends Questions:
   val title = "Förklara koncept"
   val questionToAsk = "Vad menas med"
@@ -96,6 +101,8 @@ case class Contrasts(cs: (String, String)*) extends Question(cs.toVector):
       question: String | (String, String)
   ): String | (String, String) =
     Contrasts.getShortQuestion(question)
+
+  def getQuestion(question: String | (String, String)): String = Contrasts.getQuestion(question)
 object Contrasts extends Questions:
   val title = "Jämför koncept"
   val questionToAsk = "Vad finns det för skillnader och likheter mellan"
@@ -111,6 +118,8 @@ case class Code(cs: (String, String)*) extends Question(cs.toVector):
       question: String | (String, String)
   ): String | (String, String) =
     Code.getShortQuestion(question)
+
+  def getQuestion(question: String | (String, String)): String = Code.getQuestion(question)
 object Code extends Questions:
   val title = "Skriv kod"
   val questionToAsk: String =
