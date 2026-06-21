@@ -70,12 +70,18 @@ object Muntabot extends App:
               s"<em>${Markup.escapeHtml(qt.instruction)}</em>"
 
     for questionType <- Questions.types do
-      Document.appendButton(containerElement, questionType.title) {
+      val button = Document.appendButton(containerElement, questionType.title) {
         renderQuestion(
           questionType,
           questionType.pickAnyQuestion(untilWeek, questionType)
         )
       }
+      button.classList.add(questionType match
+        case Concepts  => "btn-green"
+        case Contrasts => "btn-yellow"
+        case Code      => "btn-red"
+        case _         => "button"
+      )
 
     containerElement.appendChild(showText)
     containerElement.appendChild(showHelp)

@@ -76,8 +76,21 @@ select {
   background: rgba(255, 255, 255, 0.65);
   cursor: pointer;
 }
+button {
+  font-weight: bold;
+}
+/* quest-type button colors (green / yellow / red) */
+.btn-green {
+  background: #79c879;
+}
+.btn-yellow {
+  background: #f2d24e;
+}
+.btn-red {
+  background: #ec8278;
+}
 button:hover:not(:disabled) {
-  background: #fff;
+  filter: brightness(1.08);
 }
 button:disabled {
   opacity: 0.55;
