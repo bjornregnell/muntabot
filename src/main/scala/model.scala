@@ -41,19 +41,20 @@ abstract class Questions:
   def punctuation: Char = '?'
 
   def pickAnyQuestion(
+      fromWeek: Int,
       toWeek: Int,
       tpe: Questions
   ): String | (String, String) =
     val termsToWeekOfType: Seq[String | (String, String)] =
       val resultNested = for
-        (Week(w), q) <- terms if w <= toWeek && q.title == tpe.title
+        (Week(w), q) <- terms if w >= fromWeek && w <= toWeek && q.title == tpe.title
       yield q match
         case xs: Concepts  => xs.cs
         case xs: Contrasts => xs.cs
         case xs: Code      => xs.cs
       resultNested.flatten
     if termsToWeekOfType.isEmpty then
-      s"SORRY: Muntabotten har ingen sådan fråga till vecka $toWeek"
+      s"SORRY: Muntabotten har ingen sådan fråga för läsvecka $fromWeek–$toWeek"
     else
       val counts: Seq[Int] = termsToWeekOfType.map(countOf)
       val minCount: Int = counts.minOption.getOrElse(0)
