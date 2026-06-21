@@ -56,8 +56,9 @@ object Muntabot extends App:
                 s"<b>${Markup.escapeHtml(qt.questionToAsk)}:</b>\n" +
                   Markup.render(desc) + "\n\n" +
                   s"<em>${Markup.escapeHtml(qt.instruction)}</em>"
-              showHelp.href = url
-              showHelp.textContent = "Visa information från kursboken"
+              val (href, linkText) = Compendium.link(url)
+              showHelp.href = href
+              showHelp.textContent = linkText
             case _ => showText.textContent = q.toString
         case _ =>
           showHelp.textContent = ""
