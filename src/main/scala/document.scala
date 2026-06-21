@@ -48,6 +48,18 @@ object Document:
     targetNode.appendChild(textElement)
     textElement
 
+  /** Like appendText but interprets `markup` as HTML (e.g. Markup.render output:
+    * <code> for code spans, <b> for Scala keywords). Caller must pass safe HTML. */
+  def appendHtml(
+      targetNode: dom.Node,
+      tagName: String,
+      markup: String
+  ): dom.Element =
+    val el = document.createElement(tagName)
+    el.innerHTML = markup
+    targetNode.appendChild(el)
+    el
+
   def appendLinkToApp(
       targetNode: dom.Node,
       app: App,

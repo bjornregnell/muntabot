@@ -93,10 +93,10 @@ object Rehearsal extends App:
     Document.appendText(contentElement, "h2", "Sökresultat:")
     for searchable <- searchables do
       if (searchable.toLowerCase.contains(searchTerm.toLowerCase)) then
-        Document.appendText(
+        Document.appendHtml(
           contentElement,
           "p",
-          searchable
+          Markup.render(searchable)
         )
 
   def perCategory(): Unit =
@@ -111,10 +111,10 @@ object Rehearsal extends App:
         val questionString =
           s"$number. ${questionType.getShortQuestion(question)}"
         searchables.append(questionString)
-        Document.appendText(
+        Document.appendHtml(
           contentElement,
           "p",
-          questionString
+          Markup.render(questionString)
         )
         number += 1
 
@@ -136,9 +136,9 @@ object Rehearsal extends App:
         for question <- term._2 do
           val questionString = s"$number. ${term._2.getShortQuestion(question)}"
           searchables.append(questionString)
-          Document.appendText(
+          Document.appendHtml(
             contentElement,
             "p",
-            questionString
+            Markup.render(questionString)
           )
           number += 1

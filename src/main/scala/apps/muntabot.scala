@@ -63,7 +63,7 @@ object Muntabot extends App:
               "39d2c101a1a9746c5e54da6ba6a4ed48"
             ) // Random hash to split at, see model.scala
 
-          showText.textContent = contents(0)
+          showText.innerHTML = Markup.render(contents(0))
 
           if contents.length > 1 then
             showHelp.href = contents(1)
@@ -75,8 +75,10 @@ object Muntabot extends App:
           showHelp.textContent = ""
           showHelp.href = ""
 
-          showText.textContent = questionType.getQuestion(
-            questionType.pickAnyQuestion(untilWeek, questionType)
+          showText.innerHTML = Markup.render(
+            questionType.getQuestion(
+              questionType.pickAnyQuestion(untilWeek, questionType)
+            )
           )
 
           if untilWeek < 1 || untilWeek > MaxWeek then

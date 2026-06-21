@@ -2,8 +2,12 @@ html,
 body {
   background-color: pink;
   line-height: 1.2;
-  font-family: "Lucida Console", Monaco, monospace;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
   max-width: 100vw;
+}
+/* monospace only on actual code */
+code {
+  font-family: "Lucida Console", Monaco, monospace;
 }
 body {
   padding: 1rem;
@@ -22,6 +26,7 @@ button {
 }
 pre {
   white-space: pre-line;
+  font-family: inherit;
 }
 h1 {
   font-size: clamp(1.5rem, 2vw, 3rem);
