@@ -69,7 +69,7 @@ abstract class Questions:
   def getShortQuestion(
       question: String | (String, String)
   ): String | (String, String) =
-    s"$questionToAsk ${question.toString.toUpperCase}$punctuation"
+    s"$questionToAsk ${question.toString}$punctuation"
 
 object Questions:
   val types: Vector[Questions] = Vector(Concepts, Contrasts, Code)
@@ -131,5 +131,5 @@ object Code extends Questions:
       question: String | (String, String)
   ): String | (String, String) =
     question match
-      case question: (String, String) => s"$questionToAsk ${question._1.toString.toUpperCase}$punctuation"
+      case question: (String, String) => s"$questionToAsk ${question._1.toString}$punctuation"
       case _ => "unexpected"
