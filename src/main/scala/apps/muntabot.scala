@@ -40,10 +40,7 @@ object Muntabot extends App:
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
     showText.textContent = "Klicka på knapparna ovan så får du en uppgift."
 
-    val showHelp = document.createElement("a").asInstanceOf[dom.html.Anchor]
-    showHelp.href = ""
-    showHelp.textContent = ""
-    showHelp.target = "_blank" // Opens in new window
+    val showHelp = document.createElement("p")
 
     // Render one question into showText/showHelp as structured HTML:
     // bold label, the question (code rendered via Markup), italic guidance.
@@ -57,12 +54,11 @@ object Muntabot extends App:
                   Markup.render(desc) + "\n\n" +
                   s"<em>${Markup.escapeHtml(qt.instruction)}</em>"
               val (href, linkText) = Compendium.link(url)
-              showHelp.href = href
-              showHelp.textContent = linkText
+              showHelp.innerHTML =
+                s"""Läs i kompendiet om: <a href="$href" target="_blank">${Markup.escapeHtml(linkText)}</a>"""
             case _ => showText.textContent = q.toString
         case _ =>
-          showHelp.textContent = ""
-          showHelp.href = ""
+          showHelp.innerHTML = ""
           showText.innerHTML =
             s"<b>${Markup.escapeHtml(qt.title)}:</b> " +
               s"${Markup.escapeHtml(qt.questionToAsk)}\n" +
