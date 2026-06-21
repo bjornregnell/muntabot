@@ -77,12 +77,6 @@ object Muntabot extends App:
         )
       }
 
-    Document.appendHtml(
-      containerElement,
-      "p",
-      "<b>Hjälpmedel:</b> papper, penna, REPL, snabbreferens."
-    )
-
     containerElement.appendChild(showText)
     containerElement.appendChild(showHelp)
 
@@ -94,6 +88,13 @@ object Muntabot extends App:
         "<a href=\"https://fileadmin.cs.lth.se/pgk/compendium.pdf\">kompendiet;-1.7:anvisningar;muntligt prov</a>" +
         " OCH " +
         "<a href=\"https://fileadmin.cs.lth.se/pgk/lect-w12.pdf\">föreläsn. w12</a>"
+    )
+
+    Document.appendHtml(
+      containerElement,
+      "p",
+      "Hjälpmedel vid skarp munta: papper, penna, " +
+        "<a href=\"https://fileadmin.cs.lth.se/pgk/quickref.pdf\">snabbreferensen</a>."
     )
 
     Document.appendLinkToApp(
