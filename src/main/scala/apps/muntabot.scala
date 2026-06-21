@@ -86,6 +86,16 @@ object Muntabot extends App:
     containerElement.appendChild(showText)
     containerElement.appendChild(showHelp)
 
+    // Moved here from index.html so the question shows higher up (less scroll on mobile).
+    Document.appendHtml(
+      containerElement,
+      "p",
+      "Läs om muntan i " +
+        "<a href=\"https://fileadmin.cs.lth.se/pgk/compendium.pdf\">kompendiet;-1.7:anvisningar;muntligt prov</a>" +
+        " OCH " +
+        "<a href=\"https://fileadmin.cs.lth.se/pgk/lect-w12.pdf\">föreläsn. w12</a>"
+    )
+
     Document.appendLinkToApp(
       containerElement,
       Rehearsal,
