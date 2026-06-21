@@ -37,12 +37,6 @@ object Muntabot extends App:
       untilWeek = weekSelect.value.toIntOption.getOrElse(MaxWeek)
     weekParagraph.appendChild(weekSelect)
 
-    Document.appendLinkToApp(
-      containerElement,
-      Rehearsal,
-      "Spojla alla frågor"
-    )
-
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
     showText.textContent = "Klicka på knapparna ovan så får du en uppgift."
 
@@ -90,3 +84,9 @@ object Muntabot extends App:
 
     containerElement.appendChild(showText)
     containerElement.appendChild(showHelp)
+
+    Document.appendLinkToApp(
+      containerElement,
+      Rehearsal,
+      "Spojla alla frågor"
+    )
