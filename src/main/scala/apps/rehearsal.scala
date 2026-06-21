@@ -108,13 +108,13 @@ object Rehearsal extends App:
     for questionType <- Questions.types do
       Document.appendText(contentElement, "h3", questionType.title)
       for question <- questionType.all do
-        val questionString =
-          s"$number. ${questionType.getShortQuestion(question)}"
-        searchables.append(questionString)
+        // full prompt kept for search; the displayed line shows just the item
+        // (the prompt is implied by the category heading above).
+        searchables.append(s"$number. ${questionType.getShortQuestion(question)}")
         Document.appendHtml(
           contentElement,
           "p",
-          Markup.render(questionString)
+          Markup.render(s"$number. ${questionType.shortItem(question)}")
         )
         number += 1
 
@@ -134,11 +134,10 @@ object Rehearsal extends App:
       for term <- thisWeek do
         Document.appendText(contentElement, "h3", term._2.title)
         for question <- term._2 do
-          val questionString = s"$number. ${term._2.getShortQuestion(question)}"
-          searchables.append(questionString)
+          searchables.append(s"$number. ${term._2.getShortQuestion(question)}")
           Document.appendHtml(
             contentElement,
             "p",
-            Markup.render(questionString)
+            Markup.render(s"$number. ${term._2.shortItem(question)}")
           )
           number += 1

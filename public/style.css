@@ -39,7 +39,8 @@ a {
 code {
   font-family: "Lucida Console", Monaco, monospace;
   font-size: 0.95em;
-  background: rgba(255, 255, 255, 0.6);
+  background: rgba(0, 0, 0, 0.06); /* neutral tint reads on both pink and the card */
+  border: 1px solid rgba(0, 0, 0, 0.12);
   padding: 0.05em 0.3em;
   border-radius: 4px;
   overflow-wrap: anywhere; /* long generics wrap instead of overflowing on mobile */

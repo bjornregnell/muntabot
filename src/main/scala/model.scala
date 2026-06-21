@@ -30,6 +30,7 @@ abstract class Question(cs: Vector[String | (String, String)]):
   def getShortQuestion(
       question: String | (String, String)
   ): String | (String, String)
+  def shortItem(question: String | (String, String)): String
 
 abstract class Questions:
   val title: String
@@ -67,8 +68,8 @@ abstract class Questions:
     case (a, b)    => s"$a och $b"
     case s: String => s
 
-  def getQuestion(question: String | (String, String)): String =
-    s"$title: $questionToAsk\n${show(question)}$punctuation\n\n$instruction"
+  /** The item without the question prompt (term, "a och b", or code desc). */
+  def shortItem(question: String | (String, String)): String = show(question)
 
   def getShortQuestion(
       question: String | (String, String)
@@ -85,6 +86,8 @@ case class Concepts(cs: String*) extends Question(cs.toVector):
       question: String | (String, String)
   ): String | (String, String) =
     Concepts.getShortQuestion(question)
+  def shortItem(question: String | (String, String)): String =
+    Concepts.shortItem(question)
 object Concepts extends Questions:
   val title = "Förklara koncept"
   val questionToAsk = "Vad menas med"
@@ -100,6 +103,8 @@ case class Contrasts(cs: (String, String)*) extends Question(cs.toVector):
       question: String | (String, String)
   ): String | (String, String) =
     Contrasts.getShortQuestion(question)
+  def shortItem(question: String | (String, String)): String =
+    Contrasts.shortItem(question)
 object Contrasts extends Questions:
   val title = "Jämför koncept"
   val questionToAsk = "Vad finns det för skillnader och likheter mellan"
@@ -115,6 +120,8 @@ case class Code(cs: (String, String)*) extends Question(cs.toVector):
       question: String | (String, String)
   ): String | (String, String) =
     Code.getShortQuestion(question)
+  def shortItem(question: String | (String, String)): String =
+    Code.shortItem(question)
 object Code extends Questions:
   val title = "Skriv kod"
   val questionToAsk: String =
@@ -124,12 +131,11 @@ object Code extends Questions:
   override def punctuation = '.'
 
   lazy val all = (for case (w, t: Code) <- terms yield t).map(_.cs).flatten
-  override def getQuestion(
-      question: String | (String, String)
-  ): String =
+
+  override def shortItem(question: String | (String, String)): String =
     question match
-      case question: (String, String) => s"${questionToAsk}:\n${question._1}39d2c101a1a9746c5e54da6ba6a4ed48${question._2}" // Random hash to split at
-      case _ => "unexpected"
+      case (code, _) => code
+      case _         => question.toString
 
   override def getShortQuestion(
       question: String | (String, String)
