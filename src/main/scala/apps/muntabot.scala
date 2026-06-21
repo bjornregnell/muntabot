@@ -52,46 +52,43 @@ object Muntabot extends App:
     showHelp.textContent = ""
     showHelp.target = "_blank" // Opens in new window
 
-    for questionType <- Questions.types do
-      Document.appendButton(containerElement, questionType.title) {
-        if questionType == Code then
-          val contents = questionType
-            .getQuestion(
-              questionType.pickAnyQuestion(untilWeek, questionType)
-            )
-            .split(
-              "39d2c101a1a9746c5e54da6ba6a4ed48"
-            ) // Random hash to split at, see model.scala
-
-          showText.innerHTML = Markup.render(contents(0))
-
-          if contents.length > 1 then
-            showHelp.href = contents(1)
-            showHelp.textContent = "Visa information från kursboken"
-          else
-            showHelp.textContent = ""
-            showHelp.href = ""
-        else
+    // Render one question into showText/showHelp as structured HTML:
+    // bold label, the question (code rendered via Markup), italic guidance.
+    def renderQuestion(qt: Questions, q: String | (String, String)): Unit =
+      qt match
+        case Code =>
+          q match
+            case (desc, url) =>
+              showText.innerHTML =
+                s"<b>${Markup.escapeHtml(qt.questionToAsk)}:</b>\n" +
+                  Markup.render(desc) + "\n\n" +
+                  s"<em>${Markup.escapeHtml(qt.instruction)}</em>"
+              showHelp.href = url
+              showHelp.textContent = "Visa information från kursboken"
+            case _ => showText.textContent = q.toString
+        case _ =>
           showHelp.textContent = ""
           showHelp.href = ""
+          showText.innerHTML =
+            s"<b>${Markup.escapeHtml(qt.title)}:</b> " +
+              s"${Markup.escapeHtml(qt.questionToAsk)}\n" +
+              Markup.render(qt.show(q)) + qt.punctuation + "\n\n" +
+              s"<em>${Markup.escapeHtml(qt.instruction)}</em>"
 
-          showText.innerHTML = Markup.render(
-            questionType.getQuestion(
-              questionType.pickAnyQuestion(untilWeek, questionType)
-            )
-          )
-
-          if untilWeek < 1 || untilWeek > MaxWeek then
-            untilWeek = MaxWeek
-            weekInput.value = untilWeek.toString
-
-          weekInput.value = untilWeek.toString
+    for questionType <- Questions.types do
+      Document.appendButton(containerElement, questionType.title) {
+        renderQuestion(
+          questionType,
+          questionType.pickAnyQuestion(untilWeek, questionType)
+        )
+        if untilWeek < 1 || untilWeek > MaxWeek then untilWeek = MaxWeek
+        weekInput.value = untilWeek.toString
       }
 
-    Document.appendText(
+    Document.appendHtml(
       containerElement,
       "p",
-      "Hjälpmedel: papper, penna, REPL, snabbreferens."
+      "<b>Hjälpmedel:</b> papper, penna, REPL, snabbreferens."
     )
 
     containerElement.appendChild(showText)
