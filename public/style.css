@@ -76,7 +76,8 @@ select {
   background: rgba(255, 255, 255, 0.65);
   cursor: pointer;
 }
-button {
+button,
+select {
   font-weight: bold;
 }
 /* quest-type button colors (green / yellow / red) */
