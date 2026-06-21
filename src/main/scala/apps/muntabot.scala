@@ -58,7 +58,11 @@ object Muntabot extends App:
                 s"""Läs i kompendiet om: <a href="$href" target="_blank">${Markup.escapeHtml(linkText)}</a>"""
             case _ => showText.textContent = q.toString
         case _ =>
-          showHelp.innerHTML = ""
+          Compendium.linkForConcept(q) match
+            case Some((href, linkText)) =>
+              showHelp.innerHTML =
+                s"""Läs i kompendiet om: <a href="$href" target="_blank">${Markup.escapeHtml(linkText)}</a>"""
+            case None => showHelp.innerHTML = ""
           showText.innerHTML =
             s"<b>${Markup.escapeHtml(qt.title)}:</b> " +
               s"${Markup.escapeHtml(qt.questionToAsk)}\n" +
