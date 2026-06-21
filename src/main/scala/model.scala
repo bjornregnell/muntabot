@@ -63,13 +63,17 @@ abstract class Questions:
       reg(result)
       result
 
+  def show(question: String | (String, String)): String = question match
+    case (a, b)    => s"$a och $b"
+    case s: String => s
+
   def getQuestion(question: String | (String, String)): String =
-    s"$title: $questionToAsk\n$question$punctuation\n\n$instruction"
+    s"$title: $questionToAsk\n${show(question)}$punctuation\n\n$instruction"
 
   def getShortQuestion(
       question: String | (String, String)
   ): String | (String, String) =
-    s"$questionToAsk ${question.toString}$punctuation"
+    s"$questionToAsk ${show(question)}$punctuation"
 
 object Questions:
   val types: Vector[Questions] = Vector(Concepts, Contrasts, Code)
