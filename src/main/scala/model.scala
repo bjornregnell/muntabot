@@ -5,7 +5,7 @@ import util.Random.nextInt as rnd
 case class Week(w: Int)
 
 object Week:
-  private val titles: Map[Int, String] =
+  val titles: Map[Int, String] =
     Map(
       1 -> "Introduktion",
       2 -> "Program, kontrollstrukturer",

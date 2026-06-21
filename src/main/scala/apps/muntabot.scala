@@ -37,8 +37,9 @@ object Muntabot extends App:
       for w <- lo to hi do
         val option =
           document.createElement("option").asInstanceOf[dom.html.Option]
-        option.value = w.toString
-        option.textContent = w.toString
+        option.value = w.toString // value stays the plain number (easy to read back)
+        val theme = Week.titles.getOrElse(w, "")
+        option.textContent = if theme.nonEmpty then s"$w. $theme" else w.toString
         option.selected = w == selected
         sel.appendChild(option)
 
