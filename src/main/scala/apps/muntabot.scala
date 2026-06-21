@@ -13,30 +13,29 @@ object Muntabot extends App:
 
   var untilWeek = MaxWeek
 
-  def weekInput =
-    document.getElementById("week-input").asInstanceOf[dom.html.Input]
-
   def setupUI(): Unit =
     val containerElement = Document.appendDynamicContainer()
 
-    Document.appendText(
+    val weekParagraph = Document.appendText(
       containerElement,
       "p",
-      "Slumpa en fråga i taget till och med läsvecka:"
+      "Slumpa en fråga i taget till och med läsvecka: "
     )
 
-    Document.appendInput(containerElement, "Ange heltal (1-10)", "week-input") {
-      val newInput = weekInput.value
-
-      if newInput == "" then untilWeek = MaxWeek
-      else
-        val toWeek =
-          newInput.trim.filter(_.isDigit).toIntOption.getOrElse(MaxWeek)
-        untilWeek = MaxWeek.min(toWeek)
-        weekInput.value = untilWeek.toString
-      end if
-
-    }
+    // Dropdown of valid weeks only (1..MaxWeek) — no invalid input possible.
+    val weekSelect =
+      document.createElement("select").asInstanceOf[dom.html.Select]
+    weekSelect.id = "week-input"
+    for w <- 1 to MaxWeek do
+      val option =
+        document.createElement("option").asInstanceOf[dom.html.Option]
+      option.value = w.toString
+      option.textContent = w.toString
+      option.selected = w == untilWeek
+      weekSelect.appendChild(option)
+    weekSelect.onchange = (e: dom.Event) =>
+      untilWeek = weekSelect.value.toIntOption.getOrElse(MaxWeek)
+    weekParagraph.appendChild(weekSelect)
 
     Document.appendLinkToApp(
       containerElement,
@@ -81,8 +80,6 @@ object Muntabot extends App:
           questionType,
           questionType.pickAnyQuestion(untilWeek, questionType)
         )
-        if untilWeek < 1 || untilWeek > MaxWeek then untilWeek = MaxWeek
-        weekInput.value = untilWeek.toString
       }
 
     Document.appendHtml(

@@ -62,7 +62,8 @@ pre {
 }
 
 input,
-button {
+button,
+select {
   font-family: inherit;
   font-size: 1rem;
   padding: 0.6rem 0.9rem;
@@ -70,7 +71,8 @@ button {
   border: 1px solid rgba(0, 0, 0, 0.3);
   border-radius: 6px;
 }
-button {
+button,
+select {
   background: rgba(255, 255, 255, 0.65);
   cursor: pointer;
 }
