@@ -1,6 +1,4 @@
-package shared.sv
-
-import shared.*
+package shared
 
 lazy val termsSv = Seq[(Week, Concepts | Contrasts | Code)](
   Week(1) -> Concepts(

@@ -1,7 +1,6 @@
 package shared
 
 import util.Random.nextInt as rnd
-import shared.sv.termsSv
 
 case class Week(w: Int)
 

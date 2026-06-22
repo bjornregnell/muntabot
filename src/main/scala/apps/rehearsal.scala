@@ -1,7 +1,6 @@
 package rehearsal
 
 import shared._
-import shared.sv.termsSv
 import org.scalajs.dom
 import org.scalajs.dom.document
 import org.scalajs.dom.window
