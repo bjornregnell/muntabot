@@ -70,6 +70,8 @@ scala-cli run auto-translate.sc
   * When bumping scalajs plugin update: `project/plugins.sbt`
   * When bumping sbt version update:  `project/build.properties`
 
+* IMPORTANT: after changing anything under `project/` (e.g. the `sbt-scalajs` plugin or the `sbt` version), **restart the sbt server** with `sbt --client shutdown` (or run a cold `sbt`). A long-running `sbt --client` server keeps the *old* build definition and won't pick up plugin changes — `publish.sh` uses `sbt --client`, so a stale server makes it build against the old plugin (e.g. an old `scalajs-library`) and fail.
+
 * `auto-translate.sc` pins its **own** Scala and JVM versions in its `//> using` header — those belong to the translator (run by Scala CLI) and are independent of the app's Scala version, so they don't need to track it.
 
 ## Build for production
