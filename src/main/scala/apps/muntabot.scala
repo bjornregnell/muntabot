@@ -15,6 +15,11 @@ object Muntabot extends App:
   var fromWeek = MinWeek
   var toWeek = MaxWeek
 
+  // The currently shown question, kept across re-renders (e.g. language switch) so
+  // it can be re-shown translated. shownIndex is the language-independent index.
+  var shownType: Option[Questions] = None
+  var shownIndex: Int = -1
+
   /** Render the "Swedish/English" dropdown into the fixed top-right slot
     * (#lang-slot in index.html); on change it sets the language and re-renders. */
   def renderLanguageSelect(reRender: => Unit): Unit =
@@ -120,10 +125,15 @@ object Muntabot extends App:
 
     for questionType <- Questions.types do
       val button = Document.appendButton(containerElement, questionType.title) {
-        renderQuestion(
-          questionType,
-          questionType.pickAnyQuestion(fromWeek, toWeek, questionType)
-        )
+        val idx = questionType.pickIndex(fromWeek, toWeek)
+        if idx >= 0 then
+          shownType = Some(questionType)
+          shownIndex = idx
+          renderQuestion(questionType, questionType.itemAt(idx))
+        else
+          shownType = None
+          showText.textContent = Texts.current.sorry(fromWeek, toWeek)
+          showHelp.innerHTML = ""
       }
       button.classList.add(questionType match
         case Concepts  => "btn-green"
@@ -134,6 +144,12 @@ object Muntabot extends App:
 
     containerElement.appendChild(showText)
     containerElement.appendChild(showHelp)
+
+    // After a re-render (e.g. language switch) re-show the current question, now in
+    // the selected language (data-sv/data-en are positionally parallel).
+    shownType.foreach: qt =>
+      if shownIndex >= 0 && shownIndex < qt.itemsWithWeek.size then
+        renderQuestion(qt, qt.itemAt(shownIndex))
 
     // Moved here from index.html so the question shows higher up (less scroll on mobile).
     Document.appendHtml(containerElement, "p", t.readAboutExamHtml)

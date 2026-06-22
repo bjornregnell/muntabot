@@ -33,29 +33,36 @@ abstract class Questions:
 
   def punctuation: Char = '?'
 
-  def pickAnyQuestion(
-      fromWeek: Int,
-      toWeek: Int,
-      tpe: Questions
-  ): String | (String, String) =
-    val termsToWeekOfType: Seq[String | (String, String)] =
-      val resultNested = for
-        (Week(w), q) <- terms if w >= fromWeek && w <= toWeek && q.kind == tpe.kind
-      yield q match
-        case xs: Concepts  => xs.cs
-        case xs: Contrasts => xs.cs
-        case xs: Code      => xs.cs
-      resultNested.flatten
-    if termsToWeekOfType.isEmpty then Texts.current.sorry(fromWeek, toWeek)
+  /** (week, item) for every item of this type across all weeks, in order, in the
+    * current language. data-sv and data-en are positionally parallel, so an item's
+    * index here is language-independent (the same index is its translation). */
+  def itemsWithWeek: Seq[(Int, String | (String, String))] =
+    terms.collect {
+      case (Week(w), q) if q.kind == this.kind =>
+        val items = q match
+          case xs: Concepts  => xs.cs
+          case xs: Contrasts => xs.cs
+          case xs: Code      => xs.cs
+        items.map(c => (w, c))
+    }.flatten
+
+  /** The item at a language-independent global index, in the current language. */
+  def itemAt(globalIndex: Int): String | (String, String) =
+    itemsWithWeek(globalIndex)._2
+
+  /** Pick a random least-used item within the week range; returns its global
+    * index (-1 if none). Fetch the item in the current language via itemAt. */
+  def pickIndex(fromWeek: Int, toWeek: Int): Int =
+    val inRange = itemsWithWeek.zipWithIndex.collect {
+      case ((w, item), i) if w >= fromWeek && w <= toWeek => (i, item)
+    }
+    if inRange.isEmpty then -1
     else
-      val counts: Seq[Int] = termsToWeekOfType.map(countOf)
-      val minCount: Int = counts.minOption.getOrElse(0)
-      val leastUsed =
-        for i <- termsToWeekOfType.indices if counts(i) == minCount
-        yield termsToWeekOfType(i)
-      val result = leastUsed(rnd(leastUsed.length))
-      reg(result)
-      result
+      val minCount = inRange.map(p => countOf(p._2)).min
+      val least = inRange.collect { case (i, item) if countOf(item) == minCount => i }
+      val chosen = least(rnd(least.length))
+      reg(itemsWithWeek(chosen)._2)
+      chosen
 
   def show(question: String | (String, String)): String = question match
     case (a, b)    => s"$a ${Texts.current.and} $b"
