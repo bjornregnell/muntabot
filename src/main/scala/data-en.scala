@@ -19,7 +19,7 @@ lazy val termsEn = Seq[(Week, Concepts | Contrasts | Code)](
     "if expression" -> "if statement",
     "`def`" -> "`val`",
     "`var`" -> "`val`",
-    "compile-time error" -> "run-time error",
+    "compile error" -> "run-time error",
     "`Char`" -> "`String`",
     "source code" -> "machine code"
   ),
@@ -108,7 +108,7 @@ lazy val termsEn = Seq[(Week, Concepts | Contrasts | Code)](
     "overloading" -> "default argument",
     "named arguments" -> "default argument",
     "`map`" -> "`foreach`",
-    "call-by-value" -> "call-by-name"
+    "call by value" -> "call by name"
   ),
   Week(3) -> Code(
     "a predicate that determines whether a string is a palindrome, that is, reads the same forwards and backwards" -> "https://fileadmin.cs.lth.se/pgk/compendium.pdf#nameddest=Predikat,%20med%20och%20utan%20namn",
@@ -189,7 +189,7 @@ lazy val termsEn = Seq[(Week, Concepts | Contrasts | Code)](
     "class" -> "case class",
     "singleton object" -> "class",
     "getter" -> "setter",
-    "reference equality" -> "content equality"
+    "reference equality" -> "structural equality"
   ),
   Week(5) -> Code(
     "a case class that models a book with title, author and number of pages, as well as a method that returns a new copy with one page added" -> "https://fileadmin.cs.lth.se/pgk/compendium.pdf#nameddest=Exempel:%20of%C3%B6r%C3%A4nderliga%20case-klassen%20Point",
@@ -253,12 +253,12 @@ lazy val termsEn = Seq[(Week, Concepts | Contrasts | Code)](
     "sequence algorithm",
     "filtering",
     "transformation",
-    "tallying",
+    "counting",
     "modifying in place",
     "equality between strings",
     "sorted sequence of strings",
     "enumeration",
-    "linear search",
+    "linear search algorithm",
     "insertion sort",
     "repeated parameters"
   ),

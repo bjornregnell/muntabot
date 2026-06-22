@@ -1,0 +1,504 @@
+Abstrakta och konkreta medlemmar	Abstract and concrete members
+Algoritm: SEQ-COPY	Algorithm: SEQ-COPY
+Algoritmexempel: MIN	Algorithm example: MIN
+Alternativ med if-uttryck	Alternatives with if expressions
+Alternativ till arv: komposition	Alternative to inheritance: composition
+Anonym klass	Anonymous class
+Anonyma funktioner	Anonymous functions
+Anropsstacken och aktiveringsposter	The call stack and activation records
+Anropsstacken och objektheapen	The call stack and the object heap
+Använda for-uttryck för filtrering med hjälp av gard	Using for expressions for filtering with a guard
+Använda samlingsmetoden filter för filtrering	Using the collection method filter for filtering
+Applicera anonyma funktioner på element i samlingar	Applying anonymous functions to elements in collections
+Applicera funktioner på element i samlingar med map	Applying functions to elements in collections with map
+Att bygga strängar: konkatenering och interpolering	Building strings: concatenation and interpolation
+Att sortera och jämföra strängar lexikografiskt	Sorting and comparing strings lexicographically
+Attribut i kompanjonsobjekt användas för sådant som är gemensamt för alla instanser	Attributes in companion objects are used for what is common to all instances
+Behovet av gemensam bastyp	The need for a common base type
+Bygg ny samling från befintlig med for-yield-uttryck	Build a new collection from an existing one with a for-yield expression
+Bättre att initialisera med hjälp av klassparametrar	Better to initialize using class parameters
+Case-klasser	Case classes
+Case-klasser är som vanliga klasser med extra godis	Case classes are like ordinary classes with extra goodies
+Datamodellering	Data modelling
+Definiera namn på uttryck	Defining names for expressions
+Den fantastiska nyckel-värde-tabellen Map	The fantastic key-value table Map
+En final medlem kan ej överskuggas	A final member cannot be overridden
+En trait kan ha abstrakta medlemmar	A trait can have abstract members
+Enum och mönster-matchning	Enum and pattern matching
+Enumerationer har en ordning	Enumerations have an ordering
+Enumerationer kan ha parametrar och medlemmar	Enumerations can have parameters and members
+Ett minimalt fristående program i Scala	A minimal standalone program in Scala
+Ett smidigt sätt att skapa 2-tupler med metoden ->	A convenient way to create 2-tuples with the method ->
+Exempel på oäkta funktioner: slumptal	Examples of impure functions: random numbers
+Exempel: Generisk funktion	Example: Generic function
+Exempel: Klassen Complex	Example: The class Complex
+Exempel: SEQ-INSERT/REMOVE-COPY	Example: SEQ-INSERT/REMOVE-COPY
+Exempel: oföränderliga case-klassen Point	Example: the immutable case class Point
+Exempel: singelobjektet med förändringsbart tillstånd	Example: the singleton object with mutable state
+Exempel: Överskuggning och override	Example: Overriding and override
+Fler exempel nyckel-värde-tabell	More key-value table examples
+Flyttalsaritmetik	Floating-point arithmetic
+Från sekvens av par till tabell	From a sequence of pairs to a table
+Funktion, argument, parameter	Function, argument, parameter
+Funktion: deklaration och anrop	Function: declaration and call
+Funktioner med defaultargument	Functions with default arguments
+Funktioner med namngivna argument	Functions with named arguments
+Funktioner är äkta värden i Scala	Functions are first-class values in Scala
+Funktionsvärden kan vara argument	Function values can be arguments
+Förhindra felaktiga attributvärden med setters	Prevent invalid attribute values with setters
+Förändring av objektets tillstånd	Changing the object's state
+Getters och setters	Getters and setters
+Getters och setters i Scala	Getters and setters in Scala
+Grundtyper i Scala	Basic types in Scala
+Hantera undantag som ett värde med Try	Handle exceptions as a value with Try
+Heltalsaritmetik	Integer arithmetic
+Hur förhindra subtypning?	How to prevent subtyping?
+Hur indexera i matriser?	How to index into matrices?
+Hur skapa matriser?	How to create matrices?
+Idiom: Privata variabler med understreck vid krock	Idiom: Private variables with an underscore on name clash
+Implementation av sekvensproblem med map, filter	Implementing sequence problems with map, filter
+Indexering i en matris	Indexing in a matrix
+Indirekt instansiering med fabriksmetoder	Indirect instantiation with factory methods
+Inkapsling: att dölja interna delar	Encapsulation: hiding internal parts
+Inmixning	Mixin
+Insättningssortering på plats -- pseudo-kod	In-place insertion sort -- pseudo-code
+Introduktion	Introduction
+Iterera över nästlad struktur	Iterating over a nested structure
+Jämföra strängar: likhet	Comparing strings: equality
+Kasta undantag direkt med primitiva throw	Throw exceptions directly with primitive throw
+Klassdeklarationer och instansiering	Class declarations and instantiation
+Klasser och datamodellering	Classes and data modelling
+Kolla om det passar med match-uttryck	Check if it fits with a match expression
+Kollektiva extensionsmetoder	Collective extension methods
+Kompanjonsobjekt med indirekt instansiering	Companion objects with indirect instantiation
+Konstruktormönster med case-klasser	Constructor patterns with case classes
+Kontrollstrukturer: alternativ och repetition	Control structures: alternatives and repetition
+Konvertera mellan olika samlingstyper	Converting between different collection types
+Lata variabler med fördröjd initialisering	Lazy variables with delayed initialization
+Linjärsökning: hitta index för elementet x	Linear search: find the index of element x
+Logiska uttryck	Logical expressions
+Lokala funktioner	Local functions
+Loopa genom elementen i en vektor	Looping through the elements of a vector
+Loopa genom en samling med en while-sats	Looping through a collection with a while statement
+Loopa med Range	Looping with Range
+Loopa med Range skapad med to	Looping with a Range created with to
+Lägg till metoder i efterhand med extension	Add methods afterwards with extension
+Läsa text från fil och webbsida	Reading text from a file and a web page
+Lösning: klassen Person	Solution: the class Person
+Matchning med eller-mönster	Matching with or-patterns
+Matchning med gard	Matching with a guard
+Matchning med typade mönster	Matching with typed patterns
+Matchning med variabelmönster	Matching with variable patterns
+Matchning på tupler	Matching on tuples
+Metoden sliding	The method sliding
+Metoderna zipWithIndex, groupBy	The methods zipWithIndex, groupBy
+Multipla parameterlistor	Multiple parameter lists
+Mönstermatcha enumeration	Pattern matching an enumeration
+Mönstermatchning och förseglade typer	Pattern matching and sealed types
+Namnbyte vid import	Renaming on import
+Namnrymd och skuggning	Namespace and shadowing
+Några användbara samlingsmetoder vid implementation av sekvensalgoritmer	Some useful collection methods when implementing sequence algorithms
+Några konstigheter med Array	Some oddities with Array
+Några smidiga metoder på Option	Some convenient methods on Option
+Oföränderlig eller förändringsbar?	Immutable or mutable?
+Oföränderlig mängd	Immutable set
+Oföränderlig nyckel-värde-tabell	Immutable key-value table
+Option för hantering av ev. saknade värden	Option for handling possibly missing values
+Orsaka undantag indirekt med require och assert	Cause exceptions indirectly with require and assert
+Paket i REPL	Packages in the REPL
+Parameter och argument	Parameter and argument
+Platshållarsyntax för anonyma funktioner	Placeholder syntax for anonymous functions
+Plocka isär samlingar med djupa mönster	Taking collections apart with deep patterns
+Predikat, med och utan namn	Predicates, with and without names
+Primitiva try-catch-uttryck	Primitive try-catch expressions
+Program, kontrollstrukturer, maskinkod	Programs, control structures, machine code
+Protected ger synlighet begränsad till subtyper	Protected gives visibility limited to subtypes
+Pseudo-kod för SEQ-INSERT-COPY	Pseudo-code for SEQ-INSERT-COPY
+Punktnotation och operatornotation	Dot notation and operator notation
+Referensen this	The reference this
+Referenslikhet eller innehållslikhet?	Reference equality or content equality?
+Registrering	Tallying
+Rekursiva funktioner	Recursive functions
+Repeterade parametrar blir sekvens	Repeated parameters become a sequence
+Samlingen Range håller reda på intervall	The collection Range keeps track of intervals
+Sekvenser och enumerationer	Sequences and enumerations
+Serialisering och deserialisering	Serialization and deserialization
+Singelobjekt jämfört med klass	Singleton object compared to class
+Singelobjekt är lata	Singleton objects are lazy
+Skapa egen najs toString	Create your own nice toString
+Skapa en gemensam bastyp med trait och extends	Create a common base type with trait and extends
+Skapa ny sekvenssamling eller ändra på plats?	Create a new sequence collection or modify in place?
+Sortera till ny samling med godtyckligt ordningspredikat	Sort into a new collection with an arbitrary ordering predicate
+Statisk och dynamisk typ	Static and dynamic type
+Subtypspolymorfism och dynamisk bindning	Subtype polymorphism and dynamic binding
+Sökning	Search
+Trait eller abstrakt klass?	Trait or abstract class?
+Tupler som parametrar och returvärde.	Tuples as parameters and return value.
+Typalias för att abstrahera typnamn	Type alias to abstract type names
+Typsäkra argument till ett program med @main	Type-safe arguments to a program with @main
+Undvik undantag om det går	Avoid exceptions if possible
+Undvika kodduplicering med hjälp av arv	Avoiding code duplication using inheritance
+Uttryck eller sats?	Expression or statement?
+Vad är arv?	What is inheritance?
+Vad är classpath?	What is classpath?
+Vad är en Array?	What is an Array?
+Vad är en algoritm?	What is an algorithm?
+Vad är en klass?	What is a class?
+Vad är en kontrollstruktur?	What is a control structure?
+Vad är en matris?	What is a matrix?
+Vad är en mängd?	What is a set?
+Vad är en nyckel-värde-tabell?	What is a key-value table?
+Vad är en sekvens?	What is a sequence?
+Vad är en tupel?	What is a tuple?
+Vad är en typparameter?	What is a type parameter?
+Vad är matchning?	What is matching?
+Vad är skillnaden mellan val, var, def, lazy val?	What is the difference between val, var, def, lazy val?
+Variabeldeklaration och tilldelningssats	Variable declaration and assignment statement
+Variabler som ändrar värden kan vara knepiga	Variables that change values can be tricky
+Virtuell maskin (VM) == abstrakt hårdvara	Virtual machine (VM) == abstract hardware
+Värdeanrop och namnanrop	Call by value and call by name
+`ArrayBuffer`	`ArrayBuffer`
+`Array`	`Array`
+`Char`	`Char`
+`ListBuffer`	`ListBuffer`
+`List`	`List`
+`Option`	`Option`
+`String`	`String`
+`Try`	`Try`
+`Vector`	`Vector`
+`def`	`def`
+`final` medlem	`final` member
+`foreach`	`foreach`
+`import`	`import`
+`lazy` `val`	`lazy` `val`
+`map`	`map`
+`trait`	`trait`
+`val`	`val`
+`var`	`var`
+abstrakt medlem	abstract member
+abstraktion	abstraction
+aktiveringspost	activation record
+anonym funktion	anonymous function
+anonym klass	anonymous class
+anropsstacken	the call stack
+argument	argument
+arv	inheritance
+att ändra på plats	modifying in place
+attribut	attribute
+bastyp	base type
+booleskt värde	boolean value
+case-klass	case class
+classpath	classpath
+defaultargument	default argument
+dynamisk bindning	dynamic binding
+dynamisk typ	dynamic type
+ej förseglad typhierarki	non-sealed type hierarchy
+en `trait` `Djur` som har ett abstrakt attribut läte och en konkret metod `låter` som skriver ut lätet, samt två case-klasser som ärver traiten	a `trait` `Animal` that has an abstract attribute sound and a concrete method `makeSound` that prints the sound, as well as two case classes that inherit the trait
+en `trait` `Konto` som har en skyddad variabel saldo och en konkret metod `sättIn` som ökar saldot, samt en subtyp som läser saldot	a `trait` `Account` that has a protected variable balance and a concrete method `deposit` that increases the balance, as well as a subtype that reads the balance
+en `trait` som har en abstrakt metod och två konkreta subtyper som implementerar den olika, samt en funktion som tar emot bastypen och anropar metoden polymorft	a `trait` that has an abstract method and two concrete subtypes that implement it differently, as well as a function that receives the base type and calls the method polymorphically
+en anonym funktion `Int` => `Int` som ger kvadraten och som appliceras på alla element i en heltalssekvens	an anonymous function `Int` => `Int` that gives the square and is applied to all elements in an integer sequence
+en anonym funktion med platshållarsyntax som tredubblar ett heltal och applicerar den på `Vector(1, 2, 3)` med `map`	an anonymous function with placeholder syntax that triples an integer and applies it to `Vector(1, 2, 3)` with `map`
+en anonym funktion som dubblerar ett heltal och applicerar den på alla element i `Vector(1, 2, 3)` med `map`	an anonymous function that doubles an integer and applies it to all elements in `Vector(1, 2, 3)` with `map`
+en anonym funktion som lägger till ett utropstecken efter en sträng och applicerar den på `Vector("hej", "hå")` med `map`	an anonymous function that adds an exclamation mark after a string and applies it to `Vector("hi", "ho")` with `map`
+en anonym klass som direkt vid instansiering fyller i den abstrakta metoden hälsning i en `trait` `Hälsare`	an anonymous class that directly at instantiation fills in the abstract method greeting in a `trait` `Greeter`
+en bastyp `Fordon` med ett abstrakt attribut maxfart och tre subtyper som ger varsitt värde, samt en `Vector` med blandade fordon vars maxfarter summeras	a base type `Vehicle` with an abstract attribute maxSpeed and three subtypes that each give a value, as well as a `Vector` with mixed vehicles whose max speeds are summed
+en bastyp `Form` med en abstrakt metod `area` och subtyperna Kvadrat och Cirkel som implementerar area, samt en `Vector` av Form vars areor summeras polymorft	a base type `Shape` with an abstract method `area` and the subtypes Square and Circle that implement area, as well as a `Vector` of Shape whose areas are summed polymorphically
+en bastyp `Meddelande` med en abstrakt metod `formatera` och subtyperna Sms och Epost, samt en funktion som tar en `Vector` av Meddelande och skriver ut alla formaterade	a base type `Message` with an abstract method `format` and the subtypes Sms and Email, as well as a function that takes a `Vector` of Message and prints all formatted
+en case-klass `Punkt` och en funktion som med ett konstruktormönster returnerar på axeln om punkten ligger på en axel, annars i planet	a case class `Point` and a function that with a constructor pattern returns on the axis if the point lies on an axis, otherwise in the plane
+en case-klass som modellerar en bok med titel, författare och antal sidor, samt en metod som returnerar en ny kopia med en sida tillagd	a case class that models a book with title, author and number of pages, as well as a method that returns a new copy with one page added
+en case-klass som modellerar en cirkel med radie och ett härlett attribut som ger arean med `math.Pi` (arean är π·r²)	a case class that models a circle with radius and a derived attribute that gives the area with `math.Pi` (the area is π·r²)
+en case-klass som modellerar en spelare med namn och liv och en metod som returnerar en ny kopia med ett liv borttaget	a case class that models a player with name and lives and a method that returns a new copy with one life removed
+en case-klass som modellerar en temperatur i Celsius med ett härlett attribut som ger motsvarande värde i Fahrenheit (Fahrenheit = Celsius · 9/5 + 32)	a case class that models a temperature in Celsius with a derived attribute that gives the corresponding value in Fahrenheit (Fahrenheit = Celsius · 9/5 + 32)
+en case-klass som modellerar en vektor i två dimensioner med dx och dy och ett härlett attribut som ger längden med `math.hypot`	a case class that models a vector in two dimensions with dx and dy and a derived attribute that gives the length with `math.hypot`
+en case-klass som modellerar ett bankkonto med ägare och saldo, samt en metod som returnerar en ny kopia med ett insatt belopp adderat till saldot	a case class that models a bank account with owner and balance, as well as a method that returns a new copy with a deposited amount added to the balance
+en case-klass som modellerar ett datum med år, månad och dag och en metod som returnerar en ny kopia med dagen ökad med ett	a case class that models a date with year, month and day and a method that returns a new copy with the day increased by one
+en case-klass som modellerar ett rektangulärt rum med bredd och höjd och ett härlett attribut som ger arean	a case class that models a rectangular room with width and height and a derived attribute that gives the area
+en definition av en oäkta funktion som returnerar slumpmässiga jämna heltal mellan n och m	a definition of an impure function that returns random even integers between n and m
+en enumeration `Trafikljus` och en funktion som med ett match-uttryck returnerar nästa ljus i ordningen	an enumeration `TrafficLight` and a function that with a match expression returns the next light in order
+en extensionsmetod på `String` som ger strängen baklänges och med versaler,\noch anropa den både med punktnotation och som en vanlig funktion	an extension method on `String` that gives the string reversed and in uppercase,\nand call it both with dot notation and as an ordinary function
+en extensionsmetod som heter `kvadrat` på typen `Int` och som ger talet multiplicerat med sig självt	an extension method called `square` on the type `Int` that gives the number multiplied by itself
+en extensionsmetod som lägger till metoderna inc och dec på heltal så att talet ökas respektive minskas med ett	an extension method that adds the methods inc and dec on integers so that the number is increased respectively decreased by one
+en funktion `areaRektangel` som tar bredd och höjd och ger rektangelns area	a function `rectangleArea` that takes width and height and gives the rectangle's area
+en funktion `celsiusTillFahrenheit` som omvandlar grader Celsius till Fahrenheit (Fahrenheit = Celsius · 9/5 + 32)	a function `celsiusToFahrenheit` that converts degrees Celsius to Fahrenheit (Fahrenheit = Celsius · 9/5 + 32)
+en funktion `copy` som kopierar en `Array` med heltal\nelement för element till en ny `Array`\nsom använder en while-sats i implementationen	a function `copy` that copies an `Array` of integers\nelement by element to a new `Array`\nthat uses a while statement in the implementation
+en funktion `dubblera` som tar ett heltal och ger tillbaka talet multiplicerat med två	a function `double` that takes an integer and returns the number multiplied by two
+en funktion `insert` som givet en `Array` med heltal\nstoppar in ett element på en viss plats\nsom använder en while-sats i implementationen	a function `insert` that given an `Array` of integers\ninserts an element at a certain position\nthat uses a while statement in the implementation
+en funktion `isAdult` som tar en ålder av typen `Int` och ger `true` om åldern är minst 18, annars `false`	a function `isAdult` that takes an age of type `Int` and returns `true` if the age is at least 18, otherwise `false`
+en funktion `isEven(n: Int)` som är sann om n är ett jämt tal	a function `isEven(n: Int)` that is true if n is an even number
+en funktion `isFreezing` som tar en temperatur och ger `true` om den är under noll	a function `isFreezing` that takes a temperature and returns `true` if it is below zero
+en funktion `kvadrat` som tar ett heltal n och ger n upphöjt till två	a function `square` that takes an integer n and returns n to the power of two
+en funktion `medelvärde` som tar två decimaltal och ger deras genomsnitt	a function `average` that takes two decimal numbers and gives their mean
+en funktion `omkrets` som tar en radie av typen `Double` och ger cirkelns omkrets (cirkelns omkrets är 2·π·r)	a function `circumference` that takes a radius of type `Double` and gives the circle's circumference (the circumference of a circle is 2·π·r)
+en funktion `readPersonMap` som läser in rader med kommaseparerade efternamn och förnamn och personnummer från en textfil\noch skapar en nyckel-värde-tabell med personnummer av typen `Long` som nyckel och instanser av case-klassen `Person` som värde	a function `readPersonMap` that reads in lines with comma-separated last names and first names and personal identity numbers from a text file\nand creates a key-value table with the personal identity number of type `Long` as key and instances of the case class `Person` as value
+en funktion `readPersonSet` som läser in rader med kommaseparerade efternamn och förnamn från en textfil\noch skapar en mängd av instanser av case-klassen `Person` och kastar ett undantag om det finns dubbletter	a function `readPersonSet` that reads in lines with comma-separated last names and first names from a text file\nand creates a set of instances of the case class `Person` and throws an exception if there are duplicates
+en funktion `roll` som ger ett slumpmässigt heltal mellan 1 och 6	a function `roll` that gives a random integer between 1 and 6
+en funktion med repeterade parametrar av typen `Double` som ger medelvärdet av argumenten	a function with repeated parameters of type `Double` that gives the average of the arguments
+en funktion med repeterade parametrar av typen `Int` som ger antalet argument som är större än noll	a function with repeated parameters of type `Int` that gives the number of arguments that are greater than zero
+en funktion med två parameterlistor som adderar två heltal och anropar den med båda argumenten	a function with two parameter lists that adds two integers and calls it with both arguments
+en funktion som avgör om två strängar är lika\nsom använder en while-sats i implementationen	a function that determines whether two strings are equal\nthat uses a while statement in the implementation
+en funktion som beräknar arean av en rektangel utifrån bredd och höjd och returnerar en `Double`	a function that computes the area of a rectangle from width and height and returns a `Double`
+en funktion som ger minsta heltalet i en heltalssekvens,\nutan att använda inbyggda min	a function that gives the smallest integer in an integer sequence,\nwithout using the built-in min
+en funktion som ger största heltalet i en heltalssekvens,\nutan att använda inbyggda max	a function that gives the largest integer in an integer sequence,\nwithout using the built-in max
+en funktion som grupperar en sekvens av ord i en nyckel-värde-tabell\nefter ordlängd med hjälp av `groupBy`	a function that groups a sequence of words into a key-value table\nby word length using `groupBy`
+en funktion som heter `delaUpp` och tar en heltalssekvens och returnerar en 2-tupel med de jämna talen i första elementet och de udda i andra	a function called `splitEvenOdd` that takes an integer sequence and returns a 2-tuple with the even numbers in the first element and the odd ones in the second
+en funktion som heter `längd` och tar en 2-tupel (`Double`, `Double`) som parameter och ger avståndet till origo med `math.hypot`	a function called `length` that takes a 2-tuple (`Double`, `Double`) as parameter and gives the distance to the origin with `math.hypot`
+en funktion som heter `mittpunkt` och tar två 2-tupler (`Double`, `Double`) och returnerar en 2-tupel med medelvärdet av x-koordinaterna och medelvärdet av y-koordinaterna	a function called `midpoint` that takes two 2-tuples (`Double`, `Double`) and returns a 2-tuple with the average of the x-coordinates and the average of the y-coordinates
+en funktion som heter `polär` och tar en 2-tupel (`Double`, `Double`) och returnerar en 2-tupel med längd och vinkel beräknade med `math.hypot` och `math.atan2`	a function called `polar` that takes a 2-tuple (`Double`, `Double`) and returns a 2-tuple with length and angle computed with `math.hypot` and `math.atan2`
+en funktion som hälsar på en person genom att returnera strängen "Hej " följt av ett namn, med defaultargument "världen"	a function that greets a person by returning the string "Hello " followed by a name, with default argument "world"
+en funktion som linjärsöker efter en instans av klassen `Person`\nmed ett visst efternamn i en osorterad sekvens av personer\nmed hjälp av en `while` (och inte `find`/`indexOf`).\n Funktionens returtyp ska vara `Option`	a function that linearly searches for an instance of the class `Person`\nwith a certain last name in an unsorted sequence of persons\nusing a `while` (and not `find`/`indexOf`).\n The function's return type should be `Option`
+en funktion som med `getOrElse` returnerar värdet i en `Option` om det finns, annars strängen "saknas"	a function that with `getOrElse` returns the value in an `Option` if it exists, otherwise the string "missing"
+en funktion som med `map` fördubblar värdet i en `Option` om det finns, annars ger `None`	a function that with `map` doubles the value in an `Option` if it exists, otherwise gives `None`
+en funktion som med `require` kräver att argumentet inte är negativt innan den returnerar kvadratroten	a function that with `require` requires that the argument is not negative before it returns the square root
+en funktion som med `sliding` beräknar medelvärdet av varje par\nav intilliggande tal i en talsekvens	a function that with `sliding` computes the average of each pair\nof adjacent numbers in a number sequence
+en funktion som med `throw` kastar ett undantag om ett uttag är större än saldot, annars returnerar nytt saldo	a function that with `throw` throws an exception if a withdrawal is larger than the balance, otherwise returns the new balance
+en funktion som med en for-do-sats och en var-variabel räknar hur många gånger talet noll förekommer i en `Vector[Int]`	a function that with a for-do statement and a var variable counts how many times the number zero occurs in a `Vector[Int]`
+en funktion som med en while-loop returnerar medelvärdet av talen i en `Array[Int]` eller noll om arrayen är tom	a function that with a while loop returns the average of the numbers in an `Array[Int]` or zero if the array is empty
+en funktion som med en while-loop returnerar produkten av alla heltal i en `Array[Int]`	a function that with a while loop returns the product of all integers in an `Array[Int]`
+en funktion som med en while-loop räknar antalet element i en `Array[Int]` som är jämnt delbara med 3	a function that with a while loop counts the number of elements in an `Array[Int]` that are evenly divisible by 3
+en funktion som med en while-sats ger summan av alla heltal i en `Array[Int]`	a function that with a while statement gives the sum of all integers in an `Array[Int]`
+en funktion som med en while-sats räknar och returnerar antalet negativa heltal i en `Vector[Int]`	a function that with a while statement counts and returns the number of negative integers in a `Vector[Int]`
+en funktion som med ett for-uttryck och en gard ger en ny vektor med bara de heltal i en `Vector[Int]` som är delbara med tre	a function that with a for expression and a guard gives a new vector with only the integers in a `Vector[Int]` that are divisible by three
+en funktion som med ett for-yield-uttryck returnerar kvadraten av varje tal i en `Vector[Int]`	a function that with a for-yield expression returns the square of each number in a `Vector[Int]`
+en funktion som med ett match-uttryck och garder returnerar negativt om n är mindre än noll, noll om n är noll och positivt annars	a function that with a match expression and guards returns negative if n is less than zero, zero if n is zero and positive otherwise
+en funktion som med ett match-uttryck på `Some` och `None` beskriver om ett Option-värde finns eller saknas	a function that with a match expression on `Some` and `None` describes whether an Option value exists or is missing
+en funktion som med ett match-uttryck på `Success` och `Failure` beskriver resultatet av ett `Try`	a function that with a match expression on `Success` and `Failure` describes the result of a `Try`
+en funktion som med ett match-uttryck tar en `Vector` av strängar och returnerar tom om den är tom, det enda elementet baklänges om den har ett element, annars första och sista elementet sammanfogade	a function that with a match expression takes a `Vector` of strings and returns empty if it is empty, the single element reversed if it has one element, otherwise the first and last element joined together
+en funktion som med ett match-uttryck tar en tupel av två heltal och returnerar lika om talen är lika, växer om det första är mindre än det andra, annars minskar	a function that with a match expression takes a tuple of two integers and returns equal if the numbers are equal, increasing if the first is less than the second, otherwise decreasing
+en funktion som med ett try-catch-uttryck slår upp ett element på ett index och fångar ett IndexOutOfBoundsException genom att returnera noll	a function that with a try-catch expression looks up an element at an index and catches an IndexOutOfBoundsException by returning zero
+en funktion som med for-yield returnerar en ny `Vector[String]` där varje sträng i en `Vector` har fått ett utropstecken tillagt på slutet	a function that with for-yield returns a new `Vector[String]` where each string in a `Vector` has had an exclamation mark added at the end
+en funktion som med hjälp av `Vector.fill` bygger en kvadratisk matris av storlek n gånger n där alla element är noll	a function that with the help of `Vector.fill` builds a square matrix of size n times n where all elements are zero
+en funktion som med hjälp av `Vector.tabulate` bygger en matris med m rader och n kolumner där elementet på plats i,j har värdet i gånger n plus j	a function that with the help of `Vector.tabulate` builds a matrix with m rows and n columns where the element at position i,j has the value i times n plus j
+en funktion som med hjälp av nästlade for-uttryck summerar alla heltal i en matris av typen `Vector[Vector[Int]]`	a function that with the help of nested for expressions sums all integers in a matrix of type `Vector[Vector[Int]]`
+en funktion som med indexering och en while-loop returnerar indexet för det första negativa talet i en `Array[Int]` eller minus ett om inget finns	a function that with indexing and a while loop returns the index of the first negative number in an `Array[Int]` or minus one if none exists
+en funktion som med metoden `count` räknar antalet jämna heltal i en `Vector[Int]`	a function that with the method `count` counts the number of even integers in a `Vector[Int]`
+en funktion som med metoden `filter` ger en ny vektor med bara de positiva heltalen ur en `Vector[Int]`	a function that with the method `filter` gives a new vector with only the positive integers from a `Vector[Int]`
+en funktion som med metoden `filter` ger en ny vektor med bara de strängar som är längre än tre tecken ur en `Vector[String]`	a function that with the method `filter` gives a new vector with only the strings that are longer than three characters from a `Vector[String]`
+en funktion som med metoden `find` ger det första elementet i en `Vector[String]` som börjar med bokstaven a	a function that with the method `find` gives the first element in a `Vector[String]` that begins with the letter a
+en funktion som med metoden `map` ger en ny vektor där varje heltal i en `Vector[Int]` har dubblerats	a function that with the method `map` gives a new vector where each integer in a `Vector[Int]` has been doubled
+en funktion som med metoden `map` ger en ny vektor med längden av varje sträng i en `Vector[String]`	a function that with the method `map` gives a new vector with the length of each string in a `Vector[String]`
+en funktion som med metoden `sortBy` ger en ny vektor med strängarna i en `Vector[String]` sorterade efter sin längd	a function that with the method `sortBy` gives a new vector with the strings in a `Vector[String]` sorted by their length
+en funktion som med metoden `sortWith` ger en ny vektor med heltalen i en `Vector[Int]` sorterade från störst till minst	a function that with the method `sortWith` gives a new vector with the integers in a `Vector[Int]` sorted from largest to smallest
+en funktion som med typade mönster tar ett värde av typen `Any` och returnerar olika strängar beroende på om värdet är en `Int`, en `String` eller något annat	a function that with typed patterns takes a value of type `Any` and returns different strings depending on whether the value is an `Int`, a `String` or something else
+en funktion som returnerar det största heltalet i en matris av typen `Vector[Vector[Int]]`	a function that returns the largest integer in a matrix of type `Vector[Vector[Int]]`
+en funktion som returnerar en av flera subtyper till en gemensam bastyp och på så vis visar subtypspolymorfism	a function that returns one of several subtypes to a common base type and thereby demonstrates subtype polymorphism
+en funktion som returnerar en formaterad adress utifrån parametrarna gata, nummer och postort och anropar den med namngivna argument i valfri ordning	a function that returns a formatted address from the parameters street, number and city and calls it with named arguments in any order
+en funktion som returnerar produkten av två heltal	a function that returns the product of two integers
+en funktion som räknar antalet element i en matris av typen `Vector[Vector[Int]]` som är jämna	a function that counts the number of elements in a matrix of type `Vector[Vector[Int]]` that are even
+en funktion som skriver ut en strängmatris rad för rad	a function that prints a string matrix row by row
+en funktion som slår upp ett värde i en nyckel-värde-tabell och ger ett\nstandardvärde om nyckeln saknas, och en variant som mönstermatchar på `Some` och `None`	a function that looks up a value in a key-value table and gives a\ndefault value if the key is missing, and a variant that pattern matches on `Some` and `None`
+en funktion som summerar alla heltal i en sekvens,\nutan att använda inbyggda sum	a function that sums all integers in a sequence,\nwithout using the built-in sum
+en funktion som tar en matris av typen `Vector[Vector[Int]]` och ett kolumnindex och returnerar kolonnen på det indexet som en `Vector`	a function that takes a matrix of type `Vector[Vector[Int]]` and a column index and returns the column at that index as a `Vector`
+en funktion som tar en punkt som en 2-tupel (`Double`, `Double`)\noch returnerar en ny 2-tupel förändrad på valfritt vis, och visa hur man kommer åt delarna med punktnotation	a function that takes a point as a 2-tuple (`Double`, `Double`)\nand returns a new 2-tuple changed in any way, and show how to access the parts with dot notation
+en funktion som tar en sekvens av djurnamn och returnerar en tabell som mappar varje namn till dess längd i antal tecken	a function that takes a sequence of animal names and returns a table that maps each name to its length in number of characters
+en funktion som tar en sekvens av heltal och returnerar antalet tal som förekommer mer än en gång	a function that takes a sequence of integers and returns the number of numbers that occur more than once
+en funktion som tar en sekvens av strängar och returnerar mängden av de strängar som är längre än tre tecken	a function that takes a sequence of strings and returns the set of the strings that are longer than three characters
+en funktion som tar en sträng med ord separerade av blanksteg och returnerar antalet unika ord med hjälp av `split` och `toSet`	a function that takes a string with words separated by spaces and returns the number of unique words using `split` and `toSet`
+en funktion som tar en tabell med heltalsvärden och returnerar en ny tabell där alla värden har dubblerats	a function that takes a table with integer values and returns a new table where all values have been doubled
+en funktion som tar en tabell och en nyckel och returnerar värdet, eller noll om nyckeln saknas, med hjälp av `getOrElse`	a function that takes a table and a key and returns the value, or zero if the key is missing, using `getOrElse`
+en funktion som tar en tabell och returnerar en sträng där paren är serialiserade med `mkString`	a function that takes a table and returns a string where the pairs are serialized with `mkString`
+en funktion som tar två heltalsmängder och returnerar deras snitt	a function that takes two integer sets and returns their intersection
+en funktion som tar två strängmängder och returnerar deras union	a function that takes two string sets and returns their union
+en funktion som tolkar en sträng till ett heltal och fångar eventuellt fel\nmed `Try`, och en variant som använder try-catch	a function that parses a string to an integer and catches any error\nwith `Try`, and a variant that uses try-catch
+en funktion som upphöjer ett heltal till en exponent med defaultargument 2	a function that raises an integer to an exponent with default argument 2
+en förseglad (`sealed`) typhierarki av grönsaker och en funktion som med\nmönstermatchning och en gard klassificerar en grönsak (uttömmande matchning)	a sealed (`sealed`) type hierarchy of vegetables and a function that with\npattern matching and a guard classifies a vegetable (exhaustive matching)
+en förseglad bastyp `Väderstreck` med fyra case-objekt och en funktion som med ett match-uttryck returnerar det motsatta väderstrecket	a sealed base type `CompassDirection` with four case objects and a function that with a match expression returns the opposite compass direction
+en gemensam bastyp (`trait`) för olika grönsaker med en abstrakt medlem för vikt,\noch kod som lägger flera grönsaker i en sekvens och summerar vikten	a common base type (`trait`) for different vegetables with an abstract member for weight,\nand code that puts several vegetables in a sequence and sums the weight
+en generisk funktion som ger huvuddiagonalen som en `Vector` ur en kvadratisk matris av typen `Vector[Vector[T]]` (huvuddiagonalen = elementen där radindex är lika med kolumnindex)	a generic function that gives the main diagonal as a `Vector` from a square matrix of type `Vector[Vector[T]]` (the main diagonal = the elements where the row index equals the column index)
+en generisk funktion som med en typparameter räknar hur många element i en matris av typen `Vector[Vector[T]]` som uppfyller ett givet predikat	a generic function that with a type parameter counts how many elements in a matrix of type `Vector[Vector[T]]` satisfy a given predicate
+en generisk funktion som returnerar rad r som en `Vector` ur en matris av typen `Vector[Vector[T]]`	a generic function that returns row r as a `Vector` from a matrix of type `Vector[Vector[T]]`
+en generisk funktion som tar emot ett värde x och ett heltal n och returnerar en `Vector` med n kopior av x	a generic function that takes a value x and an integer n and returns a `Vector` with n copies of x
+en generisk funktion som tar en funktion `f` av typ A => B, en funktion `g` av typ B => C och ett argument x av typ A och returnerar g(`f(x)`)	a generic function that takes a function `f` of type A => B, a function `g` of type B => C and an argument x of type A and returns g(`f(x)`)
+en generisk funktion som tar ett par av typen (A, B) och returnerar paret med komponenterna i omvänd ordning	a generic function that takes a pair of type (A, B) and returns the pair with the components in reverse order
+en generisk funktion som transponerar en matris av typen `Vector[Vector[T]]` så att rader byter plats med kolumner	a generic function that transposes a matrix of type `Vector[Vector[T]]` so that rows swap places with columns
+en högre ordningens funktion som applicerar en `given` funktion av typ `Int` => `Int` tre gånger på ett heltal	a higher-order function that applies a `given` function of type `Int` => `Int` three times to an integer
+en klass `Person` med klassparametrar för förnamn, efternamn och ålder\noch en egen `toString` som ger en läsbar strängrepresentation	a class `Person` with class parameters for first name, last name and age\nand its own `toString` that gives a readable string representation
+en klass `Spelare` som genom komposition har ett attribut som refererar till ett Konto och vidaredelegerar metoden saldo till kontot	a class `Player` that through composition has an attribute that refers to an Account and delegates the method balance to the account
+en klass `Termometer` som genom komposition har ett attribut Sensor och delegerar metoden `läsAv` till sensorn i stället för att ärva den	a class `Thermometer` that through composition has an attribute Sensor and delegates the method `read` to the sensor instead of inheriting it
+en klass med en privat variabel för ålder som skyddas av en getter\noch en setter som förhindrar negativa värden	a class with a private variable for age that is protected by a getter\nand a setter that prevents negative values
+en klass som genom inmixning kombinerar flera traits för att återanvända gemensamma medlemmar	a class that through mixin combines several traits to reuse common members
+en klass som har en klassparameter namn och en förändringsbar klassparameter poäng med defaultargument noll samt en egen `toString`	a class that has a class parameter name and a mutable class parameter score with default argument zero as well as its own `toString`
+en klass som har ett privat attribut för procentvärde och en getter samt en setter som bara tillåter värden mellan noll och hundra	a class that has a private attribute for a percentage value and a getter as well as a setter that only allows values between zero and one hundred
+en klass som har ett privat attribut för saldo och en setter som med `require` förhindrar negativa värden	a class that has a private attribute for balance and a setter that with `require` prevents negative values
+en klass som har klassparametrarna förnamn, efternamn och stad och en egen `toString` som ger en snygg strängrepresentation med stränginterpolering	a class that has the class parameters first name, last name and city and its own `toString` that gives a nice string representation with string interpolation
+en klass som har klassparametrarna titel och längd i minuter för en film och en egen `toString` som visar tillståndet med stränginterpolering	a class that has the class parameters title and length in minutes for a movie and its own `toString` that shows the state with string interpolation
+en klass som modellerar en räknare med ett privat attribut och metoder för att öka med ett och avläsa nuvarande värde	a class that models a counter with a private attribute and methods to increase by one and read the current value
+en klass som skrivs om från att använda arv till att i stället använda komposition	a class that is rewritten from using inheritance to instead using composition
+en lat variabel som med `lazy` `val` fördröjer initialiseringen av en stor vektor tills den refereras första gången	a lazy variable that with `lazy` `val` delays the initialization of a large vector until it is referenced for the first time
+en mängd som innehåller färgerna röd, grön och blå och ett uttryck som med `apply` avgör om gul finns i mängden	a set that contains the colors red, green and blue and an expression that with `apply` determines whether yellow is in the set
+en mängd som skapas ur en talsekvens med dubbletter och ett uttryck som ger antalet unika tal	a set that is created from a number sequence with duplicates and an expression that gives the number of unique numbers
+en nyckel-värde-tabell som mappar tre frukter till deras pris och ett uttryck som slår upp priset på banan	a key-value table that maps three fruits to their price and an expression that looks up the price of banana
+en nyckel-värde-tabell som skapas från en sekvens av par (namn, ålder)\nmed hjälp av `toMap`	a key-value table that is created from a sequence of pairs (name, age)\nusing `toMap`
+en nyckel-värde-tabell som utgår från en befintlig tabell och ger en ny tabell där ett par har lagts till	a key-value table that starts from an existing table and gives a new table where a pair has been added
+en oföränderlig case-klass `Point` och förklara skillnaden mellan == och eq,\noch använd `copy` för att skapa en delvis förändrad kopia	an immutable case class `Point` and explain the difference between == and eq,\nand use `copy` to create a partially changed copy
+en rekursiv funktion som beräknar fakulteten av ett heltal (fakulteten n! = 1·2·…·n, och 0! = 1)	a recursive function that computes the factorial of an integer (the factorial n! = 1·2·…·n, and 0! = 1)
+en repetition som kastar 100 tärningar och räknar antalet ettor	a loop that rolls 100 dice and counts the number of ones
+en repetition som med en for-sats skriver ut kvadraten av talen 1 till 10	a loop that with a for statement prints the square of the numbers 1 to 10
+en repetition som med en while-sats skriver ut talen från 10 ner till 1	a loop that with a while statement prints the numbers from 10 down to 1
+en repetition som skriver ut de första 42 heltalen	a loop that prints the first 42 integers
+en subklass som överskuggar en metod med `override`\noch anropar supertypens version med `super`	a subclass that overrides a method with `override`\nand calls the supertype's version with `super`
+en subtyp som med `override` ersätter en konkret metod i sin supertyp och anropar `super` för att återanvända supertypens beteende	a subtype that with `override` replaces a concrete method in its supertype and calls `super` to reuse the supertype's behavior
+en subtyp som med `override` ersätter en konkret metod i sin supertyp utan att anropa `super`	a subtype that with `override` replaces a concrete method in its supertype without calling `super`
+en supertyp som har en `final` metod som ej kan överskuggas och en subtyp som ärver den finala metoden	a supertype that has a `final` method that cannot be overridden and a subtype that inherits the final method
+enumeration	enumeration
+ett `enum` `Mynt` där varje fall har ett valörvärde i ören som parameter och en metod som ger värdet i kronor som `Double` (1 krona = 100 öre)	an `enum` `Coin` where each case has a denomination value in öre as parameter and a method that gives the value in kronor as `Double` (1 krona = 100 öre)
+ett `enum` `Väderstreck` med fallen Norr, Öster, Söder och Väster och en funktion som med mönstermatchning ger det motsatta väderstrecket	an `enum` `CompassDirection` with the cases North, East, South and West and a function that with pattern matching gives the opposite compass direction
+ett `enum` som heter `Planet` med en parameter massa av typen `Double` och en medlemsmetod som ger massan dubblerad	an `enum` called `Planet` with a parameter mass of type `Double` and a member method that gives the mass doubled
+ett `enum` som heter `Trafikljus` med fallen Röd, Gul och Grön och en parameter stannar av typen `Boolean` där Röd och Gul stannar men Grön inte gör det	an `enum` called `TrafficLight` with the cases Red, Yellow and Green and a parameter stops of type `Boolean` where Red and Yellow stop but Green does not
+ett `enum` som räknar upp de fyra årstiderna Vår, Sommar, Höst och Vinter	an `enum` that enumerates the four seasons Spring, Summer, Autumn and Winter
+ett booleskt uttryck som är sant om x är större än noll eller x är mindre än -42	a boolean expression that is true if x is greater than zero or x is less than -42
+ett booleskt uttryck som är sant precis när age ligger mellan 13 och 19	a boolean expression that is true exactly when age is between 13 and 19
+ett booleskt uttryck som är sant precis när heltalet n är delbart med 3	a boolean expression that is true exactly when the integer n is divisible by 3
+ett if-uttryck som ger strängen "godkänt" om poäng är minst 50, annars "underkänt"	an if expression that returns the string "pass" if the score is at least 50, otherwise "fail"
+ett kompanjonsobjekt som innehåller en fabriksmetod `apply` vilken skapar en instans av en oföränderlig klass med privat konstruktor	a companion object that contains a factory method `apply` which creates an instance of an immutable class with a private constructor
+ett kompanjonsobjekt som innehåller en oföränderlig delad `val` som anger en standardfärg gemensam för alla instanser av klassen	a companion object that contains an immutable shared `val` that specifies a default color common to all instances of the class
+ett match-uttryck som matchar ett tärningsslag och returnerar sexa med en gard, annars binder ett variabelmönster och returnerar slaget	a match expression that matches a dice roll and returns six with a guard, otherwise binds a variable pattern and returns the roll
+ett match-uttryck som plockar isär en tupel av namn och ålder och med en gard returnerar olika strängar för jämn respektive udda ålder	a match expression that takes apart a tuple of name and age and with a guard returns different strings for even respectively odd age
+ett match-uttryck som tar en sträng dag och returnerar helg om värdet är lördag eller söndag, annars vardag, med konstant-mönster och en wildcard-gren	a match expression that takes a string day and returns weekend if the value is Saturday or Sunday, otherwise weekday, with constant patterns and a wildcard branch
+ett match-uttryck som tar ett heltalsbetyg och returnerar underkänd för 0, 1, 2, godkänd för 3, 4 och väl godkänd för 5, med eller-mönster och en wildcard-gren sist	a match expression that takes an integer grade and returns fail for 0, 1, 2, pass for 3, 4 and pass with distinction for 5, with or-patterns and a wildcard branch last
+ett par som med metoden -> kopplar strängen "Ålder" till talet 42, samt en vektor med tre sådana par	a pair that with the method -> associates the string "Age" with the number 42, and a vector with three such pairs
+ett predikat som avgör om en sträng är ett palindrom, det vill säga läses likadant framlänges och baklänges	a predicate that determines whether a string is a palindrome, that is, reads the same forwards and backwards
+ett predikat som avgör om en sträng är tom och filtrerar `Vector("a", "", "b")` med `filter`	a predicate that determines whether a string is empty and filters `Vector("a", "", "b")` with `filter`
+ett predikat som avgör om ett heltal är jämnt	a predicate that determines whether an integer is even
+ett predikat som avgör om ett heltal är positivt och delar upp `Vector(-2, 3, -1, 5)` med `partition`	a predicate that determines whether an integer is positive and splits `Vector(-2, 3, -1, 5)` with `partition`
+ett predikat som med hjälp av `forall` avgör om alla element i en matris av typen `Vector[Vector[Int]]` är positiva	a predicate that with the help of `forall` determines whether all elements in a matrix of type `Vector[Vector[Int]]` are positive
+ett predikat som tar två strängar och ger `true` om de börjar med samma bokstav	a predicate that takes two strings and gives `true` if they begin with the same letter
+ett predikat som testar om en nästlad sekvens av heltal\när en matematisk matris med m rader och n kolumner\nmed och utan hjälp av befintliga metoden `forall` (dvs. alla rader har lika många element)	a predicate that tests whether a nested sequence of integers\nis a mathematical matrix with m rows and n columns\nwith and without the help of the existing method `forall` (i.e. all rows have the same number of elements)
+ett program som byter plats på det andra och det näst sista elementet i args och skriver ut resultatet med blanktecken emellan	a program that swaps the second and the second-to-last element in args and prints the result with spaces in between
+ett program som med @main tar emot ett heltal n och resten som strängar och skriver ut de n sista strängarna	a program that with @main receives an integer n and the rest as strings and prints the last n strings
+ett program som med en for-do-sats skriver ut varje element i args på en egen rad tillsammans med dess platsnummer	a program that with a for-do statement prints each element in args on its own line together with its position number
+ett program som registrerar 1000 tärningskast i en `Array`	a program that registers 1000 dice rolls in an `Array`
+ett program som skriver ut antalet negativa heltal i args	a program that prints the number of negative integers in args
+ett singelobjekt `Highscore` med en privat variabel för högsta poäng,\nen getter, en metod `isHighscore(p: Int)` och en metod `update(p: Int)` som ändrar tillståndet	a singleton object `Highscore` with a private variable for the highest score,\na getter, a method `isHighscore(p: Int)` and a method `update(p: Int)` that changes the state
+ett singelobjekt som heter `Färger` och som med namnbyte vid `import` gör `java.awt.Color` tillgänglig som JColor	a singleton object called `Colors` that, with renaming on `import`, makes `java.awt.Color` available as JColor
+ett singelobjekt som heter `Räknare` med en privat variabel _antal som börjar på noll, en getter antal och en metod `öka` som ökar räknaren med ett	a singleton object called `Counter` with a private variable _count starting at zero, a getter count and a method `increment` that increases the counter by one
+ett singelobjekt som heter `Termostat` med en privat variabel _temp, en getter temp och en metod `höj` som ökar temperaturen med ett givet antal grader	a singleton object called `Thermostat` with a private variable _temp, a getter temp and a method `raise` that increases the temperature by a given number of degrees
+ett singelobjekt som heter `mittBankkonto` med ett oföränderligt kontonr, ett föränderligt saldo och ett predikat `ärSkuldsatt` som är sant då saldot är negativt	a singleton object called `myBankAccount` with an immutable account number, a mutable balance and a predicate `isInDebt` that is true when the balance is negative
+ett try-catch-uttryck som beräknar en heltalsdivision och fångar ett ArithmeticException genom att returnera minus ett	a try-catch expression that computes an integer division and catches an ArithmeticException by returning minus one
+ett typalias Pt för tupeltypen (`Int`, `Int`) och en funktion som tar två punkter av typen Pt och returnerar deras s.k. manhattanavstånd, definierat som summan av absolutbeloppen av differenserna mellan respektive koordinater, alltså i matematisk notation: |x1 - x2| + |y1 - y2| 	a type alias Pt for the tuple type (`Int`, `Int`) and a function that takes two points of type Pt and returns their so-called Manhattan distance, defined as the sum of the absolute values of the differences between the respective coordinates, that is in mathematical notation: |x1 - x2| + |y1 - y2| 
+ett typalias som heter `Pt` för typen (`Int`, `Int`) och en funktion `distToOrigo` som tar ett Pt och ger avståndet till origo med `math.hypot`	a type alias called `Pt` for the type (`Int`, `Int`) and a function `distToOrigo` that takes a Pt and gives the distance to the origin with `math.hypot`
+ett uttryck som beräknar heltalsdelen av 41 dividerat med 2	an expression that computes the integer part of 41 divided by 2
+ett uttryck som beräknar produkten av talen 9 och 6	an expression that computes the product of the numbers 9 and 6
+ett uttryck som beräknar resten när 100 delas med 7	an expression that computes the remainder when 100 is divided by 7
+ett uttryck som beräknar resten när 41 delas med 2 med operatorn %	an expression that computes the remainder when 41 is divided by 2 using the operator %
+ett uttryck som beräknar summan av talen 7 och 5	an expression that computes the sum of the numbers 7 and 5
+ett uttryck som konkatenerar strängarna "gurk" och "burk" till en enda sträng	an expression that concatenates the strings "foot" and "ball" into a single string
+ett uttryck som med `Range` och for-yield skapar en `Vector` med de tio första udda talen	an expression that with `Range` and for-yield creates a `Vector` with the first ten odd numbers
+ett uttryck som med `Range` och sum beräknar summan av alla jämna tal från 0 till och med 100	an expression that with `Range` and sum computes the sum of all even numbers from 0 up to and including 100
+ett uttryck som med for-yield bygger en ny `Vector` där varje tal i xs har ökats med 10	an expression that with for-yield builds a new `Vector` where each number in xs has been increased by 10
+ett uttryck som räknar ut cirkelarean givet radien av r (cirkelns area är π·r², π finns som `math.Pi`)	an expression that computes the area of a circle given the radius r (the area of a circle is π·r², where π is available as `math.Pi`)
+ett uttryck som upprepar strängen "ha" 10 gånger med operatorn *	an expression that repeats the string "ha" 10 times using the operator *
+exekverbar implementation	executable implementation
+exekvering i sekvens	sequential execution
+extensionsmetod	extension method
+fabriksmetod	factory method
+filtrering	filtering
+for-sats	for statement
+for-uttryck	for expression
+funktion	function
+funktion som äkta värde	function as a first-class value
+förseglad (`sealed`) typhierarki	sealed (`sealed`) type hierarchy
+förseglad typ	sealed type
+förändringsbar samling	mutable collection
+generisk datastruktur	generic data structure
+generisk funktion	generic function
+getter	getter
+givet bredd b och höjd h, ett uttryck som ger rektangelns area	given width b and height h, an expression that gives the rectangle's area
+givet en radie r, ett uttryck som ger cirkelns omkrets (cirkelns omkrets är 2·π·r)	given a radius r, an expression that gives the circle's circumference (the circumference of a circle is 2·π·r)
+givet en sträng s, ett uttryck som ger strängen s upprepad tre gånger	given a string s, an expression that gives the string s repeated three times
+givet en temperatur, ett booleskt uttryck som är sant om det är minusgrader	given a temperature, a boolean expression that is true if it is below zero
+givet en ålder i år, ett booleskt uttryck som är sant om personen är myndig (myndig = minst 18 år)	given an age in years, a boolean expression that is true if the person is of legal age (of legal age = at least 18 years)
+givet ett förnamn och ett efternamn, ett uttryck som sätter ihop dem till ett namn med ett mellanslag emellan	given a first name and a last name, an expression that joins them into a full name with a space in between
+givet ett heltal n, ett booleskt uttryck som är sant om n är delbart med både 2 och 3	given an integer n, a boolean expression that is true if n is divisible by both 2 and 3
+givet ett heltal n, ett booleskt uttryck som är sant om n är jämnt	given an integer n, a boolean expression that is true if n is even
+givet ett heltal n, ett uttryck som ger den sista siffran i n	given an integer n, an expression that gives the last digit of n
+givet ett heltal n, ett uttryck som ger n upphöjt till två	given an integer n, an expression that gives n to the power of two
+givet ett heltal n, ett uttryck som ger n ökat med ett	given an integer n, an expression that gives n increased by one
+givet ett namn, ett uttryck som med en stränginterpolator bygger hälsningen "Hej <namn>!"	given a name, an expression that uses a string interpolator to build the greeting "Hello <name>!"
+givet grader Celsius c, ett uttryck som ger motsvarande temperatur i Fahrenheit (Fahrenheit = Celsius · 9/5 + 32)	given degrees Celsius c, an expression that gives the corresponding temperature in Fahrenheit (Fahrenheit = Celsius · 9/5 + 32)
+givet två heltal a och b, ett booleskt uttryck som är sant om de är lika	given two integers a and b, a boolean expression that is true if they are equal
+givet två heltal a och b, ett uttryck som ger deras medelvärde som `Double`	given two integers a and b, an expression that gives their average as a `Double`
+grundtyper	basic types
+huvudprogram	main program
+if-sats	if statement
+if-uttryck	if expression
+indexering	indexing
+innehållslikhet	content equality
+innehållstest	membership test
+instansiering	instantiation
+insättningssortering	insertion sort
+klass	class
+klassparameter	class parameter
+kod-duplicering	code duplication
+kollektiva extensionsmetoder på typen `Double` med halva som ger talet delat med två och dubbla som ger talet gånger två, samlade under en och samma `extension`	collective extension methods on the type `Double` with half that gives the number divided by two and double that gives the number times two, gathered under one and the same `extension`
+kompanjonsobjekt	companion object
+kompilering	compilation
+kompileringsfel	compile-time error
+komposition	composition
+konkret medlem	concrete member
+konstruktormönster	constructor pattern
+kontrollstruktur	control structure
+källkod	source code
+körtidsfel	run-time error
+likhet mellan strängar	equality between strings
+linjärsökning	linear search
+lokal funktion	local function
+maskinkod	machine code
+matris	matrix
+metod	method
+metoden `apply`	the `apply` method
+mängd	set
+mönstermatchning	pattern matching
+namnanrop	call-by-name
+namngivna argument	named arguments
+namnrymd	namespace
+nyckel-värde-tabell	key-value table
+nyckelordet this	the keyword this
+nästlad struktur	nested structure
+oföränderlig samling	immutable collection
+paket	package
+parameter	parameter
+parametertyp	parameter type
+persistens	persistence
+predikat	predicate
+privat medlem	private member
+pseudokod	pseudocode
+punktnotation	dot notation
+referenslikhet	reference equality
+registrering	tallying
+repeterade parametrar	repeated parameters
+returtyp	return type
+samlingsmetoden `map`	the collection method `map`
+sekvens	sequence
+sekvensalgoritm	sequence algorithm
+serialisering	serialization
+setter	setter
+singelobjekt	singleton object
+skapa ny sekvens	create a new sequence
+skyddad medlem (`protected`)	protected member (`protected`)
+sorterad sekvens av strängar	sorted sequence of strings
+statisk typ	static type
+stränginterpolator	string interpolator
+strängrepresentation	string representation
+subtyp	subtype
+subtypspolymorfism	subtype polymorphism
+supertyp	supertype
+tilldelning	assignment
+tillstånd	state
+transformering	transformation
+try-catch	try-catch
+tupel	tuple
+två förändringsbara variabler som först initialiseras\nmed två olika helatal och sedan byter värde med varandra	two mutable variables that are first initialized\nwith two different integers and then swap values with each other
+typ	type
+typparameter	type parameter
+undantag	exception
+uppräknade värden med `enum`	enumerated values with `enum`
+uppräknade värden med heltal	enumerated values with integers
+vektor	vector
+värde	value
+värdeanrop	call-by-value
+while-sats	while statement
+Äkta funktioner	Pure functions
+äkta funktion	pure function
+ändra på plats	modify in place
+överlagring	overloading
+överskuggning (`override`)	overriding (`override`)
