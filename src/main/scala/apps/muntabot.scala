@@ -15,13 +15,30 @@ object Muntabot extends App:
   var fromWeek = MinWeek
   var toWeek = MaxWeek
 
+  /** A "Swedish/English" dropdown; on change it sets the language and re-renders. */
+  def appendLanguageSelect(target: dom.Node)(reRender: => Unit): Unit =
+    val sel = document.createElement("select").asInstanceOf[dom.html.Select]
+    for (label, l) <- Seq("Swedish" -> Lang.Sv, "English" -> Lang.En) do
+      val option = document.createElement("option").asInstanceOf[dom.html.Option]
+      option.value = l.toString // "Sv" / "En"
+      option.textContent = label
+      option.selected = l == Lang.current
+      sel.appendChild(option)
+    sel.onchange = (e: dom.Event) =>
+      Lang.current = if sel.value == "En" then Lang.En else Lang.Sv
+      reRender
+    val p = document.createElement("p")
+    p.appendChild(sel)
+    target.appendChild(p)
+
   def setupUI(): Unit =
+    val t = Texts.current
     val containerElement = Document.appendDynamicContainer()
 
     val weekParagraph = Document.appendText(
       containerElement,
       "p",
-      "Slumpa en fråga i taget från läsvecka "
+      t.pickFromWeek
     )
 
     // Two dropdowns for a week range. The from-dropdown offers MinWeek..toWeek and
@@ -56,11 +73,14 @@ object Muntabot extends App:
 
     refreshWeekRange()
     weekParagraph.appendChild(fromSelect)
-    weekParagraph.appendChild(document.createTextNode(" till och med läsvecka "))
+    weekParagraph.appendChild(document.createTextNode(t.toWeek))
     weekParagraph.appendChild(toSelect)
 
+    // Language selector right after the leading text; re-renders the page.
+    appendLanguageSelect(containerElement) { setupUI() }
+
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
-    showText.textContent = "Klicka på knapparna ovan så får du en uppgift."
+    showText.textContent = t.clickButtons
 
     val showHelp = document.createElement("p")
 
@@ -77,13 +97,13 @@ object Muntabot extends App:
                   s"<em>${Markup.escapeHtml(qt.instruction)}</em>"
               val (href, linkText) = Compendium.link(url)
               showHelp.innerHTML =
-                s"""Läs i kompendiet om: <a href="$href" target="_blank">${Markup.escapeHtml(linkText)}</a>"""
+                s"""${Markup.escapeHtml(Texts.current.readInCompendium)}<a href="$href" target="_blank">${Markup.escapeHtml(linkText)}</a>"""
             case _ => showText.textContent = q.toString
         case _ =>
           Compendium.linkForConcept(q) match
             case Some((href, linkText)) =>
               showHelp.innerHTML =
-                s"""Läs i kompendiet om: <a href="$href" target="_blank">${Markup.escapeHtml(linkText)}</a>"""
+                s"""${Markup.escapeHtml(Texts.current.readInCompendium)}<a href="$href" target="_blank">${Markup.escapeHtml(linkText)}</a>"""
             case None => showHelp.innerHTML = ""
           showText.innerHTML =
             s"<b>${Markup.escapeHtml(qt.title)}:</b> " +
@@ -109,24 +129,12 @@ object Muntabot extends App:
     containerElement.appendChild(showHelp)
 
     // Moved here from index.html so the question shows higher up (less scroll on mobile).
-    Document.appendHtml(
-      containerElement,
-      "p",
-      "Läs om muntan i " +
-        "<a href=\"https://fileadmin.cs.lth.se/pgk/compendium.pdf\">kompendiet;-1.7:anvisningar;muntligt prov</a>" +
-        " OCH " +
-        "<a href=\"https://fileadmin.cs.lth.se/pgk/lect-w12.pdf\">föreläsn. w12</a>"
-    )
+    Document.appendHtml(containerElement, "p", t.readAboutExamHtml)
 
-    Document.appendHtml(
-      containerElement,
-      "p",
-      "Hjälpmedel vid skarp munta: papper, penna, " +
-        "<a href=\"https://fileadmin.cs.lth.se/pgk/quickref.pdf\">snabbreferensen</a>."
-    )
+    Document.appendHtml(containerElement, "p", t.aidsHtml)
 
     Document.appendLinkToApp(
       containerElement,
       Rehearsal,
-      "Spojla alla frågor"
+      t.revealAll
     )

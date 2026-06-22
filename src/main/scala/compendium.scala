@@ -8,6 +8,11 @@ import scala.scalajs.js.URIUtils.decodeURIComponent
   * ignore it), so we link via `#page=<physicalPage>` (works everywhere), using
   * the generated `headings` table (see FindHeadings.scala). The link text shows
   * "number heading (s. printedPage)".
+  *
+  * The compendium is in Swedish, so the link ALWAYS opens the Swedish PDF and
+  * the page geometry always comes from the Swedish `headings` table. In English
+  * mode only the shown heading text is translated (via headingTranslateSvEn),
+  * and concept lookups use the English keys (conceptHeadingEn).
   */
 object Compendium:
 
@@ -19,21 +24,29 @@ object Compendium:
   lazy val infoOf: Map[String, (String, Int, Int)] =
     headings.reverse.map((h, num, printed, phys) => h -> (num, printed, phys)).toMap
 
-  /** Robust `#page=` href + "number heading (s. page)" text for a known heading. */
-  def linkForHeading(heading: String): Option[(String, String)] =
-    infoOf.get(heading).map: (number, printed, physical) =>
+  /** English display title for a Swedish heading (falls back to the Swedish). */
+  def shownHeading(svHeading: String): String =
+    if Lang.isEn then headingTranslateSvEn.getOrElse(svHeading, svHeading) else svHeading
+
+  /** Robust `#page=` href + "number heading (s./p. page)" text for a known
+    * (Swedish) heading; the heading text is shown translated in English mode. */
+  def linkForHeading(svHeading: String): Option[(String, String)] =
+    infoOf.get(svHeading).map: (number, printed, physical) =>
       val numberPrefix = if number.nonEmpty then s"$number " else ""
-      (s"$base#page=$physical", s"$numberPrefix$heading (s. $printed)")
+      (s"$base#page=$physical",
+       s"$numberPrefix${shownHeading(svHeading)} (${Texts.current.pageAbbrev} $printed)")
 
   /** Convert a data `...#nameddest=<heading>` url to a robust #page link + text.
     * Falls back to the given url if the heading is unknown. (Used by Code tasks.) */
   def link(nameddestUrl: String): (String, String) =
     val marker = "#nameddest="
     val i = nameddestUrl.indexOf(marker)
-    if i < 0 then (nameddestUrl, "Visa information från kursboken")
+    if i < 0 then (nameddestUrl, Texts.current.showInfo)
     else
       val heading = decodeURIComponent(nameddestUrl.substring(i + marker.length))
-      linkForHeading(heading).getOrElse((nameddestUrl, s"$heading – visa i kursboken"))
+      linkForHeading(heading).getOrElse(
+        (nameddestUrl, s"${shownHeading(heading)}${Texts.current.showInBookSuffix}")
+      )
 
   /** Lookup key for a Concepts term / Contrasts pair (matches conceptHeading keys). */
   def conceptKey(q: String | (String, String)): String =
@@ -44,4 +57,5 @@ object Compendium:
   /** Robust compendium link for a Förklara/Jämför-koncept question, if mapped
     * (most relevant heading in the concept's own chapter; see conceptHeading). */
   def linkForConcept(q: String | (String, String)): Option[(String, String)] =
-    conceptHeading.get(conceptKey(q)).flatMap(linkForHeading)
+    val map = if Lang.isEn then conceptHeadingEn else conceptHeading
+    map.get(conceptKey(q)).flatMap(linkForHeading)

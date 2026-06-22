@@ -38,17 +38,21 @@ object Rehearsal extends App:
     document.getElementById("search-input").asInstanceOf[dom.html.Input]
 
   def setupCommonComponents(): dom.Element =
+    val t = Texts.current
     val containerElement = Document.appendDynamicContainer()
 
-    Document.appendLinkToApp(containerElement, Muntabot, "Slumpa en fråga i taget")
+    Document.appendLinkToApp(containerElement, Muntabot, t.pickOneAtATime)
 
     Document.appendText(
       containerElement,
       "h1",
-      "Alla frågor från muntabot"
+      t.allQuestions
     )
 
-    Document.appendInput(containerElement, "Sök", "search-input") {
+    // Language selector right after the leading text; re-renders the page.
+    Muntabot.appendLanguageSelect(containerElement) { setupUI() }
+
+    Document.appendInput(containerElement, t.search, "search-input") {
       searchTerm = searchInput.value
       if searchTerm.length > 0 then
         searchView()
@@ -61,7 +65,7 @@ object Rehearsal extends App:
 
     Document.appendButton(
       containerElement,
-      "Per vecka",
+      t.perWeek,
       disabled = currentSubpage == "week"
     ) {
       searchTerm = ""
@@ -71,7 +75,7 @@ object Rehearsal extends App:
 
     Document.appendButton(
       containerElement,
-      "Per kategori",
+      t.perCategory,
       disabled = currentSubpage == "category"
     ) {
       searchTerm = ""
@@ -82,7 +86,7 @@ object Rehearsal extends App:
     Document.appendText(
       containerElement,
       "p",
-      "Svara på frågor och gör koduppdrag nedan. Ge även exempel på normal och felaktig/konstig användning. För varje koduppdrag: skriv även testfall som testar din kod. Hjälpmedel vid skarp munta: papper, penna, snabbreferens."
+      t.rehearsalIntro
     )
 
     containerElement
@@ -90,7 +94,7 @@ object Rehearsal extends App:
   def searchView(): Unit =
     val contentElement =
       Document.appendDynamicContainer("content", containerElement)
-    Document.appendText(contentElement, "h2", "Sökresultat:")
+    Document.appendText(contentElement, "h2", Texts.current.searchResults)
     for searchable <- searchables do
       if (searchable.toLowerCase.contains(searchTerm.toLowerCase)) then
         Document.appendHtml(
@@ -102,7 +106,7 @@ object Rehearsal extends App:
   def perCategory(): Unit =
     val contentElement =
       Document.appendDynamicContainer("content", containerElement)
-    Document.appendText(contentElement, "h2", "Per kategori")
+    Document.appendText(contentElement, "h2", Texts.current.perCategory)
 
     var number = 1
     for questionType <- Questions.types do
@@ -119,17 +123,18 @@ object Rehearsal extends App:
         number += 1
 
   def perWeek(): Unit =
+    val t = Texts.current
     val contentElement =
       Document.appendDynamicContainer("content", containerElement)
-    var weeks = termsSv.map(_._1).distinct
+    var weeks = terms.map(_._1).distinct
     var number = 1
     for week <- weeks do
-      val thisWeek = termsSv.filter(_._1 == week)
+      val thisWeek = terms.filter(_._1 == week)
       val w = thisWeek(0)._1.w
       Document.appendText(
         contentElement,
         "h2",
-        s"Vecka $w: ${Week.title(thisWeek(0)._1)}"
+        s"${t.weekWord} $w: ${Week.title(thisWeek(0)._1)}"
       )
       for term <- thisWeek do
         Document.appendText(contentElement, "h3", term._2.title)
