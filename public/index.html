@@ -7,10 +7,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
   </head>
   <body>
-    <p>
-      <b><a href = "https://github.com/bjornregnell/muntabot">muntabot</a> v2026.1
-      is used for training and oral exams in <a href = "https://cs.lth.se/pgk">Intro to Programming</a></b>
-    </p>
+    <div id="topbar">
+      <p id="intro">
+        <b><a href = "https://github.com/bjornregnell/muntabot">muntabot</a> v2026.1
+        is used for training and oral exams in <a href = "https://cs.lth.se/pgk">Intro to Programming</a></b>
+      </p>
+      <!-- language dropdown injected here by the app (right column) -->
+      <div id="lang-slot"></div>
+    </div>
     <!-- Include Scala.js compiled code -->
     <script type="text/javascript" src="main.js"></script>
   </body>

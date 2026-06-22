@@ -101,3 +101,28 @@ button:disabled {
 #page-decider {
   display: none;
 }
+
+/* top bar: small intro text in a left column, language dropdown on the right */
+#topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
+}
+#intro {
+  font-size: 0.8rem;
+  line-height: 1.3;
+  margin: 0;
+  max-width: 42rem;
+}
+#lang-slot {
+  flex: 0 0 auto;
+}
+/* keep the language dropdown understated (not bold, smaller) */
+#lang-slot select {
+  font-weight: normal;
+  font-size: 0.85rem;
+  padding: 0.3rem 0.5rem;
+  margin: 0;
+}

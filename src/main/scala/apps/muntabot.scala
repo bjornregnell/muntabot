@@ -15,21 +15,23 @@ object Muntabot extends App:
   var fromWeek = MinWeek
   var toWeek = MaxWeek
 
-  /** A "Swedish/English" dropdown; on change it sets the language and re-renders. */
-  def appendLanguageSelect(target: dom.Node)(reRender: => Unit): Unit =
-    val sel = document.createElement("select").asInstanceOf[dom.html.Select]
-    for (label, l) <- Seq("Swedish" -> Lang.Sv, "English" -> Lang.En) do
-      val option = document.createElement("option").asInstanceOf[dom.html.Option]
-      option.value = l.toString // "Sv" / "En"
-      option.textContent = label
-      option.selected = l == Lang.current
-      sel.appendChild(option)
-    sel.onchange = (e: dom.Event) =>
-      Lang.current = if sel.value == "En" then Lang.En else Lang.Sv
-      reRender
-    val p = document.createElement("p")
-    p.appendChild(sel)
-    target.appendChild(p)
+  /** Render the "Swedish/English" dropdown into the fixed top-right slot
+    * (#lang-slot in index.html); on change it sets the language and re-renders. */
+  def renderLanguageSelect(reRender: => Unit): Unit =
+    val slot = document.getElementById("lang-slot")
+    if slot != null then
+      slot.innerHTML = ""
+      val sel = document.createElement("select").asInstanceOf[dom.html.Select]
+      for (label, l) <- Seq("Swedish" -> Lang.Sv, "English" -> Lang.En) do
+        val option = document.createElement("option").asInstanceOf[dom.html.Option]
+        option.value = l.toString // "Sv" / "En"
+        option.textContent = label
+        option.selected = l == Lang.current
+        sel.appendChild(option)
+      sel.onchange = (e: dom.Event) =>
+        Lang.current = if sel.value == "En" then Lang.En else Lang.Sv
+        reRender
+      slot.appendChild(sel)
 
   def setupUI(): Unit =
     val t = Texts.current
@@ -76,8 +78,8 @@ object Muntabot extends App:
     weekParagraph.appendChild(document.createTextNode(t.toWeek))
     weekParagraph.appendChild(toSelect)
 
-    // Language selector right after the leading text; re-renders the page.
-    appendLanguageSelect(containerElement) { setupUI() }
+    // Language selector in the top-right slot; re-renders the page on change.
+    renderLanguageSelect { setupUI() }
 
     val showText = document.createElement("pre").asInstanceOf[dom.html.Pre]
     showText.textContent = t.clickButtons

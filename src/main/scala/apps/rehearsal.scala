@@ -49,8 +49,8 @@ object Rehearsal extends App:
       t.allQuestions
     )
 
-    // Language selector right after the leading text; re-renders the page.
-    Muntabot.appendLanguageSelect(containerElement) { setupUI() }
+    // Language selector in the top-right slot; re-renders the page on change.
+    Muntabot.renderLanguageSelect { setupUI() }
 
     Document.appendInput(containerElement, t.search, "search-input") {
       searchTerm = searchInput.value
