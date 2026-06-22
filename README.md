@@ -6,11 +6,11 @@ This single-page client-only web app is available for execution in your browser 
 https://fileadmin.cs.lth.se/pgk/muntabot
 
 
-Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](https://www.scala-js.org/doc/tutorial/basic/). Built using [`sbt`](https://www.scala-sbt.org/) and [`nodejs`](https://nodejs.org).
+Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](https://www.scala-js.org/doc/tutorial/basic/). Built using [`sbt`](https://www.scala-sbt.org/).
 
 # How to develop
 
-* Prerequisites: [sbt](https://www.scala-sbt.org/1.x/docs/Setup.html), [Node.js](https://nodejs.org/en/download/)
+* Prerequisites: [sbt](https://www.scala-sbt.org/1.x/docs/Setup.html)
 
 * Clone or download this repo on your machine.
 
@@ -21,6 +21,38 @@ Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](http
 * If you are using a sand-boxed browser (e.g. Firefox installed as a snap) then local files are opened as something similar to `file:///run/user/1000/doc/ad1d72e5/index.html` which means that the index.html-page cannot access the accompanying local files main.js and style.css so you need to explicitly type the correct path in the URL field using something similar to  `file:///home/user/project/dev/index.html#muntabot` where you change the user and project in the path to where the files are located. Note the trippel slashes `///`
 
 * To avoid having to reload the page upon every change the vscode extension [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) can be used to do this automatically. Install the extension in vscode and right-click `dev/index-dev.html` and click `Open with Live Server` after running `~fastLinkJS` in `sbt`. Don't forget to check that `dev/index-dev.html` points to the correct subdir of `target/scala-3.x.y/` ...
+
+# Bilingual: how the English side is generated
+
+muntabot is bilingual — Swedish (default) and English, selectable in the top-right dropdown. The Swedish content is authored by hand in `src/main/scala/data-sv.scala`; the **English files are generated** from it:
+
+* `src/main/scala/data-en.scala`
+* `src/main/scala/headings-En-GENERATED.scala`
+* `src/main/scala/concept-headings-En-GENERATED.scala`
+
+They are produced by `auto-translate.sc` — a standalone [Scala CLI](https://scala-cli.virtuslab.org/) script (deliberately kept out of the `sbt` build) that translates Swedish → English with a small local LLM via [Ollama](https://ollama.com/).
+
+## Prerequisites for translating
+
+* Install [Scala CLI](https://scala-cli.virtuslab.org/install).
+* Install [Ollama](https://ollama.com/download) and pull the model: `ollama pull qwen2.5:3b` (see the [model page](https://ollama.com/library/qwen2.5)). It runs on CPU and needs ≈2 GB.
+
+## Run the translator
+
+From the repo root:
+
+```bash
+scala-cli run auto-translate.sc
+```
+
+`publish.sh` runs this automatically as part of a production build, so you normally only run it by hand after changing the Swedish side.
+
+## How it works (deterministic and build-safe)
+
+* **Cache-first.** Translations live in `translate-cache.tsv` (committed). The model is called **only for new or changed Swedish strings**, so re-running changes nothing and Ollama isn't even needed unless the Swedish content actually changed.
+* **Deterministic.** The model uses a fixed seed and temperature 0, so a first-time translation is reproducible.
+* **Authoritative terms win.** Official term translations in `src/main/scala/translations-GENERATED.scala` (generated from the introprog glossary) take precedence over the model.
+* **Never breaks the build.** `$math$` and `` `code` `` spans are masked and kept verbatim; model output is validated and falls back to the Swedish text on any failure (worst case: English == Swedish). The normal `sbt` compile of the generated `.scala` files is the final guardrail.
 
 # How to deploy 
 
@@ -38,14 +70,13 @@ Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](http
   * When bumping scalajs plugin update: `project/plugins.sbt`
   * When bumping sbt version update:  `project/build.properties`
 
+* `auto-translate.sc` pins its **own** Scala and JVM versions in its `//> using` header — those belong to the translator (run by Scala CLI) and are independent of the app's Scala version, so they don't need to track it.
+
 ## Build for production
 
-* When an update is ready for production, use the `publish.sh` bash script which includes the following commands where `3.x.y` is your current Scala version:
+* When an update is ready for production, run the `publish.sh` script. It builds the app, regenerates the English translations with `auto-translate.sc` (see [the bilingual section](#bilingual-how-the-english-side-is-generated)), rebuilds, and uploads the `public/` folder. See `publish.sh` for the exact, current commands (not duplicated here so they can't drift out of date).
 
-```bash
-sbt "clean;fullLinkJS"
-cp target/scala-3.x.y/muntabot-opt/main.js public/.
-```
+* That production build therefore needs Scala CLI and Ollama for the translation step. If you build on a machine without them, comment out the `scala-cli run auto-translate.sc` line in `publish.sh` — the already-committed English files compile on their own.
 
 ## Deploy
 
