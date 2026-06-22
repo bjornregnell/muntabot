@@ -1,6 +1,7 @@
 package rehearsal
 
 import shared._
+import shared.sv.termsSv
 import org.scalajs.dom
 import org.scalajs.dom.document
 import org.scalajs.dom.window
@@ -121,10 +122,10 @@ object Rehearsal extends App:
   def perWeek(): Unit =
     val contentElement =
       Document.appendDynamicContainer("content", containerElement)
-    var weeks = terms.map(_._1).distinct
+    var weeks = termsSv.map(_._1).distinct
     var number = 1
     for week <- weeks do
-      val thisWeek = terms.filter(_._1 == week)
+      val thisWeek = termsSv.filter(_._1 == week)
       val w = thisWeek(0)._1.w
       Document.appendText(
         contentElement,

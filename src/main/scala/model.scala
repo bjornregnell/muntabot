@@ -1,6 +1,7 @@
 package shared
 
 import util.Random.nextInt as rnd
+import shared.sv.termsSv
 
 case class Week(w: Int)
 
@@ -47,7 +48,7 @@ abstract class Questions:
   ): String | (String, String) =
     val termsToWeekOfType: Seq[String | (String, String)] =
       val resultNested = for
-        (Week(w), q) <- terms if w >= fromWeek && w <= toWeek && q.title == tpe.title
+        (Week(w), q) <- termsSv if w >= fromWeek && w <= toWeek && q.title == tpe.title
       yield q match
         case xs: Concepts  => xs.cs
         case xs: Contrasts => xs.cs
@@ -95,7 +96,7 @@ object Concepts extends Questions:
   val instruction =
     "Ge exempel på normal och felaktig/konstig användning. Förklara varför/när konceptet är bra att ha."
 
-  lazy val all = (for case (w, t: Concepts) <- terms yield t).map(_.cs).flatten
+  lazy val all = (for case (w, t: Concepts) <- termsSv yield t).map(_.cs).flatten
 
 case class Contrasts(cs: (String, String)*) extends Question(cs.toVector):
   val title = Contrasts.title
@@ -112,7 +113,7 @@ object Contrasts extends Questions:
   val instruction =
     "Ge exempel på normal eller felaktig/konstig användning som belyser skillnader/likheter. Förklara varför koncepten finns och vad de ska vara bra till."
 
-  lazy val all = (for case (w, t: Contrasts) <- terms yield t).map(_.cs).flatten
+  lazy val all = (for case (w, t: Contrasts) <- termsSv yield t).map(_.cs).flatten
 
 case class Code(cs: (String, String)*) extends Question(cs.toVector):
   val title = Code.title
@@ -131,7 +132,7 @@ object Code extends Questions:
 
   override def punctuation = '.'
 
-  lazy val all = (for case (w, t: Code) <- terms yield t).map(_.cs).flatten
+  lazy val all = (for case (w, t: Code) <- termsSv yield t).map(_.cs).flatten
 
   override def shortItem(question: String | (String, String)): String =
     question match
