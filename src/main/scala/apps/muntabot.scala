@@ -37,12 +37,6 @@ object Muntabot extends App:
     val t = Texts.current
     val containerElement = Document.appendDynamicContainer()
 
-    val weekParagraph = Document.appendText(
-      containerElement,
-      "p",
-      t.pickFromWeek
-    )
-
     // Two dropdowns for a week range. The from-dropdown offers MinWeek..toWeek and
     // the to-dropdown offers fromWeek..MaxWeek, so picking either constrains the
     // other (from can never exceed to). Only valid weeks are selectable.
@@ -74,9 +68,20 @@ object Muntabot extends App:
       refreshWeekRange()
 
     refreshWeekRange()
-    weekParagraph.appendChild(fromSelect)
-    weekParagraph.appendChild(document.createTextNode(t.toWeek))
-    weekParagraph.appendChild(toSelect)
+
+    // Week range as a 2x2 grid: text labels in the left column, dropdowns aligned
+    // in the right column (so the dropdowns line up even when the text changes).
+    val weekGrid = document.createElement("div")
+    weekGrid.id = "week-range"
+    def addLabel(text: String): Unit =
+      val span = document.createElement("span")
+      span.textContent = text
+      weekGrid.appendChild(span)
+    addLabel(t.pickFromWeek.trim)
+    weekGrid.appendChild(fromSelect)
+    addLabel(t.toWeek.trim)
+    weekGrid.appendChild(toSelect)
+    containerElement.appendChild(weekGrid)
 
     // Language selector in the top-right slot; re-renders the page on change.
     renderLanguageSelect { setupUI() }

@@ -126,3 +126,16 @@ button:disabled {
   padding: 0.3rem 0.5rem;
   margin: 0;
 }
+
+/* week range: 2x2 matrix, text labels left, dropdowns aligned in the right column */
+#week-range {
+  display: grid;
+  grid-template-columns: max-content max-content;
+  gap: 0.5rem 0.75rem;
+  align-items: center;
+  justify-content: start;
+  margin: 1rem 0;
+}
+#week-range select {
+  margin: 0;
+}
