@@ -1,12 +1,18 @@
 # muntabot
 ![Build Status](https://github.com/bjornregnell/muntabot/actions/workflows/main.yml/badge.svg)
 
-This single-page client-only web app is available for execution in your browser here:
+**muntabot — an oral exam (viva) assistant for programming**
+
+Are you reskilling for the era of agentic software engineering? Test your programming abilities with [`muntabot`](https://fileadmin.cs.lth.se/pgk/muntabot) using pen, paper and [the Scala Quickref](https://fileadmin.cs.lth.se/pgk/quickref.pdf) only.
+
+This single-page, client-only web app runs directly in your browser:
 
 https://fileadmin.cs.lth.se/pgk/muntabot
 
+(If you wonder about the peculiar name of this repo: "munta" is Swedish slang for oral examination.)
 
-Developed using fantastic [Scala 3](https://scala-lang.org/) and [Scala JS](https://www.scala-js.org/doc/tutorial/basic/). Built using [`sbt`](https://www.scala-sbt.org/).
+Muntabot is developed using [Scala 3](https://scala-lang.org/) and [Scala JS](https://www.scala-js.org/doc/tutorial/basic/), chosen for safety and token efficiency in agent-assisted development. Built using [`sbt`](https://www.scala-sbt.org/).
+
 
 # How to develop
 
