@@ -49,6 +49,7 @@ package shared
     "kompanjonsobjekt" -> "companion object",
     "kompilator" -> "compiler",
     "kompilera" -> "compile",
+    "kompilering" -> "compilation",
     "kompileringsfel" -> "compile error",
     "konstruktor" -> "constructor",
     "kontrollstruktur" -> "control structure",
