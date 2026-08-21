@@ -58,7 +58,7 @@ object Rehearsal extends App:
         searchView()
         searchInput.value = searchTerm
       else
-        searchables.clear
+        searchables.clear()
         runSubpage()
 
     }
