@@ -5,6 +5,10 @@
 set -euo pipefail
 
 sbt --client "clean;fullLinkJS"
+# auto-translate.sc writes data-en.scala and concept-headings-En-GENERATED.scala.
+# It does NOT write the English heading labels: since 2026-08-22 introprog owns
+# heading-translate-GENERATED.scala and `sbt syncMuntabot` over there delivers it here.
+# If those labels look stale, the fix is in introprog, not in this script.
 scala-cli run auto-translate.sc
 sbt --client "fullLinkJS"
 
