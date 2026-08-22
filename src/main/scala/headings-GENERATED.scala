@@ -988,3 +988,8 @@ package shared
     ("Grunduppgifter; förberedelse inför laboration", "L.14.1", 776, 806),
     
   )
+
+  /** Fingerprint of the edition this table came from. Compare it against the copy in
+    * a muntabot clone to tell whether that clone still links into THIS pagination:
+    * `sbt checkMuntabot`. Same numbers, same pages, same stamp. */
+  lazy val headingsStamp: String = "rows=982 maxPage=806 h=30e1068"
