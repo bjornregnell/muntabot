@@ -640,7 +640,7 @@ package shared
     "Teori programmering: kontrollstrukturer" -> "Programming theory: control structures",
     "Teori programmering: mängder och tabeller" -> "Programming theory: sets and tables",
     "Teori programmering: nästlade och generiska strukturer" -> "Programming theory: nested and generic structures",
-    "Teori: Datorer och datoranvändningammering, typsättning" -> "Theory: Computers and computer programming, typesetting",
+    "Teori: Datorer och datoranvändningammering, typsättning" -> "Theory: Computers and computer usage: typesetting",
     "Terminalfönster" -> "Terminal window",
     "Terminologi och nyckelord vid arv" -> "Terminology and Key Terms for Inheritance",
     "Testa Java i jshell" -> "Test Java in jshell",
