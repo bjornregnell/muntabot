@@ -270,7 +270,7 @@ package shared
     ("Vad är classpath?", "4.1.44", 162, 192),
     ("Färdiga grafikmetoder i klassen PixelWindow", "4.1.45", 162, 192),
     ("Automatiska beroenden med Scala CLI i REPL:", "4.1.46", 163, 193),
-    ("Köra program + kodbiblitek med Scala CLI", "4.1.47", 163, 193),
+    ("Köra program + kodbiblitek med Scala CLI", "", 193, 193),
     ("Kompilera om vid varje ändring", "4.1.48", 164, 194),
     ("Övning objects", "", 195, 195),
     ("Grunduppgifter; förberedelse inför laboration", "L.14.1", 776, 195),
@@ -309,7 +309,7 @@ package shared
     ("Alternativa sätt att instansiera med fabriksmetod", "5.1.24", 195, 225),
     ("Medlemmar som bara behövs i en enda upplaga", "5.1.25", 195, 225),
     ("Medlemmar i singelobjekt är statiskt allokerade", "5.1.26", 196, 226),
-    ("Attribut i kompanjonsobjekt användas för sådant som är gemensamt för alla instanser", "5.1.27", 196, 226),
+    ("Attribut i kompanjonsobjekt användas för sådant som är gemensamt för alla instanser", "", 226, 226),
     ("Övning: en läskig mutant", "5.1.28", 197, 227),
     ("Case-klasser", "5.1.29", 197, 227),
     ("Exempel: oföränderliga case-klassen Point", "5.1.30", 197, 227),
@@ -515,7 +515,7 @@ package shared
     ("Hitta felorsaken: debugging (avlusning)", "8.1.39", 325, 355),
     ("Åtgärda fel", "D.4", 558, 355),
     ("Använda en debugger", "D.5", 558, 356),
-    ("Teori: Datorer och datoranvändningammering, typsättning", "8.2", 327, 357),
+    ("Teori: Datorer och datoranvändningammering, typsättning", "", 357, 357),
     ("Ordbehandling: Wysiwyg vs. LaTeX", "", 357, 357),
     ("LaTeX - Arbetssätt och Exempel", "", 357, 357),
     ("Ett större exempel", "9.2.16", 378, 357),
@@ -607,7 +607,7 @@ package shared
     ("Typer av versionshanteringssystem (1/2)", "9.2.3", 373, 403),
     ("Centraliserad versionshantering", "9.2.4", 374, 404),
     ("Typer av versionshanteringssystem (2/2)", "9.2.5", 374, 404),
-    ("Distrubuerad versionshantering", "9.2.6", 375, 405),
+    ("Distrubuerad versionshantering", "", 405, 405),
     ("Introduktion till Git", "9.2.7", 375, 405),
     ("Git vs. GitHub: Vad är skillnaden?", "9.2.8", 375, 405),
     ("Grundläggande Git-kommandon", "9.2.9", 376, 406),
@@ -727,7 +727,7 @@ package shared
     ("Intersektionstyp med och-operator", "11.1.18", 464, 494),
     ("Transparenta typer", "11.1.19", 464, 494),
     ("Vad är ett bra api?", "11.1.20", 465, 495),
-    ("Api-desgin med Scala", "11.1.21", 465, 495),
+    ("Api-desgin med Scala", "", 495, 495),
     ("Sammanhanget är avgörande när du kodar!", "11.1.22", 466, 496),
     ("Repetition: default-argument", "11.1.23", 466, 496),
     ("Repetition: uppdelade parameterlistor", "11.1.24", 467, 497),
@@ -992,4 +992,4 @@ package shared
   /** Fingerprint of the edition this table came from. Compare it against the copy in
     * a muntabot clone to tell whether that clone still links into THIS pagination:
     * `sbt checkMuntabot`. Same numbers, same pages, same stamp. */
-  lazy val headingsStamp: String = "rows=982 maxPage=806 h=30e1068"
+  lazy val headingsStamp: String = "rows=982 maxPage=806 h=5b32a2a0"
