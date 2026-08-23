@@ -20,4 +20,6 @@ package.json
 
 public/main.js
 
+tmp/
+
 .DS_Store
