@@ -470,8 +470,8 @@ package shared
     ("Bakgrund", "12.5.1", 517, 332),
     ("Given kod", "7.3.2", 303, 333),
     ("Obligatoriska uppgifter", "12.3.6", 505, 333),
-    ("Frivilliga extrauppgifter", "J.3.2", 646, 337),
-    ("Bilder med exempel på olika pokerhänder", "7.3.5", 307, 337),
+    ("Frivilliga extrauppgifter", "J.3.2", 646, 338),
+    ("Bilder med exempel på olika pokerhänder", "7.3.5", 308, 338),
     ("Nästlade och generiska strukturer", "8", 310, 340),
     ("Teori programmering: nästlade och generiska strukturer", "8.1", 311, 341),
     ("Veckans labb: life", "8.1.1", 311, 341),
@@ -992,4 +992,4 @@ package shared
   /** Fingerprint of the edition this table came from. Compare it against the copy in
     * a muntabot clone to tell whether that clone still links into THIS pagination:
     * `sbt checkMuntabot`. Same numbers, same pages, same stamp. */
-  lazy val headingsStamp: String = "rows=982 maxPage=806 h=c6b9d760"
+  lazy val headingsStamp: String = "rows=982 maxPage=806 h=d06762de"
