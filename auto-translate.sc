@@ -1,6 +1,6 @@
 //> using scala "3.8.4"
 //> using jvm 21
-//> using dep "com.lihaoyi::os-lib:0.11.8"
+//> using dep "com.lihaoyi::os-lib:0.11.10"
 //> using dep "com.lihaoyi::requests:0.9.3"
 //> using dep "com.lihaoyi::ujson:4.4.3"
 
